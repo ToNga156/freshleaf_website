@@ -27,6 +27,7 @@
             width: 500px;
             text-align: center;
             margin-top: 100px;
+            background-color: rgba(255, 255, 255, 0.8);
         }
         .container_register h2 {
             margin-bottom: 20px;
@@ -143,7 +144,6 @@
         const closeConfirmPassword = document.getElementById('close-confirmpassword'); 
         const openConfirmPassword = document.getElementById('open-confirmpassword'); 
         const confirmPasswordInput = document.querySelector('input[name="confirm_password"]'); 
-        
         closeConfirmPassword.addEventListener('click', function() { 
             confirmPasswordInput.setAttribute('type', 'text'); 
             closeConfirmPassword.classList.add('hidden'); 
