@@ -1,12 +1,19 @@
 <?php
-    class Home {
+    class Home extends Controller {
         //function mặc định
         function SayHi() {
-            echo "Home - SayHi";
+            $sinhvien = $this->model("SinhVienModel");
+            echo $sinhvien->getSinhVien();
         }
 
-        function Show() {
-            echo "Home - Show";
+        function Show($a, $b) {
+            $sinhvien = $this->model("SinhVienModel");
+            $tong = $sinhvien->Tong($a, $b);
+            $this->view("clothes", [
+                "Page" => "voucher",
+                "Number" => $tong,
+                "Mau"=>"red"
+            ]);
         }
     }
 ?>
