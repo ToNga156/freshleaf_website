@@ -1,47 +1,51 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
     margin: 0;
+    padding: 0;
+    background-image: url('../Image/z6116524963306_29e519bca5cbe123f67307f9d001f0ac.jpg'); /* Đường dẫn tới ảnh nền */
+    background-size: cover; /* Phóng to để phủ kín màn hình */
+    background-position: center; /* Căn giữa ảnh */
+    background-repeat: no-repeat; /* Không lặp lại ảnh */
+    height: 100vh; /* Chiều cao toàn màn hình */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-  }
-  
-  .container {
-    background: #fff;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9); /* Màu trắng trong suốt (opacity 90%) */
     padding: 20px 30px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
-  }
-  
-  .registration-form h2 {
+}
+
+.registration-form h2 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
-  }
-  
-  .form-group {
+}
+
+.form-group {
     margin-bottom: 15px;
-  }
-  
-  .form-group label {
+}
+
+.form-group label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
-  }
-  
-  .form-group input {
+}
+
+.form-group input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
-  }
-  
-  button {
+}
+
+button {
     width: 100%;
     background: #007bff;
     color: #fff;
@@ -51,9 +55,8 @@ body {
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s ease;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background: #0056b3;
-  }
-  
+}

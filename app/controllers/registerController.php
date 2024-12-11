@@ -35,6 +35,7 @@ class registerController{
                 }
                 else{
                     echo "error: ".$error = $result;
+                    require_once('../View/register.php');
                 }
                 
             }
