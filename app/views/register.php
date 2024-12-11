@@ -16,7 +16,6 @@
             background-image: url(../views/image/background_regis_login.jpg);
             background-size: cover;
             background-position: center center; 
-        
         }
 
         .container_register {
@@ -31,7 +30,7 @@
         }
         .container_register h2 {
             margin-bottom: 20px;
-            font-size: 24px;
+            font-size: 30px;
             font-weight: bold;
         }
         .container_register input[type="text"],
@@ -68,19 +67,21 @@
             cursor: pointer;
         }
         .container_register button:hover {
+            transform: scale(1.05);
             background-color: #009900;
         }
         .container_register .footer_register {
             margin-top: 30px;
             font-size: 18px;
         }
-        .container_register .footer a {
+        .container_register .footer_register a {
             color: #000;
             text-decoration: none;
             font-weight: bold;
         }
-        .container_register .footer a:hover {
-            text-decoration: underline;
+        .container_register .footer_register a:hover {
+            color: blue;
+            text-decoration: none;
         }
         .input_register {
             position: relative;
@@ -88,7 +89,7 @@
         .input_register .bi-eye-slash, 
         .input_register .bi-eye { 
             position: absolute; 
-            right: 20px; top: 50%; 
+            right: 30px; top: 50%; 
             transform: translateY(-50%); 
             cursor: pointer; 
         } 
