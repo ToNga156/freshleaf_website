@@ -33,6 +33,10 @@
             <label for="phone">Phone</label>
             <input type="Phone" id="Phone" name="Phone" placeholder="Phone Number" required>
         </div>
+        <div class="form-group">
+            <label for="phone">Address</label>
+            <input type="Address" id="Address" name="Address" placeholder="Address" required>
+        </div>
         <div class="form-group">    
             <label for="password">Password</label>
             <input type="password" id="password" name="password" placeholder="Password" required>
