@@ -127,9 +127,12 @@
 </style>
 <body>
     <div class="container">
-        <form class="login-form" action="../controllers/loginController.php" method="POST">
+        <form class="login-form" action="../controllers/LoginController.php" method="POST">
             <h2>Login</h2>
-            <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
+            <?php if (isset($_SESSION['login_error'])): ?>
+                <p style="color:red;"><?php echo $_SESSION['login_error']; unset($_SESSION['login_error']); ?></p>
+            <?php endif; ?>
+
             <div class="form-group">
                 <label for="username">User Name</label>
                 <input type="text" id="username" name="username" placeholder="User Name" required>
