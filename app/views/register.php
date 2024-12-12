@@ -13,7 +13,7 @@
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
-            background-image: url(../views/image/background_regis_login.jpg);
+            background-image: url("../../Public/images/background_regis_login.jpg");
             background-size: cover;
             background-position: center center; 
         }
@@ -101,27 +101,30 @@
 <body>
     <div class="container_register">
         <h2>Sign In</h2>
-        <form action="" method="post">
+        <form action="../controllers/RegisterController.php" method="POST">
             <div class="input_register">
-                <input type="text" name="fullname" placeholder="Fullname" required>
+                <input type="text" id="username" name="username" placeholder="User name" required>
             </div>
             <div class="input_register">
-                <input type="text" name="phone" placeholder="Phone" required>
+                <input type="text" id="phone" name="phone" placeholder="Phone" required>
             </div>
             <div class="input_register">
-                <input type="email" name="email" placeholder="Email" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
             </div>
             <div class="input_register">
-                <input type="password" name="password" placeholder="Password" required>
+                <input type="text" id="address" name="address" placeholder="Address" required>
+            </div>
+            <div class="input_register">
+                <input type="password" id="password" name="password" placeholder="Password" required>
                 <i class="bi bi-eye-slash" id="close-password"></i> 
                 <i class="bi bi-eye hidden" id="open-password"></i>
             </div>
             <div class="input_register">
-                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password" required>
                 <i class="bi bi-eye-slash" id="close-confirmpassword"></i> 
                 <i class="bi bi-eye hidden" id="open-confirmpassword"></i>
             </div>
-            <button class="btt_signin">Sign In</button>
+            <button class="btt_signin" type="submit">Sign In</button>
             <div class="footer_register">
                 Already have an account? <a href="#">Log in</a>
             </div>
