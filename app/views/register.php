@@ -65,6 +65,7 @@
             border-radius: 20px;
             font-size: 16px;
             cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
         .container_register button:hover {
             transform: scale(1.05);
@@ -126,7 +127,7 @@
             </div>
             <button class="btt_signin" type="submit">Sign In</button>
             <div class="footer_register">
-                Already have an account? <a href="#">Log in</a>
+                Already have an account? <a href="./Login.php">Log in</a>
             </div>
         </form>
     </div>
@@ -147,7 +148,7 @@
         }); 
         const closeConfirmPassword = document.getElementById('close-confirmpassword'); 
         const openConfirmPassword = document.getElementById('open-confirmpassword'); 
-        const confirmPasswordInput = document.querySelector('input[name="confirm_password"]'); 
+        const confirmPasswordInput = document.querySelector('input[name="confirmpassword"]'); 
         closeConfirmPassword.addEventListener('click', function() { 
             confirmPasswordInput.setAttribute('type', 'text'); 
             closeConfirmPassword.classList.add('hidden'); 
