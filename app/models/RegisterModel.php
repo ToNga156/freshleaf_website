@@ -1,11 +1,12 @@
 <?php
-
-class Register extends Database{
+require_once('../core/Database.php');
+require_once('../controllers/RegisterController.php');
+class Register{
     public function registerUser($username,$hashedPassword,$email,$phone,$address,$role = null){
         global $conn;
-        $checkAccount = "SELECT * FROM users WHERE user_name =? OR email=?";
+        $checkAccount = "SELECT * FROM users WHERE  email=?";
         $stmt = $conn->prepare($checkAccount);
-        $stmt->bind_param("ss",$username,$email);
+        $stmt->bind_param("s",$email);
         $stmt->execute();
         $result = $stmt->get_result();
         if ($result->num_rows>0){
