@@ -27,11 +27,11 @@ class registerController{
                 }
             }
             if (empty($error)){
-                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                // $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
                 $registerModel = new Register();
                 $result = $registerModel->registerUser($username,$password,$email,$phone,$address);
                 if ($result === true){
-                    header("Location: ../views/Login.php?rs=success");
+                    header("Location: ../views/login.php?rs=success");
                     echo "Account registration successful";
                 }
                 else{
