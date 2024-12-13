@@ -100,8 +100,11 @@
 </head>
 <body>
     <div class="container_register">
-        <h2>Sign In</h2>
         <form action="../controllers/RegisterController.php" method="POST">
+            <h2>Sign In</h2>
+            <?php if (!empty($error)): ?>
+                <p style="color: red;"><?php echo $error; ?></p>
+            <?php endif; ?>
             <div class="input_register">
                 <input type="text" id="username" name="username" placeholder="User name" required>
             </div>

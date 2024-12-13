@@ -99,7 +99,7 @@
     button {
         width: 100px;
         border-radius: 20px;
-        background: #007bff;
+        background: #00b300;
         color: #fff;
         padding: 10px;
         border:none;
