@@ -45,4 +45,4 @@ class registerController{
 }
 $controller = new RegisterController();
 $controller->register();
-?>
+?>  
