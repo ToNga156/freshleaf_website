@@ -35,7 +35,7 @@ class registerController{
                     echo "Account registration successful";
                 }
                 else{
-                    echo "error: ".$error = $result;
+                    echo $error = $result;
                     require_once('../views/register.php');
                 }
                 

@@ -100,7 +100,7 @@
 </head>
 <body>
     <div class="container_register">
-        <h2>Sign In</h2>
+        <h2>Sign Up</h2>
         <form action="../controllers/RegisterController.php" method="POST">
             <div class="input_register">
                 <input type="text" id="username" name="username" placeholder="User name" required>
@@ -126,7 +126,7 @@
             </div>
             <button class="btt_signin" type="submit">Sign In</button>
             <div class="footer_register">
-                Already have an account? <a href="#">Log in</a>
+                Already have an account? <a href="./Login.php">Log in</a>
             </div>
         </form>
     </div>

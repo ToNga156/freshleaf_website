@@ -10,7 +10,7 @@ class Register{
         $stmt->execute();
         $result = $stmt->get_result();
         if ($result->num_rows>0){
-            return 'User name or email already exists';
+            return '';
         }
         $countQuery = "SELECT COUNT(*) AS user_count FROM users";
         $stmt = $conn->prepare($countQuery);
@@ -32,7 +32,7 @@ class Register{
         // Insert data in Databaserole
         $sql = "INSERT INTO Users(user_name,password,email,phone,role,address) VALUES (?,?,?,?,?,?)";
         $stmt= $conn->prepare($sql);
-        $stmt->bind_param("sssiss",$username,$hashedPassword,$email,$phone,$role,$address);
+        $stmt->bind_param("sssiss", $username, $hashedPassword, $email, $phone, $role, $address);
         if ($stmt->execute()){
             return true;
         }
