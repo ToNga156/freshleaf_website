@@ -1,5 +1,5 @@
 <?php
-require_once('C:/xampp/htdocs/MVC-Test/mvc/core/Db.php');
+require_once('C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\core\Db.php');
 
 class RegisterModel extends Db {
     public function registerUser($username, $hashedPassword, $email, $phone, $address, $role = null, $avatar = null) {

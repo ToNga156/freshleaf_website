@@ -1,5 +1,5 @@
 <?php
-require_once('C:/xampp/htdocs/MVC-Test/mvc/core/Controller.php');
+require_once('C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\core\Controller.php');
 
 class RegisterController extends Controller {
 
