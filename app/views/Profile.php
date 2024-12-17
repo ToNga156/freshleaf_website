@@ -1,6 +1,7 @@
 <?php
 require_once '../core/Database.php';
 require_once '../controllers/ProfileController.php';
+// include '../views/homepage.html';
 
 session_start();
 
@@ -13,6 +14,16 @@ global $conn;
 $controller = new ProfileController($conn);
 $userId = $_SESSION['user_id'];
 $user = $controller->getProfile($userId);
+
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $result = $controller->uploadAvatar($userId);
+
+    if($result && !is_string($result)){
+        $user['avatar'] = $result;
+    }else{
+        $error = $result;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +35,7 @@ $user = $controller->getProfile($userId);
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="../../Public/Css/Profile.css">
+    
 </head>
 <body>
 <div class="container_profile">
@@ -57,9 +69,13 @@ $user = $controller->getProfile($userId);
                     <input name="phone" type="text" value="<?php echo $user['phone']; ?>"/>
                 </div>
                 <div class="form-userAvatar">
-                    <img alt="Profile image" height="100" src="https://storage.googleapis.com/a1aa/image/GfJgxd83i3zpRKyCuezYgRF6brDUXF5lKeCfvNYfRYhjCVVfE.jpg" wnameth="100"/>
-                    <a class="choose-image" href="#">Choose Image</a>
+                    <img alt="Profile image" height="100" src="../../Public/images/<?php echo $user['avatar']; ?>" />
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="file" name="avatar" />
+                        <button type="submit" name="uploadClick"  accept="images/*" >Choose Image</button>
+                    </form>
                 </div>
+
                 <div class="form-group">
                     <button class="save-changes">Save Changes</button>
                 </div>
