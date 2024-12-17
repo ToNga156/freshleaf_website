@@ -1,12 +1,17 @@
 body {
     background-color: white;
     font-family: Quicksand;
+    margin: 0;
+  padding: 0;
+  /* width: 100%; */
+  /* height: 100%; */
 }
 
 .header {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1000;
     width: 100%;
     height: auto;
 }
@@ -43,6 +48,7 @@ body {
 .header-container .middle-header {
     width: 100%;
     /* height: 70px; */
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -243,4 +249,219 @@ input:focus {
     top: 75px;
     color: #009C52;
     font-size: 32px;
+}
+
+.banner-homepage {
+    /* background-color: rgb(251, 248, 198); */
+    margin-top: 113px;
+    padding: 30px 70px;
+}
+
+.banner-homepage .banner-homepage-container {
+    color: #009C52;
+    position: relative;
+    height: 550px;
+    /* width: 90%; */
+    /* background-color: violet; */
+}
+
+.banner-homepage-container .main-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 35px;
+    object-fit: cover;
+    object-position: 0% 46%;
+    opacity: 0.3;
+}
+
+.banner-homepage-container .extra-img {
+    width: 30%;
+    height: auto;
+    position: absolute;
+    left: -50px;
+    top: 185px;
+}
+
+.banner-homepage-container h2 {
+    position: absolute;
+    right: 315px;
+    top: 100px;
+    font-size: 31px;
+}
+
+.banner-homepage-container h1 {
+    position: absolute;
+    font-family: "Cormorant Upright";
+    right: 190px;
+    top: 150px;
+    font-size: 85px;
+    letter-spacing: 5px;
+    line-height: 1;
+}
+
+.discount-homepage {
+    /* background-color: pink; */
+    padding: 20px 70px;
+}
+
+.discount-homepage .discount-homepage-container {
+    display: flex;
+    /* gap: 20px; */
+    justify-content: space-between;
+    /* background-color: #009C52; */
+    position: relative;
+    /* height: 150px; */
+}
+
+.discount-homepage-container .discount-small {
+    width: 24%;
+    height: 180px;
+    border-radius: 30px;
+    position: relative;
+}
+
+.discount-small .half-circle-left {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 35px;
+    height: 70px;
+    border-radius: 0 50px 50px 0;
+    background-color: white;
+}
+
+.discount-small .half-circle-right {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    width: 35px;
+    height: 70px;
+    border-radius: 50px 0 0 50px;
+    background-color: white;
+}
+
+.discount-small h1 {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    font-size: 22px;
+}
+
+.discount-small p {
+    position: absolute;
+    top: 45px;
+    left: 50px;
+    font-size: 16px;
+}
+
+.discount-small h2 {
+    position: absolute;
+    bottom: 8px;
+    left: 50px;
+    font-size: 22px;
+}
+
+.discount-small button {
+    position: absolute;
+    bottom: 22px;
+    right: 40px;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    border: none;
+    width: 92px;
+    height: 35px;
+    border-radius: 18px;
+    font-family: Quicksand;
+}
+
+.discount-homepage-container #discount-small1 {
+    /* background-color: #FFE1F9; */
+    background-color: #D2FFFE;
+}
+
+.discount-homepage-container #discount-small1 h1, #discount-small1 h2 {
+    color: #006866;
+}
+
+.discount-homepage-container #discount-small1 button {
+    background-color: #85D8E1;
+}
+
+.discount-homepage-container #discount-small2 {
+    background-color: #FFE1F9;
+}
+
+.discount-homepage-container #discount-small2 h1, #discount-small2 h2 {
+    color: #740E72;
+}
+
+.discount-homepage-container #discount-small2 button {
+    background-color: #D579D4;
+}
+
+.discount-homepage-container #discount-small3 {
+    background-color: #FAF3E0;
+}
+
+.discount-homepage-container #discount-small3 h1, #discount-small3 h2 {
+    color: #945105;
+}
+
+.discount-homepage-container #discount-small3 button {
+    background-color: #D5AD79;
+}
+
+.discount-homepage-container #discount-small4 {
+    background-color: #D7FFDB;
+}
+
+.discount-homepage-container #discount-small4 h1, #discount-small4 h2 {
+    color: #228507;
+}
+
+.discount-homepage-container #discount-small4 button {
+    background-color: #97E689;
+}
+
+.bestSale-product-homepage {
+    padding: 20px 70px;
+}
+
+.bestSale-product-homepage .bestSale-product-container {
+    display: flex;
+    flex-direction: column;
+    /* background-color: pink; */
+    /* position: relative; */
+    /* height: 150px; */
+}
+
+.bestSale-product-container .title-bestSale {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bestSale-detail {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.bestSale-detail .product-card {
+    /* border: 1px solid #D1D1D1; */ 
+    border: 1px solid black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bestSale-detail .product-card img {
+    border-radius: 20px;
+    width: 220px;
+    height: 180px;
+    object-fit: cover;
+    margin-top: 14px;
 }
