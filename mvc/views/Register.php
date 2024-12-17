@@ -130,7 +130,7 @@
             </div>
             <button class="btt_signin" type="submit">Sign In</button>
             <div class="footer_register">
-                Already have an account? <a href="#">Log in</a>
+                Already have an account? <a href="./Login.php">Log in</a>
             </div>
         </form>
     </div>

@@ -137,7 +137,7 @@
                 <button type="submit">Login</button>
             </div>
             <div class="footer_login">
-                You do not have an account? <a href="../views/register.php">Register</a>
+                You do not have an account? <a href="./Register.php">Register</a>
             </div>
         </form>
     </div>
