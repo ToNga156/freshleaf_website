@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../Public/css/homepage.css">
+    <link rel="stylesheet" href="../../public/css/homepage.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -20,75 +20,7 @@
     
 </style>
 <body>
-    <div class="header">
-        <div class="header-container">
-            <div class="top-header">
-                <div class="left-top-header"></div>
-                <div class="middle-top-header"></div>
-                <div class="right-top-header"></div>
-            </div>
-    
-            <div class="middle-header">
-                <div class="info-LogoNameWeb">
-                    <img src="../../Public/images/logo_website.png" alt="">
-                    <h1>FreshLeaf</h1>
-                </div>
-
-                <div class="info-ContactWeb">
-                    <div class="info-Detail">
-                        <ion-icon name="call-outline"></ion-icon>
-                        <div>
-                            <p>Call anytime</p>
-                            <h6>+ 84 123 789 456</h6>
-                        </div>
-                    </div>
-
-                    <div class="info-Detail">
-                        <ion-icon name="mail-outline"></ion-icon>
-                        <div class="div-info-Detail2">
-                            <p>Send email</p>
-                            <h6>freshleaf@gmail.com</h6>
-                        </div>
-                    </div>
-
-                    <div class="info-Detail">
-                        <ion-icon name="map-outline"></ion-icon>
-                        <div>
-                            <p>Address</p>
-                            <h6>Sơn Trà, Đà Nẵng</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-Account">
-                    <img src="../../Public/images/avatar-default.jpg" alt="">
-                    <div>
-                        <p>Tài khoản</p>
-                        <h3>Đăng nhập</h3>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="bottom-header">
-                <ul class="navigate-header">
-                    <li>Home</li>
-                    <li>Products</li>
-                    <li>About us</li>
-                    <li>Contact</li>
-                </ul>
-
-                <div class="search-bar-container">
-                    <input type="text" class="input-search-bar" placeholder="Nhập sản phẩm cần tìm kiếm">
-                    <ion-icon name="search-outline"></ion-icon>
-                </div>
-
-                <div class="icon-shopping-cart">
-                    <p class="quantity-icon-shopping-cart">0</p>
-                    <ion-icon name="cart-outline"></ion-icon>
-                </div>
-            </div>
-        </div>
-    </div>
+    <header><?php include('D:\sampp\htdocs\freshleaf_website\mvc\views\layout\header.php') ?></header>
 
     <div class="banner-homepage">
         <div class="banner-homepage-container">
