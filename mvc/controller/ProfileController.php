@@ -35,14 +35,9 @@ class ProfileController extends Controller {
         return $this->model->getUserById($userId);
     }
 
-    // Cập nhật thông tin người dùng
-    // public function updateProfile($userId, $username, $fullname, $address, $email, $phone, $avatar = null) {
-    //     return $this->model->updateUser($userId, $username, $fullname, $address, $email, $phone, $avatar);
-    // }
 
     public function updateProfile($userId, $userData) {
         $username = $_POST['username'] ?? $userData['username'];
-        // $fullname = $_POST['fullname'] ?? $userData['fullname'];
         $address = $_POST['address'] ?? $userData['address'];
         $email = $_POST['email'] ?? $userData['email'];
         $phone = $_POST['phone'] ?? $userData['phone'];
@@ -69,7 +64,6 @@ class ProfileController extends Controller {
                     $targetDir = './Public/image/'; // Đường dẫn lưu ảnh
                     $fileName = uniqid() . "_" . basename($avatar['name']); // Tạo tên file duy nhất
                     $targetFilePath = $targetDir . $fileName;
-
                     if (move_uploaded_file($avatar['tmp_name'], $targetFilePath)) {
                         // Cập nhật avatar trong cơ sở dữ liệu
                         return $fileName; // Trả về đường dẫn ảnh

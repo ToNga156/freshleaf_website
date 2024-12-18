@@ -15,16 +15,16 @@ global $conn;
 $controller = new ProfileController($conn);
 $userId = $_SESSION['user_id'];
 $userData = $controller->getProfile($userId);
+$userAvatar = $controller->uploadAvatar($userData);
+// if($_SERVER['REQUEST_METHOD'] === 'POST'){
+//     $result = $controller->uploadAvatar($userData);
 
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    $result = $controller->uploadAvatar($userData);
-
-    if($result && !is_string($result)){
-        $user['avatar'] = $result;
-    }else{
-        $error = $result;
-    }
-}
+//     if($result && !is_string($result)){
+//         $userData['avatar'] = $result;
+//     }else{
+//         $error = $result;
+//     }
+// }
 ?>
 
 <!DOCTYPE html>
@@ -35,10 +35,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <title>Document</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../Public/Css/Profile.css">
     <style>
-        body {
-    font-family: 'Roboto', sans-serif;
+    body {
+    font-family: "Quicksand", serif;
     margin: 10px;
     padding: 10px;
 }
@@ -136,6 +139,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     border-radius: 50%;
     width: 150px;
     height: 150px;
+    border: 1px black solid;
 }
 .form-userAvatar .choose-image {
     position: absolute;
@@ -255,7 +259,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                     <input name="phone" type="text" value="<?php echo $userData['phone']; ?>"/>
                 </div>
                 <div class="form-userAvatar">
-                    <img alt="Profile image" height="100" src="../../Public/images/<?php echo $userData['avatar']; ?>" />
+                    <img alt="Profile image" src="../../Public/image/<?php echo $userAvatar['avatar']; ?>" />
                     <form method="post" enctype="multipart/form-data">
                         <input type="file" name="avatar" />
                         <button type="submit" name="uploadClick"  accept="images/*" >Choose Image</button>
