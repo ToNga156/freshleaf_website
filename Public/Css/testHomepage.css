@@ -1,0 +1,521 @@
+body {
+    background-color: white;
+    font-family: Quicksand;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: auto;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-container .top-header {
+    /* background-color: pink; */
+    width: 100%;
+    display: flex;
+}
+
+.top-header .left-top-header {
+    background-color: #4BAF47;
+    width: 33.33%;
+    height: 3px;
+}
+
+.top-header .middle-top-header {
+    background-color: #C5CE38;
+    height: 3px;
+    width: 33.33%;
+}
+
+.top-header .right-top-header {
+    background-color: #EEC044;
+    width: 33.33%;
+    height: 3px;
+}
+
+.header-container .middle-header {
+    width: 100%;
+    /* height: 70px; */
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.middle-header .info-LogoNameWeb {
+    display: flex;
+    align-items: center;
+    width: 37%;
+    height: 65px;
+}
+
+.middle-header .info-LogoNameWeb img {
+    margin-left: 80px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.middle-header .info-LogoNameWeb h1 {
+    color: #009C52;
+    margin-left: 15px;
+    font-size: 28px;
+    font-family: Calistoga;
+    font-weight: lighter;
+}
+
+.middle-header .info-ContactWeb {
+    width: 47%;
+    height: 65px;
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.info-ContactWeb .info-Detail {
+    width: 219px;
+    gap: 20px;
+    /* padding-left: 35px; */
+    display: flex;
+    align-items: center;
+}
+
+.info-ContactWeb .info-Detail:first-child {
+    padding-left: 35px;
+}
+
+.info-ContactWeb .info-Detail:last-child {
+    padding-left: 35px;
+}
+
+.info-ContactWeb .info-Detail:first-child div {
+    margin-left: 10px;
+    /* border-right: 1px solid #0d576b; */
+}
+
+.info-ContactWeb .info-Detail:last-child {
+    margin-left: -10px;
+    /* border-left: 1px solid #0d576b; */
+}
+
+.info-ContactWeb .info-Detail ion-icon {
+    color: #009C52;
+    font-size: 24px;
+}
+
+.info-ContactWeb .info-Detail:first-child div {
+    border-right: 1px solid #E4E2D7;
+    padding-right: 30px;
+    height: 46px;
+}
+
+.info-ContactWeb .div-info-Detail2 {
+    border-right: 1px solid #E4E2D7;
+    padding-right: 29px;
+}
+
+.info-ContactWeb .info-Detail p {
+    font-weight: bold;
+    margin: 8px 0 4px 0;
+    color: #878680;
+    font-size: 12px;
+}
+
+.info-ContactWeb .info-Detail h6 {
+    margin: 4px 0 8px 0;
+    color: #009C52;
+    font-size: 14px;
+}
+
+.middle-header .info-Account {
+    width: 16%;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.middle-header .info-Account img {
+    border: 3px solid #009C52;
+    width: 35px;
+    height: 35px;
+    border-radius: 22px;
+}
+
+.middle-header .info-Account div {
+    height: 46px;
+}
+
+.middle-header .info-Account div p {
+    margin: 5px 0 4px 0;
+    font-weight: bold;
+    color: #878680;
+    font-size: 12px;
+}
+
+.middle-header .info-Account div h3 {
+    margin: 4px 0 9px 0;
+    color: #009C52;
+    font-size: 16px;
+}
+
+.header-container .bottom-header {
+    width: 100%;
+    height: 45px;
+    background-color: #67D463;
+    display: flex;
+    align-items: center;
+}
+
+.bottom-header .navigate-header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 70px;
+    color: white;
+    font-size: 16px;
+    width: 65%;
+    height: 35px;
+}
+
+.bottom-header .navigate-header li {
+    list-style: none;
+    font-weight: 550;
+    margin: 0; 
+    padding: 0;
+}
+
+.bottom-header .search-bar-container {
+    width: 28%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar-container .input-search-bar {
+    border: none;
+    width: 70%;
+    height: 70%;
+    border-radius: 25px;
+    margin: 0 20px 0 80px;
+    padding: 2.5px 0 0 20px;
+}
+
+input:focus {
+    border: none;  /* Ẩn viền khi có focus */
+    outline: none; /* Loại bỏ outline mặc định khi focus */
+  }
+
+.search-bar-container ion-icon {
+    position: absolute;
+    right: 210px;
+}
+
+.bottom-header .icon-shopping-cart {
+    width: 12%;
+    height: 35px;
+}
+
+.bottom-header .icon-shopping-cart p {
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    position: absolute;
+    right: 108px;
+    top: 62px;
+    width: 15px;
+    height: 15px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 7px;
+    background-color: #4BAF47;
+}
+
+.bottom-header .icon-shopping-cart ion-icon {
+    position: absolute;
+    right: 113px;
+    top: 75px;
+    color: #009C52;
+    font-size: 32px;
+}
+
+.banner-homepage {
+    /* background-color: rgb(251, 248, 198); */
+    margin-top: 113px;
+    padding: 30px 70px;
+}
+
+.banner-homepage .banner-homepage-container {
+    color: #009C52;
+    position: relative;
+    height: 550px;
+    /* width: 90%; */
+    /* background-color: violet; */
+}
+
+.banner-homepage-container .main-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 35px;
+    object-fit: cover;
+    object-position: 0% 46%;
+    opacity: 0.3;
+}
+
+.banner-homepage-container .extra-img {
+    width: 30%;
+    height: auto;
+    position: absolute;
+    left: -50px;
+    top: 185px;
+}
+
+.banner-homepage-container h2 {
+    position: absolute;
+    right: 315px;
+    top: 100px;
+    font-size: 31px;
+}
+
+.banner-homepage-container h1 {
+    position: absolute;
+    font-family: "Cormorant Upright";
+    right: 190px;
+    top: 150px;
+    font-size: 85px;
+    letter-spacing: 5px;
+    line-height: 1;
+}
+
+.discount-homepage {
+    /* background-color: pink; */
+    padding: 20px 70px;
+}
+
+.discount-homepage .discount-homepage-container {
+    display: flex;
+    /* gap: 20px; */
+    justify-content: space-between;
+    /* background-color: #009C52; */
+    position: relative;
+    /* height: 150px; */
+}
+
+.discount-homepage-container .discount-small {
+    width: 24%;
+    height: 180px;
+    border-radius: 30px;
+    position: relative;
+}
+
+.discount-small .half-circle-left {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 35px;
+    height: 70px;
+    border-radius: 0 50px 50px 0;
+    background-color: white;
+}
+
+.discount-small .half-circle-right {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    width: 35px;
+    height: 70px;
+    border-radius: 50px 0 0 50px;
+    background-color: white;
+}
+
+.discount-small h1 {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    font-size: 22px;
+}
+
+.discount-small p {
+    position: absolute;
+    top: 45px;
+    left: 50px;
+    font-size: 16px;
+}
+
+.discount-small h2 {
+    position: absolute;
+    bottom: 8px;
+    left: 50px;
+    font-size: 22px;
+}
+
+.discount-small button {
+    position: absolute;
+    bottom: 22px;
+    right: 40px;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    border: none;
+    width: 92px;
+    height: 35px;
+    border-radius: 18px;
+    font-family: Quicksand;
+}
+
+.discount-homepage-container #discount-small1 {
+    /* background-color: #FFE1F9; */
+    background-color: #D2FFFE;
+}
+
+.discount-homepage-container #discount-small1 h1, #discount-small1 h2 {
+    color: #006866;
+}
+
+.discount-homepage-container #discount-small1 button {
+    background-color: #85D8E1;
+}
+
+.discount-homepage-container #discount-small2 {
+    background-color: #FFE1F9;
+}
+
+.discount-homepage-container #discount-small2 h1, #discount-small2 h2 {
+    color: #740E72;
+}
+
+.discount-homepage-container #discount-small2 button {
+    background-color: #D579D4;
+}
+
+.discount-homepage-container #discount-small3 {
+    background-color: #FAF3E0;
+}
+
+.discount-homepage-container #discount-small3 h1, #discount-small3 h2 {
+    color: #945105;
+}
+
+.discount-homepage-container #discount-small3 button {
+    background-color: #D5AD79;
+}
+
+.discount-homepage-container #discount-small4 {
+    background-color: #D7FFDB;
+}
+
+.discount-homepage-container #discount-small4 h1, #discount-small4 h2 {
+    color: #228507;
+}
+
+.discount-homepage-container #discount-small4 button {
+    background-color: #97E689;
+}
+
+.bestSale-product-homepage {
+    padding: 20px 70px;
+}
+
+.bestSale-product-homepage .bestSale-product-container {
+    display: flex;
+    flex-direction: column;
+    /* background-color: pink; */
+    /* position: relative; */
+    /* height: 150px; */
+}
+
+.bestSale-product-container .title-bestSale {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bestSale-product-container .title-bestSale h1 {
+    color: #009C52;
+    font-size: 28px;
+}
+
+.bestSale-product-container .title-bestSale a {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Loại bỏ gạch chân */
+    color: #009C52;
+    font-weight: bolder;
+}
+
+.bestSale-detail {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.bestSale-detail .product-card {
+    border: 1px solid #D1D1D1; 
+    /* border: 1px solid black; */
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 340px;
+}
+
+.bestSale-detail .product-card img {
+    border-radius: 20px;
+    width: 220px;
+    height: 180px;
+    object-fit: cover;
+    margin: 14px 0 0 14px;
+}
+
+.bestSale-detail .product-card h3 {
+    margin: 12px 20px;
+}
+
+.bestSale-detail .product-card span {
+    display: flex;
+    justify-content: center;
+    width: 80px;
+    height: 20px;
+    padding: 5px 3px;
+    margin: 5px 0 0 20px;
+    border-radius: 5px;
+    background-color: #D2F0D4;
+    color: #006837;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.bestSale-detail .product-card div {
+    margin: 10px 15px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #006837;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.bestSale-detail .product-card div p {
+    margin: 10px 0 14px 0;
+}
+
+.bestSale-detail .product-card div button {
+    width: 35px;
+    height: 35px; 
+    background-color: white;
+    color: #006837;
+    font-size: 20px;
+    border: 2px solid #006837;
+    border-radius: 18px;
+    margin: 10px 0 11px 0;
+}

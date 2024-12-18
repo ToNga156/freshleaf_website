@@ -1,10 +1,9 @@
+<style>
 body {
     background-color: white;
     font-family: Quicksand;
     margin: 0;
-  padding: 0;
-  /* width: 100%; */
-  /* height: 100%; */
+    padding: 0;
 }
 
 .banner-homepage {
@@ -198,6 +197,19 @@ body {
     align-items: center;
 }
 
+.bestSale-product-container .title-bestSale h1 {
+    color: #009C52;
+    font-size: 28px;
+}
+
+.bestSale-product-container .title-bestSale a {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Loại bỏ gạch chân */
+    color: #009C52;
+    font-weight: bolder;
+}
+
 .bestSale-detail {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -206,12 +218,12 @@ body {
 }
 
 .bestSale-detail .product-card {
-    /* border: 1px solid #D1D1D1; */ 
-    border: 1px solid black;
+    border: 1px solid #D1D1D1; 
+    /* border: 1px solid black; */
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    height: 340px;
 }
 
 .bestSale-detail .product-card img {
@@ -219,5 +231,49 @@ body {
     width: 220px;
     height: 180px;
     object-fit: cover;
-    margin-top: 14px;
+    margin: 14px 0 0 14px;
 }
+
+.bestSale-detail .product-card h3 {
+    margin: 12px 20px;
+}
+
+.bestSale-detail .product-card span {
+    display: flex;
+    justify-content: center;
+    width: 80px;
+    height: 20px;
+    padding: 5px 3px;
+    margin: 5px 0 0 20px;
+    border-radius: 5px;
+    background-color: #D2F0D4;
+    color: #006837;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.bestSale-detail .product-card div {
+    margin: 10px 15px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #006837;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.bestSale-detail .product-card div p {
+    margin: 10px 0 14px 0;
+}
+
+.bestSale-detail .product-card div button {
+    width: 35px;
+    height: 35px; 
+    background-color: white;
+    color: #006837;
+    font-size: 20px;
+    border: 2px solid #006837;
+    border-radius: 18px;
+    margin: 10px 0 11px 0;
+}
+</style>
