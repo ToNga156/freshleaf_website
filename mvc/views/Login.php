@@ -3,50 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <link rel="stylesheet" href="../../Public/Css/Login.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <style>
-        body {
+    body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-image: url('../../Public/images/background_regis_login.jpg'); /* Đường dẫn tới ảnh nền */
-        background-size: cover; /* Phóng to để phủ kín màn hình */
-        background-position: center; /* Căn giữa ảnh */
-        background-repeat: no-repeat; /* Không lặp lại ảnh */
-        height: 100vh; /* Chiều cao toàn màn hình */
-        display: flex; /* Sử dụng Flexbox */
-        justify-content: center; /* Căn giữa theo chiều ngang */
-        align-items: center; /* Căn giữa theo chiều dọc */
+        background-image: url('./public/image/background_regis_login.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    .container{
-        display:flex;
+    .container {
+        display: flex;
         justify-content: center; 
         align-items: center;
     }
     .login-form {
-        background: rgba(255, 255, 255, 0.5); 
+        background: rgba(255, 255, 255, 0.5);
         padding: 20px 30px;
         border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-        width: 400px; 
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 400px;
         max-width: 100%;
     }
-
     .login-form h2 {
         text-align: center;
         margin-bottom: 20px;
         color: #333;
     }
-
     .input-container {
         position: relative;
     }
-
-
     .form-group input {
         width: 100%;
         padding: 12px;
@@ -57,7 +53,6 @@
         transition: border-color 0.3s ease;
         padding-right: 40px;
     }
-
     .bi-eye {
         position: absolute;
         right: 10px;
@@ -67,27 +62,20 @@
         cursor: pointer;
         color: #333;
     }
-
-    /* Khi mắt được nhấn */
     .bi-eye-slash {
         color: #007bff;
     }
-
-    /* Thêm hiệu ứng hover khi icon con mắt được di chuột vào */
     .bi-eye:hover {
         color: #007bff;
     }
-
     .form-group {
         margin-bottom: 15px;
     }
-
     .form-group label {
         display: block;
         font-weight: bold;
         margin-bottom: 5px;
     }
-
     .form-group input {
         width: 100%;
         padding: 10px;
@@ -95,44 +83,41 @@
         border-radius: 5px;
         font-size: 16px;
     }
-
     button {
         width: 100px;
         border-radius: 20px;
-        background: #007bff;
+        background: #00b300;
         color: #fff;
         padding: 10px;
-        border:none;
+        border: none;
         font-size: 16px;
         cursor: pointer;
         transition: background 0.3s ease;
     }
-
     button:hover {
         background: #0056b3;
     }
-    .submit{
-        display:flex;
+    .submit {
+        display: flex;
         justify-content: center; 
         align-items: center;  
     }
-    .footer_login{
+    .footer_login {
         text-align: center;
     }
-    .footer_login a{
+    .footer_login a {
         font-weight: bold;
         text-decoration: none;
-        color:red;
+        color: red;
     }
 </style>
 <body>
     <div class="container">
-        <form class="login-form" action="../controllers/LoginController.php" method="POST">
+        <form class="login-form" action="./Login" method="POST">
             <h2>Login</h2>
-            <?php if (isset($_SESSION['login_error'])): ?>
-                <p style="color:red;"><?php echo $_SESSION['login_error']; unset($_SESSION['login_error']); ?></p>
+            <?php if (!empty($data['error'])): ?>
+                <p style="color: red;"><?php echo $data['error']; ?></p>
             <?php endif; ?>
-
             <div class="form-group">
                 <label for="username">User Name</label>
                 <input type="text" id="username" name="username" placeholder="User Name" required>
@@ -148,11 +133,12 @@
                     <i class="bi bi-eye" id="togglePassword"></i>
                 </div>
             </div>
-            <div class="submit"><button type="submit">Login</button></div>
+            <div class="submit">
+                <button type="submit">Login</button>
+            </div>
             <div class="footer_login">
                 You do not have an account? <a href="../views/register.php">Register</a>
             </div>
-
         </form>
     </div>
 <script>
@@ -160,11 +146,8 @@
     const passwordInput = document.getElementById('password');
     
     togglePassword.addEventListener('click', function() {
-        // Kiểm tra trạng thái của mật khẩu
         const type = passwordInput.type === 'password' ? 'text' : 'password';
         passwordInput.type = type;
-
-        // Thay đổi biểu tượng con mắt
         this.classList.toggle('bi-eye-slash');
     });
 </script>

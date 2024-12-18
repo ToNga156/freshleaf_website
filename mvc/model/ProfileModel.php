@@ -1,15 +1,12 @@
 <?php
+require_once('C:\xampp\htdocs\MY_PHP\freshleaf_website\mvc\core\Db.php');
 
-use LDAP\Result;
+class ProfileModel extends Db{
+    // private $conn;
 
-require_once('../core/Database.php');
-
-class ProfileModel {
-    private $conn;
-
-    public function __construct($dbConnection) {
-        $this->conn = $dbConnection;
-    }
+    // public function __construct($dbConnection) {
+    //     $this->conn = $dbConnection;
+    // }
 
     // Lấy thông tin người dùng theo ID
     public function getUserById($userId) {
@@ -22,18 +19,18 @@ class ProfileModel {
     }
 
     // Cập nhật thông tin người dùng
-    public function updateUser($userId, $username,$fullname, $address, $email, $phone, $avatar = null) {
-        if($avatar){
+    public function updateUser($userId, $username, $address, $email, $phone, $avatar = null) {
+        if ($avatar) {
             $query = "
                 UPDATE users 
-                SET user_name = ?, fullname = ?, address = ?, email = ?, phone = ?, avatar = ? 
+                SET user_name = ?, address = ?, email = ?, phone = ?, avatar = ? 
                 WHERE user_id = ?
             ";
             $stmt = $this->conn->prepare($query);
-            if($stmt === false){
-                die('chuan bi cau truy bi loi: ' . $this->conn->error);
+            if ($stmt === false) {
+                die('Chuẩn bị câu truy vấn bị lỗi: ' . $this->conn->error);
             }
-            $stmt->bind_param("ssssssi", $username,$fullname, $address, $email, $phone,$avatar, $userId);
+            $stmt->bind_param("sssssi", $username,$address, $email, $phone, $avatar, $userId);
         } else {
             $query = "
                 UPDATE users 
@@ -41,14 +38,14 @@ class ProfileModel {
                 WHERE user_id = ?
             ";
             $stmt = $this->conn->prepare($query);
-            if($stmt === false){
-                die('chuan bi cau truy van: ' . $this->conn->error);
+            if ($stmt === false) {
+                die('Chuẩn bị câu truy vấn bị lỗi: ' . $this->conn->error);
             }
-            $stmt->bind_param("sssssi", $username,$fullname, $address, $email, $phone,$avatar, $userId);
+            $stmt->bind_param("ssssi", $username, $address, $email, $phone, $userId);
         }
         $result = $stmt->execute();
-        if(!$result){
-            die('loi thuc thi cau truy van: ' . $stmt->error);
+        if (!$result) {
+            die('Lỗi thực thi câu truy vấn: ' . $stmt->error);
         }
         return $result;
     }
@@ -74,4 +71,5 @@ class ProfileModel {
         return $stmt->execute();
     }
 }
+
 ?>
