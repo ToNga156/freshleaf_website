@@ -1,11 +1,3 @@
-<style>
-body {
-    background-color: white;
-    font-family: Quicksand;
-    margin: 0;
-    padding: 0;
-}
-
 .banner-homepage {
     /* background-color: rgb(251, 248, 198); */
     margin-top: 113px;
@@ -276,4 +268,3 @@ body {
     border-radius: 18px;
     margin: 10px 0 11px 0;
 }
-</style>

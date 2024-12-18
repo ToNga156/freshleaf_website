@@ -10,9 +10,6 @@ body {
     top: 0;
     left: 0;
     z-index: 1000;
-}
-
-.header {
     width: 100%;
     height: auto;
 }
@@ -102,12 +99,10 @@ body {
 
 .info-ContactWeb .info-Detail:first-child div {
     margin-left: 10px;
-    /* border-right: 1px solid #0d576b; */
 }
 
 .info-ContactWeb .info-Detail:last-child {
     margin-left: -10px;
-    /* border-left: 1px solid #0d576b; */
 }
 
 .info-ContactWeb .info-Detail ion-icon {
@@ -214,8 +209,8 @@ body {
 }
 
 input:focus {
-    border: none;  /* Ẩn viền khi có focus */
-    outline: none; /* Loại bỏ outline mặc định khi focus */
+    border: none; 
+    outline: none;
   }
 
 .search-bar-container ion-icon {
@@ -251,4 +246,3 @@ input:focus {
     color: #009C52;
     font-size: 32px;
 }
-
