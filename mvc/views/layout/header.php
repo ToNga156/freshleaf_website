@@ -73,7 +73,7 @@
 
                 <div class="search-bar-container">
                     <input type="text" class="input-search-bar" placeholder="Nhập sản phẩm cần tìm kiếm">
-                    <ion-icon name="search-outline"></ion-icon>
+                    <button type="submit" class="submit-search-bar"><ion-icon name="search-outline"></ion-icon></button>
                 </div>
 
                 <div class="icon-shopping-cart">

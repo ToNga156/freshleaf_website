@@ -208,6 +208,26 @@
         </div>
     </div>
 
+    <div class="advertise-homepage">
+        <div class="advertise-container">
+            <h2>Ưu đãi <span>giảm giá</span> đến 50%</h2>
+            <h1>Tài khoản mới</h1>
+            <div id="voucher">
+                <i class="fa-solid fa-ticket-simple"></i>
+                <span>Vô vàn khuyến mãi</span>
+            </div>
+            <div id="product">
+                <!-- <i class="fa-solid fa-lemon"></i> -->
+                <span>Đa dạng sản phẩm</span>
+            </div>
+            <div id="customer">
+                <!-- <i class="fa-solid fa-user"></i> -->
+                <span>Khách hàng tin tưởng</span>
+            </div>
+            <img class="advertise-homepage-img" src="../../public/images/advertise.png" alt="">
+        </div>
+    </div>
+
     <footer><?php include('D:\sampp\htdocs\freshleaf_website\mvc\views\layout\footer.php')?></footer>
 </body>
 </html>

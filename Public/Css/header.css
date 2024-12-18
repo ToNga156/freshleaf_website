@@ -193,6 +193,7 @@ body {
 }
 
 .bottom-header .search-bar-container {
+    position: relative;
     width: 28%;
     height: 35px;
     display: flex;
@@ -201,21 +202,34 @@ body {
 
 .search-bar-container .input-search-bar {
     border: none;
-    width: 70%;
-    height: 70%;
+    width: 65%;
+    height: 30px;
     border-radius: 25px;
     margin: 0 20px 0 80px;
-    padding: 2.5px 0 0 20px;
+    padding: 2.5px 0 0 25px;
 }
 
 input:focus {
-    border: none; 
-    outline: none;
+    border: none;  /* Ẩn viền khi có focus */
+    outline: none; /* Loại bỏ outline mặc định khi focus */
   }
+
+.search-bar-container .submit-search-bar {
+    position: absolute;
+    right: 28px;
+    width: 7%;
+    height: 32px;
+    background-color: #D7FFDB;
+    border-radius: 0 20px 20px 0;
+    border: none;
+    cursor: pointer;
+}
+
 
 .search-bar-container ion-icon {
     position: absolute;
-    right: 210px;
+    right: 8px;
+    top: 10px;
 }
 
 .bottom-header .icon-shopping-cart {
