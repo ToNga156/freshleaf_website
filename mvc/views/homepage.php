@@ -174,5 +174,40 @@
             </div>
         </div>
     </div>
+
+    <div class="brand-banner-homepage">
+        <div class="brand-banner-container">
+            <div class="big-line-brand">
+                <div class="repeat-brand">
+                    <img class="brand-img" src="../../public/images/brand-img.png" alt="">
+                    <h5>Freshleaf</h5>
+                </div>
+
+                <div class="repeat-brand">
+                    <img class="brand-img" src="../../public/images/brand-img.png" alt="">
+                    <h5>Freshleaf</h5>
+                </div>
+
+                <div class="repeat-brand">
+                    <img class="brand-img" src="../../public/images/brand-img.png" alt="">
+                    <h5>Freshleaf</h5>
+                </div>
+
+                <div class="repeat-brand">
+                    <img class="brand-img" src="../../public/images/brand-img.png" alt="">
+                    <h5>Freshleaf</h5>
+                </div>
+
+                <div class="repeat-brand">
+                    <img class="brand-img" src="../../public/images/brand-img.png" alt="">
+                    <h5>Freshleaf</h5>
+                </div>
+            </div>
+            <div class="small-line-brand"></div>
+            <img class="other-brandWebsite" src="../../public/images/raucuqua1.png" alt="">
+        </div>
+    </div>
+
+    <footer><?php include('D:\sampp\htdocs\freshleaf_website\mvc\views\layout\footer.php')?></footer>
 </body>
 </html>
