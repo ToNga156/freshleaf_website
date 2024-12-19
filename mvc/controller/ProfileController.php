@@ -9,7 +9,7 @@ class ProfileController extends Controller {
         $this->model = new ProfileModel();    
     }
     
-    public function Default() {
+    public function index() {
         if (!isset($_SESSION['user_id'])) {
             header("Location: login.php");
             exit();

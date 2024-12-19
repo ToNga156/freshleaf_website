@@ -1,8 +1,8 @@
 
 <?php
 class App {
-    protected $controller = 'RegisterController';
-    protected $method = 'Default';
+    protected $controller = 'HomepageHomepageController';
+    protected $method = 'index';
     protected $params = [];
 
     public function __construct() {
