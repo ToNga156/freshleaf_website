@@ -10,24 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cải Thìa - Organic</title>
     <!-- Nhúng file CSS -->
-     <link rel="stylesheet" href="../../public/css/homepage.css">
+    <link rel="stylesheet" href="../../public/css/header.css">
     <link rel="stylesheet" href="assets/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <style>
-* {
+body {
+    background-color: white;
+    font-family: "Quicksand";
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    line-height: 1.6;
-    background-color: #f9f9f9;
-}
-header{
-    padding-bottom: 400px;
 }
 .product-detail {
     display: flex;
@@ -35,7 +27,7 @@ header{
     background-color: white;
     justify-content: space-between;
     gap: 30px;
-    margin: 20px auto;
+    margin: 113px auto 20px ;
     border-radius: 10px;
     align-items: center;
 
@@ -154,7 +146,7 @@ header{
 }
 </style>
 <body>
-    <header><?php include('C:\xampp\htdocs\MVC-Test\mvc\views\layout\homepage.php') ?></header>
+    <header><?php include('D:\sampp\htdocs\freshleaf_website\mvc\views\layout\header.php') ?></header>
     <div class="container">
         <div class="product-detail">
             <div class="product-image">
