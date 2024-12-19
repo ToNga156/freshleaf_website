@@ -38,7 +38,7 @@ $userAvatar = $controller->uploadAvatar($userData);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../Public/Css/Profile.css">
+    <link rel="stylesheet" href=".../Public/Css/Profile.css">
     <style>
     body {
     font-family: "Quicksand", serif;
@@ -229,7 +229,7 @@ $userAvatar = $controller->uploadAvatar($userData);
 <body>
 <div class="container_profile">
         <div class="sidebar">
-            <img alt="User Avatar" height="50" src="https://storage.googleapis.com/a1aa/image/xRrHW3WI6urBLRpqtBVGbjet4XWgJna1AfZvIn5srQ7b9Z6TA.jpg" width="50"/>
+            <img alt="User Avatar" height="50" src="/Public/Image/<?php echo htmlspecialchars($userData['avatar']); ?>" width="50"/>
             <h3><?php echo $userData['user_name']; ?></h3>
             <p><?php echo $userData['email']; ?></p>
             <div class="menu">
@@ -259,10 +259,10 @@ $userAvatar = $controller->uploadAvatar($userData);
                     <input name="phone" type="text" value="<?php echo $userData['phone']; ?>"/>
                 </div>
                 <div class="form-userAvatar">
-                    <img alt="Profile image" src="../../Public/image/<?php echo $userAvatar['avatar']; ?>" />
+                    <img alt="Profile image" src="/Public/Image/<?php echo htmlspecialchars($userData['avatar']); ?>" />
                     <form method="post" enctype="multipart/form-data">
-                        <input type="file" name="avatar" />
-                        <button type="submit" name="uploadClick"  accept="images/*" >Choose Image</button>
+                        <input type="file" name="avatar" accept="Image/*" />
+                        <!-- <button type="submit" name="uploadClick">Choose Image</button> -->
                     </form>
                 </div>
 

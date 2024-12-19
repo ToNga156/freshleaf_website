@@ -43,28 +43,34 @@ class ProfileController extends Controller {
         $phone = $_POST['phone'] ?? $userData['phone'];
 
         // Xử lý upload avatar
-        // $avatar = $userData['avatar'];
-        // if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
-        //     $avatar = $this->uploadAvatar();
-        // }
+        $avatar = $userData['avatar'];
+        if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
+            $avatar = $this->uploadAvatar();
+        }
 
         // Cập nhật thông tin người dùng
-        $result = $this->model->updateUser($userId, $username, $address, $email, $phone);
+        $result = $this->model->updateUser($userId, $username, $address, $email, $phone, $avatar);
 
         return $result ? "Cập nhật thành công!" : "Cập nhật thất bại!";
     }
     public function uploadAvatar(){
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['uploadClick'])) {
-            $avatar = $_FILES['uploadClick'];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['avatar'])) {
+            $avatar = $_FILES['avatar'];
 
             if ($avatar['error'] === UPLOAD_ERR_OK) {
                 // Kiểm tra file ảnh hợp lệ
                 $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
                 if (in_array($avatar['type'], $allowedTypes)) {
-                    $targetDir = './Public/image/'; // Đường dẫn lưu ảnh
-                    $fileName = uniqid() . "_" . basename($avatar['name']); // Tạo tên file duy nhất
+                    $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/Public/Image/'; // Đường dẫn lưu ảnh
+
+                    if (!is_dir($targetDir)) { 
+                        mkdir($targetDir, 0777, true); // Tạo thư mục với quyền truy cập đầy đủ 
+                        }
+                    $fileName = basename($avatar['name']); // Tạo tên file duy nhất
                     $targetFilePath = $targetDir . $fileName;
+
                     if (move_uploaded_file($avatar['tmp_name'], $targetFilePath)) {
+                        // echo "File uploaded successfully!";
                         // Cập nhật avatar trong cơ sở dữ liệu
                         return $fileName; // Trả về đường dẫn ảnh
                     } else {

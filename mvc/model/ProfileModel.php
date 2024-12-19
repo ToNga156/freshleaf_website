@@ -19,7 +19,7 @@ class ProfileModel extends Db{
     }
 
     // Cập nhật thông tin người dùng
-    public function updateUser($userId, $username, $address, $email, $phone, $avatar = null) {
+    public function updateUser($userId, $username, $address, $email, $phone, $avatar ) {
         if ($avatar) {
             $query = "
                 UPDATE users 
