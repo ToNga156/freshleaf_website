@@ -60,14 +60,20 @@ class ProfileModel extends Db{
         $result = $stmt->get_result();
         $user = $result->fetch_assoc();
 
-        if (!$user || $user['password'] !== $currentPassword) {
-            return false; // Mật khẩu hiện tại không đúng
+        // Kiểm tra mật khẩu đã mã hóa 
+        if (!$user || !password_verify($currentPassword, $user['password'])) { 
+            return false; // Mật khẩu hiện tại không đúng 
         }
+        // if (!$user || $user['password'] !== $currentPassword) {
+        //     return false; // Mật khẩu hiện tại không đúng
+        // }
+        // Mã hóa mật khẩu mới 
+        $hashedNewPassword = password_hash($newPassword, PASSWORD_BCRYPT);
 
         // Cập nhật mật khẩu mới
         $query = "UPDATE users SET password = ? WHERE user_id = ?";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("si", $newPassword, $userId);
+        $stmt->bind_param("si", $hashedNewPassword, $userId);
         return $stmt->execute();
     }
 }

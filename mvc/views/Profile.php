@@ -1,10 +1,7 @@
 <?php
-// session_start();
-
 require_once 'C:\xampp\htdocs\MY_PHP\freshleaf_website\mvc\core\Db.php';
 require_once 'C:\xampp\htdocs\MY_PHP\freshleaf_website\mvc\controller\ProfileController.php';
 // include '../views/homepage.html';
-
 
 if (!isset($_SESSION['user_id'])) {
     header('Location: ../../Login.php');
@@ -15,16 +12,7 @@ global $conn;
 $controller = new ProfileController($conn);
 $userId = $_SESSION['user_id'];
 $userData = $controller->getProfile($userId);
-$userAvatar = $controller->uploadAvatar($userData);
-// if($_SERVER['REQUEST_METHOD'] === 'POST'){
-//     $result = $controller->uploadAvatar($userData);
-
-//     if($result && !is_string($result)){
-//         $userData['avatar'] = $result;
-//     }else{
-//         $error = $result;
-//     }
-// }
+$controller->handleChangePassword();
 ?>
 
 <!DOCTYPE html>
@@ -38,193 +26,7 @@ $userAvatar = $controller->uploadAvatar($userData);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href=".../Public/Css/Profile.css">
-    <style>
-    body {
-    font-family: "Quicksand", serif;
-    margin: 10px;
-    padding: 10px;
-}
-.container_profile {
-    margin-top: 100px;
-    display: flex;
-    padding: 20px;
-}
-.sidebar {
-    width: 20%;
-    background-color:rgb(73, 212, 96);
-    padding: 20px;
-    border-radius: 10px;
-}
-.sidebar img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-.sidebar h3 {
-    margin: 10px 0 5px;
-    font-size: 18px;
-}
-.sidebar p {
-    margin: 0;
-    color: #666;
-}
-.sidebar .menu {
-    margin-top: 20px;
-}
-.sidebar .menu a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: #333;
-    padding: 10px 0;
-    font-size: 16px;
-}
-.sidebar .menu a:hover {
-    color: #4caf50;
-}
-.section-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-.container_infor {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 90%;
-    margin: 20px ;
-    padding: 20px;
-    padding-right: 30px;
-    position: relative;
-}
-.container_inforUser {
-    display: flex;
-    flex-direction: column;
-    border: 1px grey solid;
-    border-radius: 10px;
-    padding: 10px;
-}
-.form-group {
-    margin-bottom: 15px;
-}
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 15px;
-}
-.form-group input {
-    width: 50%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-}
-.form-group .save-changes {
-    width: 14%;
-    padding: 5px;
-    font-size: 15px;
-    border: 2px solid #28a745;
-    border-radius: 20px;
-    background-color: #28a745;
-    color:white;
-    font-weight: bold;
-    cursor: pointer;
-}
-.form-userAvatar img {
-    position: absolute;
-    top: 15%;
-    margin-left: 70%;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    border: 1px black solid;
-}
-.form-userAvatar .choose-image {
-    position: absolute;
-    top: 36%;
-    margin-left: 71%;
-    width: 10%;
-    padding: 10px;
-    border: 2px solid #28a745;
-    border-radius: 20px;
-    color: #28a745;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: none;
-}
-.form-group .choose-image:hover {
-    background-color: #28a745;
-    color: #fff;
-}
-.container_changePassword {
-    display: flex;
-    flex-direction: column;
-    border: 1px grey solid;
-    border-radius: 10px;
-    padding: 20px;
-}
-.form-change label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 15px;
-}
-.form-change input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-}
-.current_password {
-    position: relative;
-}
-.current_password input {
-    width:90%;
-}
-.changes-password {
-    display: flex;
-    gap: 200px;
-}
-.form-changePass {
-    width: 400px;
-    margin-top: 15px;
-}
-.changes-password .password-container input{
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-}
-.password-container {
-    position: relative;
-}
-.form-change .change-password {
-    margin-top: 10px;
-    width: 15%;
-    font-size: 15px;
-    padding: 5px;
-    border: 2px solid #28a745;
-    border-radius: 20px;
-    background-color: #28a745;
-    color:white;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: none;
-}
-.container_changePassword .current_password .password-eye {
-   position: absolute;
-   left: 88%;
-   top: 11px;
-}
-.password-container .password-eye {
-    position: absolute;
-    top: 11px;
-    left: 95%;
-}
-    </style>
-    
+    <link rel="stylesheet" href="/MY_PHP/freshleaf_website/Public/Css/Profile.css">
 </head>
 <body>
 <div class="container_profile">
@@ -259,11 +61,8 @@ $userAvatar = $controller->uploadAvatar($userData);
                     <input name="phone" type="text" value="<?php echo $userData['phone']; ?>"/>
                 </div>
                 <div class="form-userAvatar">
-                    <img alt="Profile image" src="/Public/Image/<?php echo htmlspecialchars($userData['avatar']); ?>" />
-                    <form method="post" enctype="multipart/form-data">
-                        <input type="file" name="avatar" accept="Image/*" />
-                        <!-- <button type="submit" name="uploadClick">Choose Image</button> -->
-                    </form>
+                    <img id="avatarPreview" alt="Profile image" src="/Public/Image/<?php echo htmlspecialchars($userData['avatar']); ?>" />
+                    <input type="file" name="avatar" accept="Image/*" onchange="previewAvatar(event)" />
                 </div>
 
                 <div class="form-group">
@@ -271,7 +70,7 @@ $userAvatar = $controller->uploadAvatar($userData);
                 </div>
             </div>
             </form>
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data">
             <div class="container_changePassword">
                 <div class="section-title">Change Password</div>
                 <div class="form-change">
@@ -306,6 +105,15 @@ $userAvatar = $controller->uploadAvatar($userData);
     </div>
 </div>
 <script>
+    function previewAvatar(event) { 
+        var reader = new FileReader(); 
+        reader.onload = function() { 
+            var output = document.getElementById('avatarPreview'); 
+            output.src = reader.result; 
+        }; 
+        reader.readAsDataURL(event.target.files[0]); 
+    }
+
     document.querySelectorAll('.password-eye').forEach(eye => {
             eye.addEventListener('click', function() {
                 const input = this.previousElementSibling;

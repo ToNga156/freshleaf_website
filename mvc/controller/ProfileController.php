@@ -1,6 +1,6 @@
 <?php
 require_once 'C:\xampp\htdocs\MY_PHP\freshleaf_website\mvc\model\ProfileModel.php';
-session_start(); // Đảm bảo session đã được khởi tạo
+session_start(); 
 require_once('C:\xampp\htdocs\MY_PHP\freshleaf_website\mvc\core\Controller.php');
 class ProfileController extends Controller {
     private $model;
@@ -12,10 +12,8 @@ class ProfileController extends Controller {
     public function Default() {
         // Kiểm tra nếu người dùng đã đăng nhập
         if (isset($_SESSION['user_id'])) {
-            $userId = $_SESSION['user_id'];  // Lấy ID người dùng từ session
-            // Truyền thông tin người dùng tới view
+            $userId = $_SESSION['user_id'];  
         } else {
-            // Nếu chưa đăng nhập, chuyển hướng về trang đăng nhập
             header("Location: login.php");
             exit();
         }
@@ -50,7 +48,6 @@ class ProfileController extends Controller {
 
         // Cập nhật thông tin người dùng
         $result = $this->model->updateUser($userId, $username, $address, $email, $phone, $avatar);
-
         return $result ? "Cập nhật thành công!" : "Cập nhật thất bại!";
     }
     public function uploadAvatar(){
@@ -61,18 +58,19 @@ class ProfileController extends Controller {
                 // Kiểm tra file ảnh hợp lệ
                 $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
                 if (in_array($avatar['type'], $allowedTypes)) {
-                    $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/Public/Image/'; // Đường dẫn lưu ảnh
+                    $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/Public/Image/'; 
+                    echo "Document ". $_SERVER['DOCUMENT_ROOT'];
 
                     if (!is_dir($targetDir)) { 
-                        mkdir($targetDir, 0777, true); // Tạo thư mục với quyền truy cập đầy đủ 
+                        mkdir($targetDir, 0777, true); 
                         }
-                    $fileName = basename($avatar['name']); // Tạo tên file duy nhất
+
+                    $fileName = basename($avatar['name']); 
                     $targetFilePath = $targetDir . $fileName;
 
                     if (move_uploaded_file($avatar['tmp_name'], $targetFilePath)) {
-                        // echo "File uploaded successfully!";
                         // Cập nhật avatar trong cơ sở dữ liệu
-                        return $fileName; // Trả về đường dẫn ảnh
+                        return $fileName; 
                     } else {
                         return "Không thể lưu ảnh.";
                     }
@@ -90,4 +88,20 @@ class ProfileController extends Controller {
     public function changePassword($userId, $currentPassword, $newPassword) {
         return $this->model->changePassword($userId, $currentPassword, $newPassword);
     }
+
+    // Xử lý yêu cầu thay đổi mật khẩu từ View 
+    public function handleChangePassword() { 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
+            if (isset($_POST['current-password']) && isset($_POST['new-password']) && isset($_POST['confirm-password'])) { 
+                $userId = $_SESSION['user_id']; 
+                $currentPassword = $_POST['current-password']; 
+                $newPassword = $_POST['new-password']; 
+                $confirmPassword = $_POST['confirm-password']; 
+                if ($newPassword === $confirmPassword) { 
+                    $result = $this->changePassword($userId, $currentPassword, $newPassword); 
+                } 
+            }
+        }
+    }
 }
+
