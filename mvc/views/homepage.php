@@ -1,10 +1,15 @@
+<?php
+    require_once('C:\xampp\htdocs\freshleaf_website\mvc\controller\ProductController.php');
+    $bestSaleProduct = $data['bestSaleProduct'];
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../public/css/homepage.css">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="../../freshleaf_website/public/css/homepage.css?v=<?php echo time(); ?>">
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -12,16 +17,13 @@
 
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Calistoga&family=Cormorant+Upright:wght@300;400;500;600;700&family=Epilogue:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
-<style>
-
-</style>
 <body>
-    <header><?php include('D:\sampp\htdocs\freshleaf_website\mvc\views\layout\header.php') ?></header>
+    <header><?php include('C:/xampp/htdocs/freshleaf_website/mvc/views/layout/header.php') ?></header>
 
     <div class="banner-homepage">
         <div class="banner-homepage-container">
-            <img class="main-img" src="../../Public/images/banner-homepage.jpg" alt="banner-homepage-img">
-            <img class="extra-img" src="../../Public/images/raucuqua.png" alt="raucuqua-img">
+            <img class="main-img" src="../../freshleaf_website/Public/images/banner-homepage.jpg" alt="banner-homepage-img">
+            <img class="extra-img" src="../../freshleaf_website/Public/images/raucuqua.png" alt="raucuqua-img">
             <h2>WELCOME TO FRESHLEAF</h2> 
             <h1>Choose clean, <br>Life healthy</h1>
         </div>
@@ -72,105 +74,17 @@
             </div>
 
             <div class="bestSale-detail">
-                <a class="product-card">
-                    <img src="../../Public/images/rau_xalach.jpg" alt="Rau xà lách Nhật">
-                    <h3>Rau xà lách Nhật</h3>
-                    <span class="label">Bán chạy</span>
-                    <div>
-                        <p class="price">15.000đ</p>
-                        <button class="add-button">+</button>
-                    </div>
-                  </a>
-              
-                  <a class="product-card">
-                    <img src="../../Public/images/bapngo.jpg" alt="Bắp ngô nếp vàng">
-                    <h3>Bắp ngô nếp vàng</h3>
-                    <span class="label">Bán chạy</span>
-                    <div>
-                        <p class="price">20.000đ</p>
-                        <button class="add-button">+</button>
-                    </div>
-                  </a>
-              
-                  <a class="product-card">
-                    <img src="../../Public/images/suplo.jpg" alt="Súp lơ xanh">
-                    <h3>Súp lơ xanh</h3>
-                    <span class="label">Bán chạy</span>
-                    <div>
-                        <p class="price">25.000đ</p>
-                        <button class="add-button">+</button>
-                    </div>
-                  </a>
-              
-                  <a class="product-card">
-                    <img src="../../Public/images/carot.jpg" alt="Cà rốt Hàn Quốc">
-                    <h3>Cà rốt Hàn Quốc</h3>
-                    <span class="label">Bán chạy</span>
-                    <div>
-                        <p class="price">50.000đ</p>
-                        <button class="add-button">+</button>
-                    </div>
-                  </a>
-              
-                  <a class="product-card">
-                    <img src="../../Public/images/caithia.jpg" alt="Cải thìa 1 bó">
-                    <h3>Cải thìa 1 bó</h3>
-                    <span class="label">Bán chạy</span>
-                    <div>
-                        <p class="price">25.000đ</p>
-                        <button class="add-button">+</button>
-                    </div>
-                  </a>
-              
-                  <a class="product-card">
-                    <img src="../../Public/images/curendo.jpg" alt="Củ dền đỏ">
-                    <h3>Củ dền đỏ</h3>
-                    <span class="label">Bán chạy</span>
-                    <div>
-                        <p class="price">15.000đ</p>
-                        <button class="add-button">+</button>
-                    </div>
-                  </a>
-              
-                  <a class="product-card">
-                    <img src="../../Public/images/raumuong.jpg" alt="Rau muống">
-                    <h3>Rau muống</h3>
-                    <span class="label">Bán chạy</span>
-                    <div>
-                        <p class="price">20.000đ</p>
-                        <button class="add-button">+</button>
-                    </div>
-                  </a>
-              
-                  <a class="product-card">
-                    <img src="../../Public/images/otchuong.jpg" alt="Ớt chuông">
-                    <h3>Ớt chuông</h3>
-                    <span class="label">Bán chạy</span>
-                    <div>
-                        <p class="price">25.000đ</p>
-                        <button class="add-button">+</button>
-                    </div>
-                  </a>
-              
-                  <a class="product-card">
-                    <img src="../../Public/images/chanh.jpg" alt="Chanh tươi">
-                    <h3>Chanh tươi</h3>
-                    <span class="label">Bán chạy</span>
-                    <div>
-                        <p class="price">50.000đ</p>
-                        <button class="add-button">+</button>
-                    </div>
-                  </a>
-              
-                  <a class="product-card">
-                    <img src="../../Public/images/catim.jpg" alt="Cà tím">
-                    <h3>Cà tím</h3>
-                    <span class="label">Bán chạy</span>
-                    <div>
-                        <p class="price">25.000đ</p>
-                        <button class="add-button">+</button>
-                    </div>
-                  </a>
+                <?php foreach ($bestSaleProduct as $product): ?>
+                    <a href="#" class="product-card">
+                        <img src="<?php echo htmlspecialchars($product['product_image']);?>" alt="<?php echo htmlspecialchars($product['product_name']);?>">
+                        <h3><?php echo htmlspecialchars($product['product_name']);?></h3>
+                        <span class="label">Bán chạy</span>
+                        <div>
+                            <p class="price"><?php echo htmlspecialchars($product['price']);?>đ</p>
+                            <button class="add-button">+</button>
+                        </div>
+                    </a>
+                <?php endforeach;?>
             </div>
         </div>
     </div>
@@ -179,32 +93,32 @@
         <div class="brand-banner-container">
             <div class="big-line-brand">
                 <div class="repeat-brand">
-                    <img class="brand-img" src="../../public/images/brand-img.png" alt="">
+                    <img class="brand-img" src="../../freshleaf_website/public/images/brand-img.png" alt="">
                     <h5>Freshleaf</h5>
                 </div>
 
                 <div class="repeat-brand">
-                    <img class="brand-img" src="../../public/images/brand-img.png" alt="">
+                    <img class="brand-img" src="../../freshleaf_website/public/images/brand-img.png" alt="">
                     <h5>Freshleaf</h5>
                 </div>
 
                 <div class="repeat-brand">
-                    <img class="brand-img" src="../../public/images/brand-img.png" alt="">
+                    <img class="brand-img" src="../../freshleaf_website/public/images/brand-img.png" alt="">
                     <h5>Freshleaf</h5>
                 </div>
 
                 <div class="repeat-brand">
-                    <img class="brand-img" src="../../public/images/brand-img.png" alt="">
+                    <img class="brand-img" src="../../freshleaf_website/public/images/brand-img.png" alt="">
                     <h5>Freshleaf</h5>
                 </div>
 
                 <div class="repeat-brand">
-                    <img class="brand-img" src="../../public/images/brand-img.png" alt="">
+                    <img class="brand-img" src="../../freshleaf_website/public/images/brand-img.png" alt="">
                     <h5>Freshleaf</h5>
                 </div>
             </div>
             <div class="small-line-brand"></div>
-            <img class="other-brandWebsite" src="../../public/images/raucuqua1.png" alt="">
+            <img class="other-brandWebsite" src="../../freshleaf_website/public/images/raucuqua1.png" alt="">
         </div>
     </div>
 
@@ -224,10 +138,10 @@
                 <!-- <i class="fa-solid fa-user"></i> -->
                 <span>Khách hàng tin tưởng</span>
             </div>
-            <img class="advertise-homepage-img" src="../../public/images/advertise.png" alt="">
+            <img class="advertise-homepage-img" src="../../freshleaf_website/public/images/advertise.png" alt="">
         </div>
     </div>
 
-    <footer><?php include('D:\sampp\htdocs\freshleaf_website\mvc\views\layout\footer.php')?></footer>
+    <footer><?php include('C:/xampp/htdocs/freshleaf_website/mvc/views/layout/footer.php')?></footer>
 </body>
 </html>

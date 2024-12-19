@@ -3,7 +3,7 @@ error_reporting(E_ALL);  // Báo cáo tất cả lỗi
 ini_set('display_errors', 1);  // Hiển thị lỗi lên trình duyệt
 
 session_start(); // Đảm bảo session đã được khởi tạo
-require_once('D:\sampp\htdocs\freshleaf_website\mvc\core\Controller.php');
+require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
 
 class LoginController extends Controller {
 
@@ -26,7 +26,10 @@ class LoginController extends Controller {
                     $_SESSION['user_name'] = $userInfo['user_name'];
                     $_SESSION['email'] = $userInfo['email'];
 
-                    // Chuyển hướng đến trang homepage hoặc dashboard
+                    if ($userInfo['role'] == 'Admin') {
+                        header('Location: http://localhost/freshleaf_website/');
+                    }
+                    // Check role để chuyển hướng đến trang homepage hoặc dashboard
                     echo 'đăng nhập thành công';
                     exit();
                 }

@@ -1,5 +1,5 @@
 <?php
-require_once('D:\sampp\htdocs\freshleaf_website\mvc\core\Db.php');
+require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Db.php');
 
 class LoginModel extends Db {
 

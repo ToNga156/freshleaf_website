@@ -1,5 +1,5 @@
 <?php
-    require_once('D:\sampp\htdocs\freshleaf_website\mvc\controller\ProductController.php');
+    require_once('C:\xampp\htdocs\freshleaf_website\mvc\controller\ProductController.php');
     $product = $data['product'];
     $relatedProducts = $data['categories'];
 ?>
@@ -146,7 +146,8 @@ body {
 }
 </style>
 <body>
-    <header><?php include('D:\sampp\htdocs\freshleaf_website\mvc\views\layout\header.php') ?></header>
+    <header><?php include('C:/xampp/htdocs/freshleaf_website/mvc/views/layout/header.php') ?></header>
+    
     <div class="container">
         <div class="product-detail">
             <div class="product-image">

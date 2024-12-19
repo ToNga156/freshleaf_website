@@ -1,6 +1,6 @@
 <?php
-require_once('D:\sampp\htdocs\freshleaf_website\mvc\core\Controller.php');
-require_once('D:\sampp\htdocs\freshleaf_website\mvc\model\ProductModel.php');
+require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
+require_once('C:\xampp\htdocs\freshleaf_website\mvc\model\ProductModel.php');
 class ProductController extends Controller{
     public $ProductModel;
     public function Default(){

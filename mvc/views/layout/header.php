@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../public/css/header.css">
+    <link rel="stylesheet" href="../../freshleaf_website/public/css/header.css?v=<?php echo time(); ?>">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -24,7 +24,7 @@
     
             <div class="middle-header">
                 <div class="info-LogoNameWeb">
-                    <img src="../../Public/images/logo_website.png" alt="">
+                    <img src="../../freshleaf_website/public/images/logo_website.png" alt="">
                     <h1>FreshLeaf</h1>
                 </div>
 
@@ -55,10 +55,10 @@
                 </div>
 
                 <div class="info-Account">
-                    <img src="../../Public/images/avatar-default.jpg" alt="">
+                    <img src="../../freshleaf_website/public/images/avatar-default.jpg" alt="Avatar mặc định">
                     <div>
                         <p>Tài khoản</p>
-                        <h3>Đăng nhập</h3>
+                        <a href="http://localhost/freshleaf_website/Register">Đăng nhập</a>
                     </div>
                 </div>
             </div>
