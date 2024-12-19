@@ -1,13 +1,7 @@
 <?php
-require_once('C:\xampp\htdocs\MY_PHP\freshleaf_website\mvc\core\Db.php');
+require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Db.php');
 
 class ProfileModel extends Db{
-    // private $conn;
-
-    // public function __construct($dbConnection) {
-    //     $this->conn = $dbConnection;
-    // }
-
     // Lấy thông tin người dùng theo ID
     public function getUserById($userId) {
         $query = "SELECT * FROM users WHERE user_id = ?";
@@ -62,11 +56,9 @@ class ProfileModel extends Db{
 
         // Kiểm tra mật khẩu đã mã hóa 
         if (!$user || !password_verify($currentPassword, $user['password'])) { 
-            return false; // Mật khẩu hiện tại không đúng 
+            return false; 
         }
-        // if (!$user || $user['password'] !== $currentPassword) {
-        //     return false; // Mật khẩu hiện tại không đúng
-        // }
+        
         // Mã hóa mật khẩu mới 
         $hashedNewPassword = password_hash($newPassword, PASSWORD_BCRYPT);
 

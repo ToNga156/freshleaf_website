@@ -1,7 +1,7 @@
 <?php
-require_once 'C:\xampp\htdocs\MY_PHP\freshleaf_website\mvc\core\Db.php';
-require_once 'C:\xampp\htdocs\MY_PHP\freshleaf_website\mvc\controller\ProfileController.php';
-// include '../views/homepage.php';
+require_once 'C:\xampp\htdocs\freshleaf_website\mvc\core\Db.php';
+require_once 'C:\xampp\htdocs\freshleaf_website\mvc\controller\ProfileController.php';
+include 'C:\xampp\htdocs\freshleaf_website\mvc\views\layout\header.php';
 
 if (!isset($_SESSION['user_id'])) {
     header('Location: ../../Login.php');
@@ -26,7 +26,7 @@ $controller->handleChangePassword();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/MY_PHP/freshleaf_website/Public/Css/Profile.css">
+    <link rel="stylesheet" href="/freshleaf_website/Public/Css/Profile.css">
 </head>
 <body>
 <div class="container_profile">
@@ -34,7 +34,7 @@ $controller->handleChangePassword();
             <img alt="User Avatar" height="50" src="/Public/Image/<?php echo htmlspecialchars($userData['avatar']); ?>" width="50"/>
             <h3><?php echo $userData['user_name']; ?></h3>
             <p><?php echo $userData['email']; ?></p>
-            <div class="menu">
+            <div class="menu-profile">
                 <a href="#"><i class="fas fa-user"></i>My Profile</a>
                 <a href="#"><i class="fas fa-file-alt"></i>My Orders</a>
                 <a href="#"><i class="fas fa-shopping-cart"></i>My Shopping Cart</a>
@@ -79,22 +79,22 @@ $controller->handleChangePassword();
                     <label for="current-password">Current Password</label>
                     <div class="current_password">
                         <input name="current-password" type="password" value=""/>
-                        <i class="fas fa-eye password-eye"></i>
+                        <i class="fas fa-eye-slash password-eye"></i>
                     </div>
                 </div>
                 <div class="changes-password">
                     <div class="form-changePass">
-                        <label for="new-password">New Password Password</label>
+                        <label for="new-password">New Password </label>
                         <div class="password-container">
                             <input name="new-password" type="password" value=""/>
-                            <i class="fas fa-eye password-eye"></i>
+                            <i class="fas fa-eye-slash password-eye"></i>
                         </div>
                     </div>
                     <div class="form-changePass">
-                        <label for="confirm-password">Confirm Password</label>
+                        <label for="confirm-password">Confirm New Password</label>
                         <div class="password-container">
                             <input name="confirm-password" type="password" value=""/>
-                            <i class="fas fa-eye password-eye"></i>
+                            <i class="fas fa-eye-slash password-eye"></i>
                         </div>
                     </div>
                 </div>
@@ -121,12 +121,12 @@ $controller->handleChangePassword();
                 const input = this.previousElementSibling;
                 if (input.type === 'password') {
                     input.type = 'text';
-                    this.classList.remove('fa-eye');
-                    this.classList.add('fa-eye-slash');
+                    this.classList.add('fa-eye');
+                    this.classList.remove('fa-eye-slash');
                 } else {
                     input.type = 'password';
-                    this.classList.remove('fa-eye-slash');
-                    this.classList.add('fa-eye');
+                    this.classList.add('fa-eye-slash');
+                    this.classList.remove('fa-eye');
                 }
             });
         });
