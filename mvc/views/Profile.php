@@ -1,7 +1,7 @@
 <?php
 require_once 'C:\xampp\htdocs\MY_PHP\freshleaf_website\mvc\core\Db.php';
 require_once 'C:\xampp\htdocs\MY_PHP\freshleaf_website\mvc\controller\ProfileController.php';
-// include '../views/homepage.html';
+// include '../views/homepage.php';
 
 if (!isset($_SESSION['user_id'])) {
     header('Location: ../../Login.php');
@@ -61,8 +61,10 @@ $controller->handleChangePassword();
                     <input name="phone" type="text" value="<?php echo $userData['phone']; ?>"/>
                 </div>
                 <div class="form-userAvatar">
+                    <div class="uploadImage">Choose Image</div>
                     <img id="avatarPreview" alt="Profile image" src="/Public/Image/<?php echo htmlspecialchars($userData['avatar']); ?>" />
-                    <input type="file" name="avatar" accept="Image/*" onchange="previewAvatar(event)" />
+                    <input id="chooseImage" type="file" name="avatar" accept="Image/*" onchange="previewAvatar(event)" />
+                    
                 </div>
 
                 <div class="form-group">
@@ -127,6 +129,9 @@ $controller->handleChangePassword();
                     this.classList.add('fa-eye');
                 }
             });
+        });
+        document.querySelector('.uploadImage').addEventListener('click', function() { 
+            document.getElementById('chooseImage').click(); 
         });
 </script>
 </body>

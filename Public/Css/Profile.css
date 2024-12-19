@@ -98,7 +98,10 @@ body {
     width: 150px;
     height: 150px;
 }
-.form-userAvatar .choose-image {
+.form-userAvatar input[type="file"] {
+    display: none;
+}
+.form-userAvatar .uploadImage {
     position: absolute;
     top: 36%;
     margin-left: 71%;
@@ -110,10 +113,10 @@ body {
     font-weight: bold;
     cursor: pointer;
     text-decoration: none;
+    transition: all 0.1s ease-out;
 }
-.form-group .choose-image:hover {
-    background-color: #28a745;
-    color: #fff;
+.form-userAvatar .uploadImage:hover {
+    transform: scale(1.01);
 }
 .container_changePassword {
     display: flex;
