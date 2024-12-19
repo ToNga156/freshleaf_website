@@ -1,7 +1,7 @@
 
 <?php
 class App {
-    protected $controller = 'HomepageHomepageController';
+    protected $controller = 'HomepageController';
     protected $method = 'index';
     protected $params = [];
 
@@ -12,8 +12,6 @@ class App {
             $this->controller = $url[0] . "Controller";
             unset($url[0]);
         }
-        // require_once './mvc/core/Db.php'; 
-        // $dbConnection = new Db(); 
 
         require_once './mvc/controller/' . $this->controller . '.php';
         $controller = new $this->controller;
