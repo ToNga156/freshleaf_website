@@ -65,6 +65,7 @@
             border-radius: 20px;
             font-size: 16px;
             cursor: pointer;
+            transition: all 0.3s ease-out;
         }
         .container_register button:hover {
             transform: scale(1.05);
@@ -102,7 +103,7 @@
     <div class="container_register">
         
         <form action="./Register" method="POST">
-            <h2>Sign In</h2>
+            <h2>Sign Up</h2>
             <?php if (!empty($data['error'])): ?>
                 <p style="color: red;"><?php echo $data['error']; ?></p>
             <?php endif; ?>
@@ -128,9 +129,9 @@
                 <i class="bi bi-eye-slash" id="close-confirmpassword"></i> 
                 <i class="bi bi-eye hidden" id="open-confirmpassword"></i>
             </div>
-            <button class="btt_signin" type="submit">Sign In</button>
+            <button class="btt_signin" type="submit">Sign Up</button>
             <div class="footer_register">
-                Already have an account? <a href="#">Log in</a>
+                Already have an account? <a href="C:\xampp\htdocs\MY_PHP\freshleaf_website\mvc\views\Login.php">Log in</a>
             </div>
         </form>
     </div>
@@ -151,7 +152,7 @@
         }); 
         const closeConfirmPassword = document.getElementById('close-confirmpassword'); 
         const openConfirmPassword = document.getElementById('open-confirmpassword'); 
-        const confirmPasswordInput = document.querySelector('input[name="confirm_password"]'); 
+        const confirmPasswordInput = document.querySelector('input[name="confirmpassword"]'); 
         closeConfirmPassword.addEventListener('click', function() { 
             confirmPasswordInput.setAttribute('type', 'text'); 
             closeConfirmPassword.classList.add('hidden'); 
