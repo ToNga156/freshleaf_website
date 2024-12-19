@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../../public/css/footer.css">
+    <link rel="stylesheet" href="../../../freshleaf_website/public/css/footer.css?v=<?php echo time(); ?>">
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -16,7 +16,7 @@
         <div class="footer-container">
             <div class="intro-footer">
                 <div class="intro-footer-detail">
-                    <img class="logoWebsite-footer" src="../../../public/images/logo_website.png" alt="">
+                    <img class="logoWebsite-footer" src="../../freshleaf_website/public/images/logo_website.png" alt="">
                     <h1 style="margin: 0; font-family: 'Calistoga'; font-size: 30px; font-weight: lighter; color: #009C52;">FreshLeaf</h1>
                 </div>
 

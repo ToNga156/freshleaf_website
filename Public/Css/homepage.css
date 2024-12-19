@@ -123,7 +123,6 @@
 }
 
 .discount-homepage-container #discount-small1 {
-    /* background-color: #FFE1F9; */
     background-color: #D2FFFE;
 }
 
@@ -197,7 +196,7 @@
 .bestSale-product-container .title-bestSale a {
     display: flex;
     align-items: center;
-    text-decoration: none; /* Loại bỏ gạch chân */
+    text-decoration: none;
     color: #009C52;
     font-weight: bolder;
 }
@@ -213,6 +212,7 @@
     border: 1px solid #D1D1D1; 
     /* border: 1px solid black; */
     border-radius: 20px;
+    text-decoration: none;
     display: flex;
     flex-direction: column;
     height: 340px;
@@ -228,6 +228,7 @@
 
 .bestSale-detail .product-card h3 {
     margin: 12px 20px;
+    color: black;
 }
 
 .bestSale-detail .product-card span {
@@ -267,6 +268,7 @@
     border: 2px solid #006837;
     border-radius: 18px;
     margin: 10px 0 11px 0;
+    cursor: pointer;
 }
 
 /* brand-banner-homepage */
