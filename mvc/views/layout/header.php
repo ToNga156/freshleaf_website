@@ -323,7 +323,7 @@ input:focus {
                     <img src="../../freshleaf_website/public/images/avatar-default.jpg" alt="Avatar mặc định">
                     <div>
                         <p>Tài khoản</p>
-                        <a href="http://localhost/freshleaf_website/Register">Đăng nhập</a>
+                        <a href="./Login">Đăng nhập</a>
                     </div>
                 </div>
             </div>

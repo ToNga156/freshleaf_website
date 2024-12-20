@@ -1,7 +1,7 @@
 <?php
-require_once 'C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\model\ProfileModel.php';
+require_once 'C:\xampp\htdocs\freshleaf_website\mvc\model\ProfileModel.php';
 session_start(); 
-require_once('C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\core\Controller.php');
+require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
 class ProfileController extends Controller {
     private $model;
 

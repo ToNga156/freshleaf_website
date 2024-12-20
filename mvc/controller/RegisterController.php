@@ -1,5 +1,5 @@
 <?php
-require_once('C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\core\Controller.php');
+require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
 
 class RegisterController extends Controller {
 
@@ -25,20 +25,16 @@ class RegisterController extends Controller {
                 } elseif ($password !== $confirmPassword) {
                     // Kiểm tra xác nhận mật khẩu
                     $error = "Passwords do not match!";
-                }elseif(strlen($password<5)|| strlen($confirmPassword<5)){
-                    $error = "Mật khẩu phải có độ dài từ 5 ký tự trở lên";
                 }
             }
 
             if (!empty($error)) {
                 $this->view('Register', ['error' => $error]);
-                return; // Dừng xử lý nếu có lỗi
+                return; 
             }
 
-            // Hash mật khẩu nếu không có lỗi
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-            // Gọi model để xử lý đăng ký
             $registerModel = $this->model("RegisterModel");
             $result = $registerModel->registerUser($username, $hashedPassword, $email, $phone, $address);
 

@@ -1,6 +1,6 @@
 <?php
-    require_once('C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\controller\ProductController.php');
-    require_once('C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\controller\HomepageController.php');
+    require_once('C:\xampp\htdocs\freshleaf_website\mvc\controller\ProductController.php');
+    require_once('C:\xampp\htdocs\freshleaf_website\mvc\controller\HomepageController.php');
     $bestSaleProduct = $data['bestSaleProduct'];
 ?>
 
@@ -418,7 +418,7 @@
 }
 </style>
 <body>
-    <?php include 'C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\views\layout\header.php' ?>
+    <?php include 'C:\xampp\htdocs\freshleaf_website\mvc\views\layout\header.php' ?>
     
 
     <div class="banner-homepage">

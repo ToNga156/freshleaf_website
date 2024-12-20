@@ -1,5 +1,5 @@
 <?php
-    require_once('C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\controller\ProductController.php');
+    require_once('C:\xampp\htdocs\freshleaf_website\mvc\controller\ProductController.php');
     $product = $data['product'];
     $relatedProducts = $data['categories'];
 ?>
