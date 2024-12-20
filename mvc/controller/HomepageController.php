@@ -5,7 +5,7 @@
     class HomepageController extends Controller {
         public $ProductModel;
 
-        public function index() {
+        public function Default() {
             $productModel = new ProductModel();
             $bestSaleProduct = $productModel->getBestSaleProduct();
 

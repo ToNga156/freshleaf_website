@@ -28,26 +28,16 @@ class ProductModel extends Db{
 
     // ToNga
     public function getBestSaleProduct() {
-        // Câu truy vấn SQL lấy 10 sản phẩm bán chạy nhất
-        $sql ="SELECT Products.*, SUM(order_detail.quantity) AS total_quantity 
-        FROM Products 
-        JOIN order_detail 
-        ON products.product_id = order_detail.product_id 
-        GROUP BY Products.product_id 
-        GROUP BY total_quantity DESC 
-        LIMIT 10";
-        // Thực thi truy vấn
+        $sql = "
+            select *, sum(order_detail.quantity) as total_quantity from products
+            join order_detail on products.product_id = order_detail.product_id
+            group by order_detail.product_id
+            order by total_quantity desc 
+            limit 10;
+        ";
         $result = mysqli_query($this->conn, $sql);
-    
-        // Kiểm tra nếu truy vấn thất bại
-        if (!$result) {
-            die("Query failed: " . mysqli_error($this->conn));
-        }
-    
-        // Trả về tất cả các kết quả dưới dạng mảng liên kết
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
-    
 }
 
 ?>
