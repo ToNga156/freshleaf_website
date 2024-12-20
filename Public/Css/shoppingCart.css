@@ -31,7 +31,7 @@ h1 {
     border-radius: 5px;
 }
 
-.cart-content,thead, tbody {
+.cart-content {
     margin-bottom: 20px;
     border: 2px solid gray;
 }
@@ -103,9 +103,9 @@ h1 {
     border: 2px solid gray;
 }
 .cart-summary h2 {
-    text-decoration: none; /* Loại bỏ gạch chân mặc định */
-    border-bottom: 2px solid #00a650; /* Thêm đường kẻ dưới với màu sắc tùy chọn */ /* Giới hạn độ dài đường kẻ theo nội dung */
-    padding-bottom: 5px; /* Khoảng cách giữa chữ và đường kẻ */
+    text-decoration: none; 
+    border-bottom: 2px solid gray; 
+    padding-bottom: 5px;
 }
 
 .summary-content p {
@@ -125,7 +125,7 @@ h1 {
     background-color: #00a650;
     border: none;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 2px;
     font-size: 1em;
 }
 .sc1, .sc2{
