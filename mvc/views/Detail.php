@@ -15,8 +15,8 @@
 </head>
 
 <body>
-    <header><?php include('C:/xampp/htdocs/freshleaf_website/mvc/views/layout/header.php') ?></header>
-    
+    <header><?php include('C:/xampp/htdocs/freshleaf_website/mvc/views/layout/header.php') ?></header>  
+       
     <div class="container">
         <div class="product-detail">
             <div class="product-image">
@@ -31,10 +31,11 @@
             
             
                 <div class="quantity">
-                    <button type="button" class="quantity-btn" id="increase">+</button>
-                    <input type="number" value="1" min="1" id="quantity" class="quantity-input">
-                    <button type="button" class="quantity-btn" id="decrease">-</button>
+                    <button type="button" class="quantity-btn decrease">-</button>
+                    <span class="quantity-value" data-price="30">1</span>
+                    <button type="button" class="quantity-btn increase">+</button>
                 </div>
+
             </div>
         
             <div class="description">
@@ -54,7 +55,7 @@
                 <p><?php echo htmlspecialchars($product['product_name']); ?></p>
                 <div class="same-product">
                     <p class="price"><?php echo htmlspecialchars($product['price']); ?></p>
-                    <button>Chi tiết</button>
+                    <button><a href="<?php echo htmlspecialchars($product['product_id']); ?>">Chi tiết</a></button>
                 </div>
             </div>
         <?php endforeach; ?>

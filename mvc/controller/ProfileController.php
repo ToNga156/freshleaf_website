@@ -63,9 +63,11 @@ class ProfileController extends Controller {
                     $fileName = basename($avatar['name']); 
                     $targetFilePath = $targetDir . $fileName;
 
-                    if (move_uploaded_file($avatar['tmp_name'], $targetFilePath)) {
+                    if (move_uploaded_file($avatar['tmp_name'], $targetFilePath)) {  // Khởi tạo session
+                        $_SESSION['user_avatar'] = $fileName;
                         return['success' => true, 'fileName' => $fileName]; 
-                    } return['success' => false, 'message' => "Không thể lưu ảnh"];
+                    } 
+                    return['success' => false, 'message' => "Không thể lưu ảnh"];
                 }    
                 return ['success' => false, 'message' => "Chỉ chấp nhận file ảnh JPG, PNG, GIF"];
             }

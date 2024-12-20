@@ -35,7 +35,7 @@ class ProfileModel extends Db{
             if ($stmt === false) {
                 die('Chuẩn bị câu truy vấn bị lỗi: ' . $this->conn->error);
             }
-            $stmt->bind_param("ssssi", $username, $address, $email, $phone, $userId);
+            $stmt->bind_param("sssssi", $username, $address, $email, $phone,$avatar, $userId);
         }
         $result = $stmt->execute();
         if (!$result) {

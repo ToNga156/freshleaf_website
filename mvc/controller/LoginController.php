@@ -38,7 +38,7 @@ class LoginController extends Controller {
                     if ($userInfo['role'] === 'Admin') {
                         echo "Đây là Homepage Admin";
                     } else {
-                        header("Location: http://localhost/freshleaf_website/homepage/index");
+                        header("Location: ./homepage");
                     }
                     exit();
                 }
