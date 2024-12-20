@@ -54,7 +54,7 @@
                 <p><?php echo htmlspecialchars($product['product_name']); ?></p>
                 <div class="same-product">
                     <p class="price"><?php echo htmlspecialchars($product['price']); ?></p>
-                    <button>Chi tiết</button>
+                    <button><a href="<?php echo htmlspecialchars($product['product_id']) ?>">Chi tiết</a></button>
                 </div>
             </div>
         <?php endforeach; ?>

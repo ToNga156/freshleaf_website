@@ -30,7 +30,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <div class="middle-header">
                 <div class="info-LogoNameWeb">
                     <a href="http://localhost/freshleaf_website/homepage/index">
-                        <img src="../../freshleaf_website/public/images/logo_website.png" alt="">
+                        <img src="/freshleaf_website/public/images/logo_website.png" alt="">
                     </a>
                     <a style="text-decoration: none;" href="http://localhost/freshleaf_website/homepage/index">
                         <h1>FreshLeaf</h1>
@@ -67,7 +67,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <?php if (isset($_SESSION['user_name'])): ?>
                     <div class="info-Account">
                         <a href="http://localhost/freshleaf_website/profile/index">
-                            <img src="<?php echo isset($_SESSION['avatar']) ? htmlspecialchars($_SESSION['avatar']) : 'avatar-default.jpg'; ?>" alt="Avt">
+                            <img src="/Public/Image/<?php echo isset($_SESSION['avatar']) ? htmlspecialchars($_SESSION['avatar']) : 'avatar-default.jpg'; ?>" alt="Avt">
                         </a>
                         <div>
                             <p><?php echo htmlspecialchars($_SESSION['user_name']); ?></p>
@@ -112,7 +112,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
                 <div class="icon-shopping-cart">
                     <p class="quantity-icon-shopping-cart">0</p>
-                    <ion-icon name="cart-outline"></ion-icon>
+                    <a href="#"><ion-icon name="cart-outline"></ion-icon></a>
                 </div>
             </div>
         </div>

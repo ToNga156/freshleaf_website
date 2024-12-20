@@ -64,6 +64,7 @@ class ProfileController extends Controller {
                     $targetFilePath = $targetDir . $fileName;
 
                     if (move_uploaded_file($avatar['tmp_name'], $targetFilePath)) {
+                        $_SESSION['avatar'] = $fileName;
                         return['success' => true, 'fileName' => $fileName]; 
                     } return['success' => false, 'message' => "Không thể lưu ảnh"];
                 }    
