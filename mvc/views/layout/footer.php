@@ -16,7 +16,7 @@
         <div class="footer-container">
             <div class="intro-footer">
                 <div class="intro-footer-detail">
-                    <img class="logoWebsite-footer" src="../../freshleaf_website/public/images/logo_website.png" alt="">
+                    <img class="logoWebsite-footer" src="/freshleaf_website/public/images/logo_website.png" alt="">
                     <h1 style="margin: 0; font-family: 'Calistoga'; font-size: 30px; font-weight: lighter; color: #009C52;">FreshLeaf</h1>
                 </div>
 
