@@ -1,7 +1,7 @@
 <?php
-require_once 'C:\xampp\htdocs\freshleaf_website\mvc\core\Db.php';
-require_once 'C:\xampp\htdocs\freshleaf_website\mvc\controller\ProfileController.php';
-include 'C:\xampp\htdocs\freshleaf_website\mvc\views\layout\header.php';
+require_once 'C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\core\Db.php';
+require_once 'C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\controller\ProfileController.php';
+include 'C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\views\layout\header.php';
 
 if (!isset($_SESSION['user_id'])) {
     header('Location: ../../Login.php');

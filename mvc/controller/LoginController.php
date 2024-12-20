@@ -3,7 +3,7 @@ error_reporting(E_ALL);  // Báo cáo tất cả lỗi
 ini_set('display_errors', 1);  // Hiển thị lỗi lên trình duyệt
 
 session_start(); // Đảm bảo session đã được khởi tạo
-require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
+require_once('C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\core\Controller.php');
 
 class LoginController extends Controller {
 

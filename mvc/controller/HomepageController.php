@@ -1,11 +1,11 @@
 <?php
-    require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
-    require_once('C:\xampp\htdocs\freshleaf_website\mvc\model\ProductModel.php');
+    require_once('C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\core\Controller.php');
+    require_once('C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\model\ProductModel.php');
 
     class HomepageController extends Controller {
         public $ProductModel;
 
-        public function index() {
+        public function Default() {
             $productModel = new ProductModel();
             $bestSaleProduct = $productModel->getBestSaleProduct();
 
@@ -14,7 +14,7 @@
                 die("Sản phẩm không tồn tại");
             }
 
-            $this->view("Homepage", ["bestSaleProduct" => $bestSaleProduct]);
+            $this->view("homepage", ["bestSaleProduct" => $bestSaleProduct]);
         }
     }
 ?>

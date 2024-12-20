@@ -131,7 +131,7 @@
             </div>
             <button class="btt_signin" type="submit">Sign Up</button>
             <div class="footer_register">
-                Already have an account? <a href="C:\xampp\htdocs\MY_PHP\freshleaf_website\mvc\views\Login.php">Log in</a>
+                Already have an account? <a href="./Login.php">Log in</a>
             </div>
         </form>
     </div>
