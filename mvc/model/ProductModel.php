@@ -1,5 +1,5 @@
 <?php
-require_once('C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\core\Db.php');
+require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Db.php');
 
 class ProductModel extends Db{
     public function getAllProduct(){
@@ -13,7 +13,12 @@ class ProductModel extends Db{
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_assoc(); // Trả về một sản phẩm
+        
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc();
+        } else {
+            return null;
+        }
     }
     public function getProductCategory($category_id) {
         // Prepare the SQL statement

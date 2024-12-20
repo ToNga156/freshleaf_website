@@ -1,7 +1,7 @@
 <?php
-require_once 'C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\core\Db.php';
-require_once 'C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\controller\ProfileController.php';
-include 'C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\views\layout\header.php';
+require_once 'C:\xampp\htdocs\freshleaf_website\mvc\core\Db.php';
+require_once 'C:\xampp\htdocs\freshleaf_website\mvc\controller\ProfileController.php';
+include 'C:\xampp\htdocs\freshleaf_website\mvc\views\layout\header.php';
 
 if (!isset($_SESSION['user_id'])) {
     header('Location: ../../Login.php');
@@ -26,7 +26,7 @@ $controller->handleChangePassword();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/freshleaf_website/Public/Css/Profile.css">
+    <link rel="stylesheet" href="/freshleaf_website/Public/Css/Profile.css?v=<?php echo time();?>">
 </head>
 <body>
 <div class="container_profile">

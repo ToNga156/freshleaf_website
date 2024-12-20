@@ -1,9 +1,9 @@
 <?php
-require_once('C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\core\Controller.php');
+require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
 
 class RegisterController extends Controller {
 
-    public function Default() {
+    public function index() {
         if ($_SERVER['REQUEST_METHOD']=='POST'){
             $username = isset($_POST['username']) ? trim($_POST['username']) : '';
             $email = isset($_POST['email']) ? trim($_POST['email']) : '';

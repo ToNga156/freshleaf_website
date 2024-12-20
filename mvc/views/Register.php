@@ -6,98 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/freshleaf_website/public/css/register.css?v=<?php echo time();?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            background-image: url("./public/image/background_regis_login.jpg");
-            background-size: cover;
-            background-position: center center; 
-        }
-
-        .container_register {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 500px;
-            text-align: center;
-            margin-top: 100px;
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-        .container_register h2 {
-            margin-bottom: 20px;
-            font-size: 30px;
-            font-weight: bold;
-        }
-        .container_register input[type="text"],
-        .container_register input[type="email"],
-        .container_register input[type="password"] {
-            width: 90%;
-            padding: 10px;
-            margin: 10px;
-            margin-left: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;   
-            font-size: 18px;
-        }
-        .container_register .checkbox_register {
-            display: flex;
-            align-items: center;
-            margin: 10px 0;
-        }
-        .container_register .checkbox_register input {
-            margin-right: 10px;
-        }
-        .container_register .checkbox_register label {
-            font-size: 14px;
-        }
-        .container_register button {
-            width: 60%;
-            padding: 10px;
-            margin-top: 10px;
-            background-color: #00b300;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease-out;
-        }
-        .container_register button:hover {
-            transform: scale(1.05);
-            background-color: #009900;
-        }
-        .container_register .footer_register {
-            margin-top: 30px;
-            font-size: 18px;
-        }
-        .container_register .footer_register a {
-            color: #000;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .container_register .footer_register a:hover {
-            color: blue;
-            text-decoration: none;
-        }
-        .input_register {
-            position: relative;
-        }
-        .input_register .bi-eye-slash, 
-        .input_register .bi-eye { 
-            position: absolute; 
-            right: 30px; top: 50%; 
-            transform: translateY(-50%); 
-            cursor: pointer; 
-        } 
-        .input_register .hidden { 
-            display: none; 
-        }
-    </style>
 </head>
 <body>
     <div class="container_register">
@@ -131,7 +41,7 @@
             </div>
             <button class="btt_signin" type="submit">Sign Up</button>
             <div class="footer_register">
-                Already have an account? <a href="./Login.php">Log in</a>
+                Already have an account? <a href="http://localhost/freshleaf_website/login">Log in</a>
             </div>
         </form>
     </div>

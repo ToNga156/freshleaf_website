@@ -1,13 +1,12 @@
 <?php
-require_once('C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\core\Db.php');
-
+require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Db.php');
 
 class LoginModel extends Db {
 
     // Phương thức kiểm tra thông tin đăng nhập
     public function getUserInfo($email) {
         // Truy vấn SQL kiểm tra người dùng với email và mật khẩu
-        $checkAccount = "SELECT * FROM users WHERE email = ?";
+        $checkAccount = "SELECT user_id, user_name, email, password, avatar role FROM users WHERE email = ?";
         
         // Chuẩn bị câu truy vấn
         $stmt = $this->conn->prepare($checkAccount);
