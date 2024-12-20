@@ -1,6 +1,7 @@
 <?php
 require_once('C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\core\Db.php');
 
+
 class LoginModel extends Db {
 
     // Phương thức kiểm tra thông tin đăng nhập

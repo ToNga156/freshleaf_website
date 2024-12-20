@@ -26,7 +26,10 @@ class LoginController extends Controller {
                     $_SESSION['user_name'] = $userInfo['user_name'];
                     $_SESSION['email'] = $userInfo['email'];
 
-                    // Chuyển hướng đến trang homepage hoặc dashboard
+                    if ($userInfo['role'] == 'Admin') {
+                        header('Location: http://localhost/freshleaf_website/');
+                    }
+                    // Check role để chuyển hướng đến trang homepage hoặc dashboard
                     echo 'đăng nhập thành công';
                     exit();
                 }
