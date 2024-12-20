@@ -543,6 +543,6 @@
         </div>
     </div>
 
-    <footer><?php include('C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\views\layout\footer.php')?></footer>
+    <footer><?php include('C:/xampp/htdocs/freshleaf_website/mvc/views/layout/footer.php')?></footer>
 </body>
 </html>
