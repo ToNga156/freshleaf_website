@@ -9,7 +9,7 @@ class ProfileController extends Controller {
         $this->model = new ProfileModel();    
     }
     
-    public function Default() {
+    public function index() {
         if (!isset($_SESSION['user_id'])) {
             header("Location: login.php");
             exit();
@@ -36,7 +36,7 @@ class ProfileController extends Controller {
         $avatar = $userData['avatar'];
         if(!empty($_FILES['avatar']['name'])){
             $avatarResult = $this->uploadAvatar();
-            if($avatarResult['succsess']){
+            if($avatarResult['success']){
                 $avatar = $avatarResult['fileName'];
             }else{
                 return $avatarResult['message'];

@@ -8,145 +8,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cải Thìa - Organic</title>
-    <!-- Nhúng file CSS -->
-    <link rel="stylesheet" href="../../public/css/header.css">
-    <link rel="stylesheet" href="assets/style.css">
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="/freshleaf_website/public/css/header.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../../public/css/detail.css?v=<?php echo time();?>">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
 </head>
-<style>
-body {
-    background-color: white;
-    font-family: "Quicksand";
-    margin: 0;
-    padding: 0;
-}
-.product-detail {
-    display: flex;
-    padding: 20px;
-    background-color: white;
-    justify-content: space-between;
-    gap: 30px;
-    margin: 113px auto 20px ;
-    border-radius: 10px;
-    align-items: center;
 
-}
-.description{
-    flex: 0 0 45%;
-}
-.related-products{
-    display: flex;
-    justify-content: space-between;
-
-}
-.product-card {
-    border: 1px solid #ddd; /* Viền nhẹ */
-    border-radius: 10px; /* Bo tròn góc */
-    width: 20%;
-    text-align: center;
-    overflow: hidden; /* Đảm bảo nội dung không tràn */
-    background-color: #fff; /* Màu nền trắng */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
-    margin: 10px; 
-}
-
-.product-card img {
-    width: 100%; /* Ảnh full chiều rộng */
-    height: 150px; /* Chiều cao cố định */
-    object-fit: cover; /* Giữ tỉ lệ ảnh, cắt phần dư */
-    border-bottom: 1px solid #ddd; /* Viền phân cách */
-}
-
-.product-card h3 {
-    font-size: 18px;
-    color: #333;
-    margin: 10px 0;
-}
-
-.product-card .price {
-    color:rgb(208, 24, 24); /* Màu xanh cho giá */
-    font-weight: bold;
-    font-size: 16px;
-    margin: 5px 0;
-}
-
-.product-card:hover {
-    transform: translateY(-10px); /* Nổi lên khi hover */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Tăng đổ bóng */
-}
-.product-image img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.quantity {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.quantity-btn {
-    background-color: #4CAF50; /* Màu nền */
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 40%;
-    transition: background-color 0.3s ease;
-}
-
-.quantity-btn:hover {
-    background-color: #45a049; /* Màu khi hover */
-}
-
-.quantity-input {
-    width: 50px;
-    text-align: center;
-    font-size: 18px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 5px;
-}
-.quantity-input::-webkit-outer-spin-button,
-.quantity-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.quantity-input[type="number"] {
-    -moz-appearance: textfield; /* Ẩn nút spinner trên Firefox */
-    appearance: textfield; /* Ẩn nút spinner trên các trình duyệt khác */
-}
-.product-content{
-    width: 500px;
-}
-.same-product{
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-.same-product button{
-    border-radius: 20px;
-    width: 30%;
-    background-color: white;
-}
-.same-product button:hover{
-    background-color: #45a049;
-}
-.product-card img{
-    width: 100%;
-    object-fit: contain;
-}
-.related-title{
-    text-align: center;
-    font-weight: bold;
-}
-</style>
 <body>
-    <?php include 'C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\views\layout\header.php' ?>
+    <header><?php include('C:/xampp/htdocs/freshleaf_website/mvc/views/layout/header.php') ?></header>
     
     <div class="container">
         <div class="product-detail">
@@ -192,7 +61,7 @@ body {
     </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>  
-<script src="../../public/js/detail.js"></script>
-<?php include 'C:\xampp\htdocs\ProjectWeb-TV\freshleaf_website\mvc\views\layout\footer.php' ?>
+    <script src="/freshleaf_website/public/js/detail.js"></script>
+    <?php include 'C:\xampp\htdocs\freshleaf_website\mvc\views\layout\footer.php' ?>
 </body>
 </html>

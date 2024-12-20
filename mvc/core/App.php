@@ -2,7 +2,7 @@
 <?php
 class App {
     protected $controller = 'HomepageController';
-    protected $method = 'Default';
+    protected $method = 'index';
     protected $params = [];
 
     public function __construct() {

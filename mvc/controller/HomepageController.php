@@ -5,7 +5,7 @@
     class HomepageController extends Controller {
         public $ProductModel;
 
-        public function Default() {
+        public function index() {
             $productModel = new ProductModel();
             $bestSaleProduct = $productModel->getBestSaleProduct();
 
@@ -14,7 +14,7 @@
                 die("Sản phẩm không tồn tại");
             }
 
-            $this->view("homepage", ["bestSaleProduct" => $bestSaleProduct]);
+            $this->view("Homepage", ["bestSaleProduct" => $bestSaleProduct]);
         }
     }
 ?>
