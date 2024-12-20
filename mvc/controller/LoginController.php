@@ -1,8 +1,8 @@
 <?php
-error_reporting(E_ALL);  // Báo cáo tất cả lỗi
-ini_set('display_errors', 1);  // Hiển thị lỗi lên trình duyệt
+error_reporting(E_ALL);
+ini_set('display_errors', 1); 
 
-session_start(); // Đảm bảo session đã được khởi tạo
+session_start();
 require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
 
 class LoginController extends Controller {

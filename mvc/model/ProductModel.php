@@ -1,5 +1,6 @@
 <?php
 require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Db.php');
+
 class ProductModel extends Db{
     public function getAllProduct(){
         $sql = "SELECT * FROM Products";

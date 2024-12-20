@@ -202,6 +202,10 @@ body {
     margin: 0; 
     padding: 0;
 }
+.bottom-header .navigate-header li a {
+    color: white;
+    text-decoration: none;
+}
 
 .bottom-header .search-bar-container {
     position: relative;

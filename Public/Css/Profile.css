@@ -10,7 +10,7 @@ body {
 }
 .sidebar {
     width: 20%;
-    background-color:rgb(73, 212, 96);
+    background-color: #67D463;
     padding: 20px;
     border-radius: 10px;
 }
@@ -92,7 +92,7 @@ body {
 }
 .form-userAvatar img {
     position: absolute;
-    top: 15%;
+    top: 12%;
     margin-left: 70%;
     border-radius: 50%;
     width: 150px;

@@ -99,10 +99,10 @@ if (session_status() === PHP_SESSION_NONE) {
     
             <div class="bottom-header">
                 <ul class="navigate-header">
-                    <li>Home</li>
-                    <li>Products</li>
-                    <li>About us</li>
-                    <li>Contact</li>
+                    <li><a href="http://localhost/freshleaf_website/Homepage/index">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
 
                 <div class="search-bar-container">
