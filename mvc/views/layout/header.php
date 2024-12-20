@@ -1,3 +1,8 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,8 +29,12 @@
     
             <div class="middle-header">
                 <div class="info-LogoNameWeb">
-                    <img src="../../freshleaf_website/public/images/logo_website.png" alt="">
-                    <h1>FreshLeaf</h1>
+                    <a href="http://localhost/freshleaf_website/homepage/index">
+                        <img src="../../freshleaf_website/public/images/logo_website.png" alt="">
+                    </a>
+                    <a style="text-decoration: none;" href="http://localhost/freshleaf_website/homepage/index">
+                        <h1>FreshLeaf</h1>
+                    </a>
                 </div>
 
                 <div class="info-ContactWeb">
@@ -54,13 +63,38 @@
                     </div>
                 </div>
 
-                <div class="info-Account">
-                    <img src="../../freshleaf_website/public/images/avatar-default.jpg" alt="Avatar mặc định">
+
+                <?php if (isset($_SESSION['user_name'])): ?>
+                    <div class="info-Account">
+                        <a href="http://localhost/freshleaf_website/profile/index">
+                            <img src="<?php echo isset($_SESSION['avatar']) ? htmlspecialchars($_SESSION['avatar']) : 'avatar-default.jpg'; ?>" alt="Avt">
+                        </a>
+                        <div>
+                            <p><?php echo htmlspecialchars($_SESSION['user_name']); ?></p>
+                            <a href="http://localhost/freshleaf_website/logout">Đăng xuất</a>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <div class="info-Account">
+                        <a href="http://localhost/freshleaf_website/profile/index">
+                            <img src="../../freshleaf_website/public/images/avatar-default.jpg" alt="Avatar mặc định">
+                        </a>
+                        <div>
+                            <p>Tài khoản</p>
+                            <a href="http://localhost/freshleaf_website/Register">Đăng nhập</a>
+                        </div>
+                    </div>
+                <?php endif; ?>
+
+                <!-- <div class="info-Account">
+                    <a href="http://localhost/freshleaf_website/profile/index">
+                        <img src="../../freshleaf_website/public/images/avatar-default.jpg" alt="Avatar mặc định">
+                    </a>
                     <div>
                         <p>Tài khoản</p>
                         <a href="http://localhost/freshleaf_website/Register">Đăng nhập</a>
                     </div>
-                </div>
+                </div> -->
             </div>
     
             <div class="bottom-header">

@@ -12,13 +12,13 @@ class ProductController extends Controller{
     public function detail($id) {
         $productModel = new ProductModel();
         $product = $productModel->getProductById($id);
-        $relatedProducts= $productModel->getProductCategory($product['category_id']);
-
+        
         // Kiểm tra sản phẩm tồn tại
         if (!$product) {
             die("Sản phẩm không tồn tại");
         }
-
+        
+        $relatedProducts= $productModel->getProductCategory($product['category_id']);
         $this->view("Detail", ["product" => $product, "categories" => $relatedProducts]);
     }
 }

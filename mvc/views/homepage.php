@@ -75,17 +75,18 @@
 
             <div class="bestSale-detail">
                 <?php foreach ($bestSaleProduct as $product): ?>
-                    <a href="#" class="product-card">
-                        <img src="<?php echo htmlspecialchars($product['product_image']);?>" alt="<?php echo htmlspecialchars($product['product_name']);?>">
-                        <h3><?php echo htmlspecialchars($product['product_name']);?></h3>
+                    <a href="http://localhost/freshleaf_website/product/detail/<?php echo htmlspecialchars($product['product_id']); ?>" class="product-card">
+                        <img src="<?php echo htmlspecialchars($product['product_image']); ?>" alt="<?php echo htmlspecialchars($product['product_name']); ?>">
+                        <h3><?php echo htmlspecialchars($product['product_name']); ?></h3>
                         <span class="label">Bán chạy</span>
                         <div>
-                            <p class="price"><?php echo htmlspecialchars($product['price']);?>đ</p>
+                            <p class="price"><?php echo htmlspecialchars($product['price']); ?>đ</p>
                             <button class="add-button">+</button>
                         </div>
                     </a>
-                <?php endforeach;?>
+                <?php endforeach; ?>
             </div>
+
         </div>
     </div>
 

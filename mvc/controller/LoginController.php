@@ -7,7 +7,7 @@ require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
 
 class LoginController extends Controller {
 
-    public function Default() {
+    public function index() {
         // Kiểm tra xem yêu cầu là POST
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Lấy dữ liệu từ form
@@ -25,12 +25,21 @@ class LoginController extends Controller {
                     $_SESSION['user_id'] = $userInfo['user_id'];
                     $_SESSION['user_name'] = $userInfo['user_name'];
                     $_SESSION['email'] = $userInfo['email'];
-
-                    if ($userInfo['role'] == 'Admin') {
-                        header('Location: http://localhost/freshleaf_website/');
+                    $_SESSION['role'] = $userInfo['role'];
+                    $_SESSION['avatar'] = $userInfo['avatar'];
+                
+                    if (isset($_SESSION['user_name'])) {
+                        echo "Session user_name: " . $_SESSION['user_name'];
+                    } else {
+                        echo "Session không tồn tại.";
                     }
-                    // Check role để chuyển hướng đến trang homepage hoặc dashboard
-                    echo 'đăng nhập thành công';
+
+                    // Điều hướng dựa trên vai trò
+                    if ($userInfo['role'] === 'Admin') {
+                        echo "Đây là Homepage Admin";
+                    } else {
+                        header("Location: http://localhost/freshleaf_website/homepage/index");
+                    }
                     exit();
                 }
                 else {
