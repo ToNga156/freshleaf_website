@@ -36,7 +36,7 @@ class ProfileController extends Controller {
         $avatar = $userData['avatar'];
         if(!empty($_FILES['avatar']['name'])){
             $avatarResult = $this->uploadAvatar();
-            if($avatarResult['succsess']){
+            if($avatarResult['success']){
                 $avatar = $avatarResult['fileName'];
             }else{
                 return $avatarResult['message'];
@@ -48,13 +48,14 @@ class ProfileController extends Controller {
     }
 
     public function uploadAvatar(){
+        $avatar = $_FILES['avatar'];
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['avatar'])) {
-            $avatar = $_FILES['avatar'];
 
             if ($avatar['error'] === UPLOAD_ERR_OK) {
                 $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
                 if (in_array($avatar['type'], $allowedTypes)) {
-                    $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/Public/Image/'; 
+                    $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/Public/images/'; 
 
                     if (!is_dir($targetDir)) { 
                         mkdir($targetDir, 0777, true); 

@@ -30,7 +30,7 @@ $controller->handleChangePassword();
 </head>
 <body>
 <div class="container_profile">
-        <div class="sidebar">
+        <div class="sidebar" style="height: 75%;">
             <img alt="User Avatar" height="50" src="/Public/Image/<?php echo htmlspecialchars($userData['avatar']); ?>" width="50"/>
             <h3><?php echo $userData['user_name']; ?></h3>
             <p><?php echo $userData['email']; ?></p>
@@ -40,7 +40,7 @@ $controller->handleChangePassword();
                 <a href="#"><i class="fas fa-shopping-cart"></i>My Shopping Cart</a>
             </div>
         </div>
-        <div class="container_infor">
+        <div class="container_infor" style="margin-left: 70%; width: 700%;">
             <form action="" method="POST" enctype="multipart/form-data">
             <div class="container_inforUser">
                 <div class="section-title">My Profile</div>

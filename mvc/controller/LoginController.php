@@ -7,7 +7,7 @@ require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
 
 class LoginController extends Controller {
 
-    public function Default() {
+    public function index() {
         // Kiểm tra xem yêu cầu là POST
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Lấy dữ liệu từ form
