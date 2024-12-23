@@ -26,12 +26,12 @@ $controller->handleChangePassword();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/freshleaf_website/Public/Css/Profile.css">
+    <link rel="stylesheet" href="/freshleaf_website/Public/Css/Profile.css?v=<?php echo time();?>">
 </head>
 <body>
 <div class="container_profile">
         <div class="sidebar" style="height: 75%;">
-            <img alt="User Avatar" height="50" src="/Public/Image/<?php echo htmlspecialchars($userData['avatar']); ?>" width="50"/>
+            <img alt="User Avatar" height="50" src="/Public/images/<?php echo htmlspecialchars($userData['avatar']); ?>" width="50"/>
             <h3><?php echo $userData['user_name']; ?></h3>
             <p><?php echo $userData['email']; ?></p>
             <div class="menu-profile">
@@ -62,7 +62,7 @@ $controller->handleChangePassword();
                 </div>
                 <div class="form-userAvatar">
                     <div class="uploadImage">Choose Image</div>
-                    <img id="avatarPreview" alt="Profile image" src="/Public/Image/<?php echo htmlspecialchars($userData['avatar']); ?>" />
+                    <img id="avatarPreview" alt="Profile image" src="/Public/images/<?php echo htmlspecialchars($userData['avatar']); ?>" />
                     <input id="chooseImage" type="file" name="avatar" accept="Image/*" onchange="previewAvatar(event)" />
                     
                 </div>
