@@ -1,6 +1,6 @@
 <?php
 require_once 'C:\xampp\htdocs\freshleaf_website\mvc\core\Db.php';
-require_once 'C:\xampp\htdocs\freshleaf_website\mvc\controller\ProfileController.php';
+require_once 'C:\xampp\htdocs\freshleaf_website\mvc\controller\UserController.php';
 include 'C:\xampp\htdocs\freshleaf_website\mvc\views\layout\header.php';
 
 if (!isset($_SESSION['user_id'])) {
@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 global $conn;
-$controller = new ProfileController($conn);
+$controller = new UserController($conn);
 $userId = $_SESSION['user_id'];
 $userData = $controller->getProfile($userId);
 $controller->handleChangePassword();
