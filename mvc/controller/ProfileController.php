@@ -44,6 +44,7 @@ class ProfileController extends Controller {
         }
 
         $result = $this->model->updateUser($userId, $username, $address, $email, $phone, $avatar);
+        $_SESSION['user_name'] = $username;
         return $result ? "Cập nhật thành công!" : "Cập nhật thất bại!";
     }
 
@@ -66,7 +67,8 @@ class ProfileController extends Controller {
                     if (move_uploaded_file($avatar['tmp_name'], $targetFilePath)) {
                         $_SESSION['avatar'] = $fileName;
                         return['success' => true, 'fileName' => $fileName]; 
-                    } return['success' => false, 'message' => "Không thể lưu ảnh"];
+                    } 
+                    return['success' => false, 'message' => "Không thể lưu ảnh"];
                 }    
                 return ['success' => false, 'message' => "Chỉ chấp nhận file ảnh JPG, PNG, GIF"];
             }

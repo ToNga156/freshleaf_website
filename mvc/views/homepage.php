@@ -75,7 +75,7 @@
 
             <div class="bestSale-detail">
                 <?php foreach ($bestSaleProduct as $product): ?>
-                    <a href="http://localhost/freshleaf_website/product/detail/<?php echo htmlspecialchars($product['product_id']); ?>" class="product-card">
+                    <a href="/freshleaf_website/product/detail/<?php echo htmlspecialchars($product['product_id']); ?>" class="product-card">
                         <img src="<?php echo htmlspecialchars($product['product_image']); ?>" alt="<?php echo htmlspecialchars($product['product_name']); ?>">
                         <h3><?php echo htmlspecialchars($product['product_name']); ?></h3>
                         <span class="label">Bán chạy</span>

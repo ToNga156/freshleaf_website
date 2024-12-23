@@ -17,7 +17,6 @@ if (session_status() === PHP_SESSION_NONE) {
 
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Calistoga&family=Cormorant+Upright:wght@300;400;500;600;700&family=Epilogue:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <div class="header">
         <div class="header-container">
@@ -71,13 +70,13 @@ if (session_status() === PHP_SESSION_NONE) {
                         </a>
                         <div>
                             <p><?php echo htmlspecialchars($_SESSION['user_name']); ?></p>
-                            <a href="http://localhost/freshleaf_website/logout">Đăng xuất</a>
+                            <a href="\freshleaf_website\mvc\controller\LogoutController.php">Đăng xuất</a>
                         </div>
                     </div>
                 <?php else: ?>
                     <div class="info-Account">
-                        <a href="http://localhost/freshleaf_website/profile/index">
-                            <img src="../../freshleaf_website/public/images/avatar-default.jpg" alt="Avatar mặc định">
+                        <a href="/freshleaf_website/profile">
+                            <img src="/freshleaf_website/public/images/avatar-default.jpg" alt="Avatar mặc định">
                         </a>
                         <div>
                             <p>Tài khoản</p>
@@ -92,14 +91,14 @@ if (session_status() === PHP_SESSION_NONE) {
                     </a>
                     <div>
                         <p>Tài khoản</p>
-                        <a href="http://localhost/freshleaf_website/Register">Đăng nhập</a>
+                        <a href="./Login">Đăng nhập</a>
                     </div>
                 </div> -->
             </div>
     
             <div class="bottom-header">
                 <ul class="navigate-header">
-                    <li><a href="http://localhost/freshleaf_website/Homepage/index">Home</a></li>
+                    <li><a href="/freshleaf_website">Home</a></li>
                     <li><a href="#">Products</a></li>
                     <li><a href="#">About us</a></li>
                     <li><a href="#">Contact</a></li>

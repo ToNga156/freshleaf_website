@@ -28,6 +28,194 @@ $controller->handleChangePassword();
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/freshleaf_website/Public/Css/Profile.css?v=<?php echo time();?>">
 </head>
+<style>
+    body {
+    font-family: "Quicksand", serif;
+    margin: 10px;
+    padding: 10px;
+}
+.container_profile {
+    margin-top: 100px;
+    display: flex;
+    padding: 20px;
+}
+.sidebar {
+    width: 20%;
+    background-color:rgb(73, 212, 96);
+    padding: 20px;
+    border-radius: 10px;
+}
+.sidebar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.sidebar h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+}
+.sidebar p {
+    margin: 0;
+    color: #666;
+}
+.sidebar .menu-profile {
+    margin-top: 20px;
+}
+.sidebar .menu-profile a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #333;
+    padding: 10px 0;
+    font-size: 16px;
+}
+.sidebar .menu-profile a:hover {
+    color: white;
+}
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.container_infor {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 90%;
+    margin: 20px ;
+    padding: 20px;
+    padding-right: 30px;
+    position: relative;
+}
+.container_inforUser {
+    display: flex;
+    flex-direction: column;
+    border: 1px grey solid;
+    border-radius: 10px;
+    padding: 10px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+.form-group input {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.form-group .save-changes {
+    width: 14%;
+    padding: 5px;
+    font-size: 15px;
+    border: 2px solid #28a745;
+    border-radius: 20px;
+    background-color: #28a745;
+    color:white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.form-userAvatar img {
+    position: absolute;
+    top: 15%;
+    margin-left: 70%;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    border: 1px grey solid;
+}
+.form-userAvatar input[type="file"] {
+    display: none;
+}
+.form-userAvatar .uploadImage {
+    position: absolute;
+    top: 36%;
+    margin-left: 71%;
+    width: 10%;
+    padding: 10px;
+    border: 2px solid #28a745;
+    border-radius: 20px;
+    color: #28a745;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.1s ease-out;
+}
+.form-userAvatar .uploadImage:hover {
+    transform: scale(1.01);
+}
+.container_changePassword {
+    display: flex;
+    flex-direction: column;
+    border: 1px grey solid;
+    border-radius: 10px;
+    padding: 20px;
+}
+.form-change label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+.form-change input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.current_password {
+    position: relative;
+}
+.current_password input {
+    width:90%;
+}
+.changes-password {
+    display: flex;
+    gap: 200px;
+}
+.form-changePass {
+    width: 400px;
+    margin-top: 15px;
+}
+.changes-password .password-container input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.password-container {
+    position: relative;
+}
+.form-change .change-password {
+    margin-top: 10px;
+    width: 15%;
+    font-size: 15px;
+    padding: 5px;
+    border: 2px solid #28a745;
+    border-radius: 20px;
+    background-color: #28a745;
+    color:white;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+.container_changePassword .current_password .password-eye {
+   position: absolute;
+   left: 88%;
+   top: 11px;
+}
+.password-container .password-eye {
+    position: absolute;
+    top: 11px;
+    left: 95%;
+}
+</style>
 <body>
 <div class="container_profile">
         <div class="sidebar">

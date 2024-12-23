@@ -1,20 +1,23 @@
-// Lấy các phần tử
-const quantityInput = document.getElementById('quantity');
-const increaseButton = document.getElementById('increase');
-const decreaseButton = document.getElementById('decrease');
+document.addEventListener("DOMContentLoaded", function () {
+    const quantityButtons = document.querySelectorAll(".quantity-btn");
 
-// Tăng số lượng khi nhấn nút "+"
-increaseButton.addEventListener('click', function() {
-    let currentValue = parseInt(quantityInput.value);
-    if (currentValue < quantityInput.max) {
-        quantityInput.value = currentValue + 1;
-    }
-});
+    quantityButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const quantitySpan = this.parentNode.querySelector(".quantity-value");
+            const price = parseFloat(quantitySpan.getAttribute("data-price"));
 
-// Giảm số lượng khi nhấn nút "-"
-decreaseButton.addEventListener('click', function() {
-    let currentValue = parseInt(quantityInput.value);
-    if (currentValue > quantityInput.min) {
-        quantityInput.value = currentValue - 1;
-    }
+            if (isNaN(price)) {
+                console.error("Giá sản phẩm không hợp lệ");
+                return;
+            }
+
+            let quantity = parseInt(quantitySpan.textContent);
+            if (this.classList.contains("increase")) {
+                quantity++;
+            } else if (this.classList.contains("decrease") && quantity > 1) {
+                quantity--;
+            }
+            quantitySpan.textContent = quantity;
+        });
+    });
 });

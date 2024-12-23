@@ -1,34 +1,41 @@
-
 <?php
 class App {
-    protected $controller = 'HomepageController';
-    protected $method = 'index';
-    protected $params = [];
+    protected $controller = 'HomepageController';  // Controller mặc định
+    protected $method = 'index';  // Method mặc định
+    protected $params = [];  // Tham số mặc định
 
     public function __construct() {
-        $url = $this->parseUrl();
+        $url = $this->parseUrl();  // Lấy URL từ query string
 
-        if (file_exists('./mvc/controller/' . $url[0] . 'Controller.php')) {
-            $this->controller = $url[0] . "Controller";
-            unset($url[0]);
+        // Kiểm tra và chọn controller nếu có
+        if (isset($url[0]) && file_exists('./mvc/controller/' . $url[0] . 'Controller.php')) {
+            $this->controller = $url[0] . "Controller";  // Lấy tên controller
+            unset($url[0]);  // Xóa phần tử controller khỏi URL
         }
 
+        // Yêu cầu file controller
         require_once './mvc/controller/' . $this->controller . '.php';
         $controller = new $this->controller;
 
+        // Kiểm tra và chọn method nếu có
         if (isset($url[1]) && method_exists($controller, $url[1])) {
-            $this->method = $url[1];
-            unset($url[1]);
+            $this->method = $url[1];  // Lấy tên method
+            unset($url[1]);  // Xóa phần tử method khỏi URL
         }
 
+        // Xử lý các tham số còn lại
         $this->params = $url ? array_values($url) : [];
+
+        // Gọi method với tham số tương ứng
         call_user_func_array([$controller, $this->method], $this->params);
     }
 
+    // Hàm phân tích URL và trả về mảng các phần tử
     public function parseUrl() {
-        if (isset($_GET['url'])) {
+        if (isset($_GET['url']) && is_string($_GET['url'])) {
             return explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
         }
+        return [];
     }
 }
 ?>
