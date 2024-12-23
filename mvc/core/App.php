@@ -1,8 +1,8 @@
 <?php
 class App {
-    protected $controller = 'HomepageController';  // Controller mặc định
-    protected $method = 'index';  // Method mặc định
-    protected $params = [];  // Tham số mặc định
+    protected $controller = 'HomeController';  // Controller mặc định
+    protected $method = 'index';  
+    protected $params = [];  
 
     public function __construct() {
         $url = $this->parseUrl();  // Lấy URL từ query string

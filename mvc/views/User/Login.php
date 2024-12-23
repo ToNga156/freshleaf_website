@@ -35,7 +35,7 @@
                 <button type="submit">Login</button>
             </div>
             <div class="footer_login">
-                You do not have an account? <a href="http://localhost/freshleaf_website/Register">Register</a>
+                You do not have an account? <a href="./register">Register</a>
             </div>
         </form>
     </div>
