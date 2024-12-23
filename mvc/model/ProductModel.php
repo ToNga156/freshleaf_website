@@ -30,16 +30,22 @@ class ProductModel extends Db{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function getAllCategories() {
+    public function getAllProductCategories() {
         $sql = "
-        SELECT DISTINCT c.category_id, c.category_name 
-        FROM categories c
-        INNER JOIN products p ON c.category_id = p.category_id
-    ";
+        SELECT 
+            p.product_id, 
+            p.product_name,
+            p.product_image, 
+            p.price, 
+            c.category_id, 
+            c.category_name 
+        FROM products p
+        INNER JOIN categories c ON p.category_id = c.category_id
+        ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->get_result();
-    
+        
         return $result->fetch_all(MYSQLI_ASSOC); 
     }
     // ToNga

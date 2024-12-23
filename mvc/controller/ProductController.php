@@ -11,7 +11,7 @@ class ProductController extends Controller{
     }
     public function ListProducts(){
         $productModel = new ProductModel();
-        $categories= $productModel->getAllCategories();
+        $categories= $productModel->getAllProductCategories();
         if(!$categories){
             echo "Không có danh mục nào";
         }
