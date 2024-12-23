@@ -9,16 +9,16 @@ class ProductController extends Controller{
         return $productModel;
 
     }
-    public function Products(){
+    public function ListProducts(){
         $productModel = new ProductModel();
         $categories= $productModel->getAllCategories();
-        $products_by_category = [];
-        foreach ($categories as $category) {
-            $category_id = $category['category_id'];
-            $category_name = $category['category_name'];
-            $products_by_category[$category_name] = $productModel->getAllProductCategory($category_id);
+        if(!$categories){
+            echo "Không có danh mục nào";
         }
-        $this->view("Product/Products", ["products_by_category" => $products_by_category]);
+        else{
+            $this->view("./Product/Products",["allCategories"=> $categories]);
+        }
+        
     }
     public function detail($id) {
         $productModel = new ProductModel();

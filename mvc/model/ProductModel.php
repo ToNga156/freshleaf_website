@@ -30,17 +30,12 @@ class ProductModel extends Db{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function getAllProductCategory($category_id){
-        $sql = "SELECT * FROM Products WHERE category_id = ?";
-        $stmt = $this->conn->prepare($sql); 
-        $stmt->bind_param("i", $category_id); 
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
     public function getAllCategories() {
-        $sql = "SELECT DISTINCT category_id , category_name FROM Products";
+        $sql = "
+        SELECT DISTINCT c.category_id, c.category_name 
+        FROM categories c
+        INNER JOIN products p ON c.category_id = p.category_id
+    ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->get_result();
