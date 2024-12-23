@@ -16,7 +16,6 @@
 
 <body>
     <header><?php include('C:/xampp/htdocs/freshleaf_website/mvc/views/layout/header.php') ?></header>  
-       
     <div class="container">
         <div class="product-detail">
             <div class="product-image">
