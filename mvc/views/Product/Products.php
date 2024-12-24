@@ -17,9 +17,8 @@
 <body>
 <header><?php include('C:/xampp/htdocs/freshleaf_website/mvc/views/layout/header.php') ?></header>
 <div class="products">
-    <h1>All Products by Category</h1>
+    <h1>Tất cả sản phẩm</h1>
     <?php 
-        // Nhóm sản phẩm theo danh mục
         $productsByCategory = [];
         foreach ($allCategories as $product) {
             $productsByCategory[$product['category_name']][] = $product;
@@ -36,7 +35,7 @@
                         <h3><?php echo htmlspecialchars($product['product_name']); ?></h3> 
                         <div class="price">
                             <p class="price"><?php echo htmlspecialchars($product['price']); ?>đ</p>
-                            <button class="add-button">Mua ngay</button>
+                            <button class="add-button">+</button>
                         </div>
                     </a>
                 </div>
@@ -46,6 +45,7 @@
         
     <?php endforeach; ?>
 </div>
+<?php include 'C:\xampp\htdocs\freshleaf_website\mvc\views\layout\footer.php' ?>
 
 </body>
 </html>

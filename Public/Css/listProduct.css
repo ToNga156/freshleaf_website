@@ -1,6 +1,9 @@
 .products{
     padding:20px;
-    padding-top:100px;
+    padding-top:150px;
+}
+.products h1{
+    text-align: center;
 }
 .allProduct{
     display:flex;
@@ -49,9 +52,10 @@
 }
 .price button{
     background-color: white;
-    border-radius: 20px;
+    width: 30px;
+    border-radius: 50%;
     height: 30px;
-    border: 1px solid gray;
+    border: 3px solid #45a049;
     color: black;
     font-weight:bold;
     transition: background-color 0.3s ease;
