@@ -98,15 +98,17 @@ if (session_status() === PHP_SESSION_NONE) {
     
             <div class="bottom-header">
                 <ul class="navigate-header">
-                    <li><a href="/freshleaf_website">Home</a></li>
-                    <li><a href="#">Products</a></li>
+                    <li><a href="../freshleaf_website">Home</a></li>
+                    <li><a href="\freshleaf_website\mvc\views\Product\Products.php">Products</a></li>
                     <li><a href="#">About us</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
 
                 <div class="search-bar-container">
-                    <input type="text" class="input-search-bar" placeholder="Nhập sản phẩm cần tìm kiếm">
-                    <button type="submit" class="submit-search-bar"><ion-icon name="search-outline"></ion-icon></button>
+                    <form action="/freshleaf_website/Product/searchResult" method="GET">
+                        <input type="text" name="search" class="input-search-bar" placeholder="Nhập sản phẩm cần tìm kiếm" required >
+                        <button type="submit" class="submit-search-bar"><ion-icon name="search-outline"></ion-icon></button>
+                    </form>
                 </div>
 
                 <div class="icon-shopping-cart">

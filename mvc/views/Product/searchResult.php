@@ -1,7 +1,7 @@
 <?php
-    require_once('C:\xampp\htdocs\freshleaf_website\mvc\controller\ProductController.php');
-    $allCategories = $data['allCategories'];
-
+    // Nhận dữ liệu từ controller
+    $products = $data['products'] ?? [];
+    $searchKeyword = $data['searchKeyword'] ?? '';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,22 +9,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../freshleaf_website/Public/Css/listProduct.css?v=<?php echo time(); ?>">
-    <title>Document</title>
+    <title>Kết quả tìm kiếm</title>
 </head>
 <body>
-<header><?php include('C:/xampp/htdocs/freshleaf_website/mvc/views/layout/header.php') ?></header>
+<header><?php include('C:/xampp/htdocs/freshleaf_website/mvc/views/layout/header.php'); ?></header>
 
 <div class="products">
-    <h1>Tất cả sản phẩm</h1>
-    <?php 
-        // Nhóm sản phẩm theo danh mục
-        $productsByCategory = [];
-        foreach ($allCategories as $product) {
-            $productsByCategory[$product['category_name']][] = $product;
-        }
-    ?>
-    <?php foreach ($productsByCategory as $categoryName => $products): ?>
-        <h2><?= htmlspecialchars($categoryName) ?></h2>
+    <h1>Kết quả tìm kiếm cho từ khóa: "<strong><?php echo htmlspecialchars($searchKeyword); ?></strong>"</h1>
+
+    <?php if (empty($products)): ?>
+        <p>Không có sản phẩm nào phù hợp với từ khóa này.</p>
+    <?php else: ?>
         <div class="allProduct">
             <?php foreach ($products as $product): ?>
                 <div class="ListProducts">
@@ -39,7 +34,7 @@
                 </div>
             <?php endforeach; ?>
         </div>
-    <?php endforeach; ?>
+    <?php endif; ?>
 </div>
 </body>
 </html>

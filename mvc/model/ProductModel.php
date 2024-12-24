@@ -30,21 +30,22 @@ class ProductModel extends Db{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function getAllProductCategory($category_id){
-        $sql = "SELECT * FROM Products WHERE category_id = ?";
-        $stmt = $this->conn->prepare($sql); 
-        $stmt->bind_param("i", $category_id); 
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-    public function getAllCategories() {
-        $sql = "SELECT DISTINCT category_id , category_name FROM Products";
+    public function getAllProductCategories() {
+        $sql = "
+        SELECT 
+            p.product_id, 
+            p.product_name,
+            p.product_image, 
+            p.price, 
+            c.category_id, 
+            c.category_name 
+        FROM products p
+        INNER JOIN categories c ON p.category_id = c.category_id
+        ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->get_result();
-    
+        
         return $result->fetch_all(MYSQLI_ASSOC); 
     }
     // ToNga
@@ -59,6 +60,22 @@ class ProductModel extends Db{
         $result = mysqli_query($this->conn, $sql);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
+    public function searchProducts($keyword) {
+        // Sử dụng LIKE để tìm kiếm tên sản phẩm và tên danh mục
+        $sql = "
+        SELECT p.*, c.category_name
+        FROM Products p
+        JOIN Categories c ON p.category_id = c.category_id
+        WHERE p.product_name LIKE ? OR c.category_name LIKE ?
+    ";
+    $stmt = $this->conn->prepare($sql);
+    $searchItem = "%" . $keyword . "%";
+    $stmt->bind_param("ss", $searchItem, $searchItem);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    return $result->fetch_all(MYSQLI_ASSOC);
+        }
 }
 
 ?>

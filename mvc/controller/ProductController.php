@@ -9,16 +9,16 @@ class ProductController extends Controller{
         return $productModel;
 
     }
-    public function Products(){
+    public function ListProducts(){
         $productModel = new ProductModel();
-        $categories= $productModel->getAllCategories();
-        $products_by_category = [];
-        foreach ($categories as $category) {
-            $category_id = $category['category_id'];
-            $category_name = $category['category_name'];
-            $products_by_category[$category_name] = $productModel->getAllProductCategory($category_id);
+        $categories= $productModel->getAllProductCategories();
+        if(!$categories){
+            echo "Không có danh mục nào";
         }
-        $this->view("Product/Products", ["products_by_category" => $products_by_category]);
+        else{
+            $this->view("./Product/Products",["allCategories"=> $categories]);
+        }
+        
     }
     public function detail($id) {
         $productModel = new ProductModel();
@@ -32,5 +32,20 @@ class ProductController extends Controller{
         $relatedProducts= $productModel->getProductCategory($product['category_id']);
         $this->view("./Product/Detail", ["product" => $product, "categories" => $relatedProducts]);
     }
+    public function searchResult() {
+        if (isset($_GET['search']) && !empty($_GET['search'])) {
+            $keyword = trim($_GET['search']);
+            $productModel = new ProductModel();
+            $products = $productModel->searchProducts($keyword);
+    
+            // Truyền dữ liệu vào view searchResult
+            $this->view("./Product/searchResult", [
+                "products" => $products,
+                "searchKeyword" => $keyword
+            ]);
+        } else {
+            echo "Vui lòng nhập từ khóa tìm kiếm.";
+        }
+    }    
 }
 ?>
