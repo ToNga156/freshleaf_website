@@ -9,6 +9,17 @@ class ProductController extends Controller{
         return $productModel;
 
     }
+    public function Products(){
+        $productModel = new ProductModel();
+        $categories= $productModel->getAllCategories();
+        $products_by_category = [];
+        foreach ($categories as $category) {
+            $category_id = $category['category_id'];
+            $category_name = $category['category_name'];
+            $products_by_category[$category_name] = $productModel->getAllProductCategory($category_id);
+        }
+        $this->view("Product/Products", ["products_by_category" => $products_by_category]);
+    }
     public function detail($id) {
         $productModel = new ProductModel();
         $product = $productModel->getProductById($id);
@@ -19,7 +30,7 @@ class ProductController extends Controller{
         }
         
         $relatedProducts= $productModel->getProductCategory($product['category_id']);
-        $this->view("Detail", ["product" => $product, "categories" => $relatedProducts]);
+        $this->view("./Product/Detail", ["product" => $product, "categories" => $relatedProducts]);
     }
 }
 ?>

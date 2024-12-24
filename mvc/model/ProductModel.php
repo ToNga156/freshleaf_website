@@ -30,7 +30,23 @@ class ProductModel extends Db{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    public function getAllProductCategory($category_id){
+        $sql = "SELECT * FROM Products WHERE category_id = ?";
+        $stmt = $this->conn->prepare($sql); 
+        $stmt->bind_param("i", $category_id); 
+        $stmt->execute();
+        $result = $stmt->get_result();
 
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getAllCategories() {
+        $sql = "SELECT DISTINCT category_id , category_name FROM Products";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    
+        return $result->fetch_all(MYSQLI_ASSOC); 
+    }
     // ToNga
     public function getBestSaleProduct() {
         $sql = "

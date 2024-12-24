@@ -65,12 +65,12 @@ if (session_status() === PHP_SESSION_NONE) {
 
                 <?php if (isset($_SESSION['user_name'])): ?>
                     <div class="info-Account">
-                        <a href="http://localhost/freshleaf_website/profile/index">
-                            <img src="/Public/Image/<?php echo isset($_SESSION['avatar']) ? htmlspecialchars($_SESSION['avatar']) : 'avatar-default.jpg'; ?>" alt="Avt">
+                        <a href="./User/profile">
+                            <img src="/Public/Image/<?php echo isset($_SESSION['user_avatar']) ? htmlspecialchars($_SESSION['user_avatar']) : '/freshleaf_website/public/images/avatar-default.jpg'; ?>" alt="Avt">
                         </a>
                         <div>
                             <p><?php echo htmlspecialchars($_SESSION['user_name']); ?></p>
-                            <a href="\freshleaf_website\mvc\controller\LogoutController.php">Đăng xuất</a>
+                            <a href="./User/Logout">Đăng xuất</a>
                         </div>
                     </div>
                 <?php else: ?>
@@ -80,7 +80,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         </a>
                         <div>
                             <p>Tài khoản</p>
-                            <a href="http://localhost/freshleaf_website/Register">Đăng nhập</a>
+                            <a href="./User/Login">Đăng nhập</a>
                         </div>
                     </div>
                 <?php endif; ?>
