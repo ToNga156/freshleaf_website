@@ -44,7 +44,7 @@ class UserController extends Controller{
 
             if ($result === true) {
                 // Điều hướng đến trang đăng nhập sau khi đăng ký thành công
-                header("Location: ./Login");
+                header("Location: ./user/Login");
                 exit();
             } else {
 
@@ -86,7 +86,7 @@ class UserController extends Controller{
                     if ($userInfo['role'] === 'Admin') {
                         echo "Đây là Homepage Admin";
                     } else {
-                        header("Location: http://localhost:8080/freshleaf_website/Home");
+                        header("Location: /freshleaf_website/Home");
                     }
                     exit();
                 }
