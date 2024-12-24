@@ -14,7 +14,7 @@
                 die("Sản phẩm không tồn tại");
             }
 
-            $this->view("Homepage", ["bestSaleProduct" => $bestSaleProduct]);
+            $this->view("homepage", ["bestSaleProduct" => $bestSaleProduct]);
         }
     }
 ?>
