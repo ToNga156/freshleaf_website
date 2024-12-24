@@ -37,12 +37,12 @@ $controller->handleChangePassword();
 .container_profile {
     margin-top: 100px;
     display: flex;
-    padding: 20px;
+    padding: 10px;
 }
 .sidebar {
-    width: 20%;
+    width: 15%;
     background-color:rgb(73, 212, 96);
-    padding: 20px;
+    padding: 18px;
     border-radius: 10px;
 }
 .sidebar img {
@@ -82,7 +82,7 @@ $controller->handleChangePassword();
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 90%;
+    width: 80%;
     margin: 20px ;
     padding: 20px;
     padding-right: 30px;
@@ -135,7 +135,7 @@ $controller->handleChangePassword();
 }
 .form-userAvatar .uploadImage {
     position: absolute;
-    top: 36%;
+    top: 46%;
     margin-left: 71%;
     width: 10%;
     padding: 10px;
@@ -172,7 +172,9 @@ $controller->handleChangePassword();
     position: relative;
 }
 .current_password input {
-    width:90%;
+    width:93%;
+    padding-right: 40px;
+    box-sizing: border-box;
 }
 .changes-password {
     display: flex;
@@ -183,8 +185,8 @@ $controller->handleChangePassword();
     margin-top: 15px;
 }
 .changes-password .password-container input{
-    width: 100%;
-    padding: 10px;
+    width: 80%;
+    padding-left: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
@@ -207,13 +209,13 @@ $controller->handleChangePassword();
 }
 .container_changePassword .current_password .password-eye {
    position: absolute;
-   left: 88%;
+   left: 90%;
    top: 11px;
 }
 .password-container .password-eye {
     position: absolute;
     top: 11px;
-    left: 95%;
+    left: 72%;
 }
 </style>
 <body>
@@ -228,7 +230,7 @@ $controller->handleChangePassword();
                 <a href="#"><i class="fas fa-shopping-cart"></i>My Shopping Cart</a>
             </div>
         </div>
-        <div class="container_infor" style="margin-left: 70%; width: 700%;">
+        <div class="container_infor" style="margin-left: 55%; width: 400%;">
             <form action="" method="POST" enctype="multipart/form-data">
             <div class="container_inforUser">
                 <div class="section-title">My Profile</div>
