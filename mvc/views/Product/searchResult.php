@@ -15,7 +15,7 @@
 <header><?php include('C:/xampp/htdocs/freshleaf_website/mvc/views/layout/header.php'); ?></header>
 
 <div class="products">
-    <h1>Kết quả tìm kiếm cho từ khóa: "<strong><?php echo htmlspecialchars($searchKeyword); ?></strong>"</h1>
+    <h3>Kết quả tìm kiếm cho từ khóa: "<strong><?php echo htmlspecialchars($searchKeyword); ?></strong>"</h3>
 
     <?php if (empty($products)): ?>
         <p>Không có sản phẩm nào phù hợp với từ khóa này.</p>
@@ -28,7 +28,7 @@
                         <h3><?php echo htmlspecialchars($product['product_name']); ?></h3> 
                         <div class="price">
                             <p class="price"><?php echo htmlspecialchars($product['price']); ?>đ</p>
-                            <button class="add-button">Mua ngay</button>
+                            <button class="add-button">+</button>
                         </div>
                     </a>
                 </div>
