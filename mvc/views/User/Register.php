@@ -41,7 +41,7 @@
             </div>
             <button class="btt_signin" type="submit">Sign Up</button>
             <div class="footer_register">
-                Already have an account? <a href="http://localhost/freshleaf_website/login">Log in</a>
+                Already have an account? <a href="/freshleaf_website/user/login">Log in</a>
             </div>
         </form>
     </div>

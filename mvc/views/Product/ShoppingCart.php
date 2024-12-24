@@ -3,34 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="../../public/css/shoppingCart.css?v=<?php echo time();?>">
+    <link rel="stylesheet" href="../../Public/Css/shoppingCart.css">
+    <link rel="stylesheet" href="../../public/css/header.css">
     <title>Document</title>
 </head>
 <style>
-    /* Reset cơ bản */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f9f9f9;
-    color: #333;
-    text-align:center;
-    min-height: 100vh;
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.container {
+.shoppingcart-container{
+    margin-top: 110px;
     display: flex;
     gap: 50px;
     width: 100%;
@@ -154,9 +134,9 @@ h1 {
 
 </style>
 <body>
-    <header><?php include('C:/xampp/htdocs/freshleaf_website/mvc/views/layout/header.php') ?></header>
-    <h1>My Shopping Cart</h1>
-    <div class="container">
+    <header><?php include('C:\xampp\htdocs\freshleaf_website\mvc\views\layout\header.php')?></header>
+    <div class="shoppingcart-container">
+        <!-- <h1>My Shopping Cart</h1> -->
         
         <div class="cart-content">
             <!-- Bảng sản phẩm -->
@@ -218,11 +198,9 @@ h1 {
             <button class="btn-green">Proceed to checkout</button>
         </div>
     </div>
-</body>
-</html>
+    
+    <footer><?php include('C:\xampp\htdocs\freshleaf_website\mvc\views\layout\footer.php')?></footer>
 
-
-<script src="../../Public/js/shoppingCart.js"></script>
-<footer><?php include('C:\xampp\htdocs\freshleaf_website\mvc\views\layout\footer.php')?></footer>
+    <script src="../../Public/js/shoppingCart.js"></script>
 </body>
 </html>

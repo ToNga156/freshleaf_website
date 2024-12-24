@@ -65,22 +65,22 @@ if (session_status() === PHP_SESSION_NONE) {
 
                 <?php if (isset($_SESSION['user_name'])): ?>
                     <div class="info-Account">
-                        <a href="./User/profile">
+                        <a href="/freshleaf_website/User/profile">
                             <img src="/Public/Image/<?php echo isset($_SESSION['user_avatar']) ? htmlspecialchars($_SESSION['user_avatar']) : '/freshleaf_website/public/images/avatar-default.jpg'; ?>" alt="Avt">
                         </a>
                         <div>
                             <p><?php echo htmlspecialchars($_SESSION['user_name']); ?></p>
-                            <a href="./User/Logout">Đăng xuất</a>
+                            <a href="/freshleaf_website/User/Logout">Đăng xuất</a>
                         </div>
                     </div>
                 <?php else: ?>
                     <div class="info-Account">
-                        <a href="/freshleaf_website/profile">
+                        <a href="/freshleaf_website/User/profile">
                             <img src="/freshleaf_website/public/images/avatar-default.jpg" alt="Avatar mặc định">
                         </a>
                         <div>
                             <p>Tài khoản</p>
-                            <a href="./User/Login">Đăng nhập</a>
+                            <a href="/freshleaf_website/User/Login">Đăng nhập</a>
                         </div>
                     </div>
                 <?php endif; ?>
@@ -98,8 +98,8 @@ if (session_status() === PHP_SESSION_NONE) {
     
             <div class="bottom-header">
                 <ul class="navigate-header">
-                    <li><a href="../freshleaf_website">Home</a></li>
-                    <li><a href="\freshleaf_website\mvc\views\Product\Products.php">Products</a></li>
+                    <li><a href="/freshleaf_website">Home</a></li>
+                    <li><a href="/freshleaf_website/product/ListProducts">Products</a></li>
                     <li><a href="#">About us</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -113,7 +113,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
                 <div class="icon-shopping-cart">
                     <p class="quantity-icon-shopping-cart">0</p>
-                    <a href="./mvc/views/ShoppingCart.php"><ion-icon name="cart-outline"></ion-icon></a>
+                    <a href="#"><ion-icon name="cart-outline"></ion-icon></a>
                 </div>
             </div>
         </div>

@@ -267,7 +267,9 @@ input:focus {
     border-radius: 7px;
     background-color: #4BAF47;
 }
-
+.info-Account img{
+    object-fit: cover;
+}
 .bottom-header .icon-shopping-cart ion-icon {
     position: absolute;
     right: 113px;
