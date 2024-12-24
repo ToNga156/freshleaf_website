@@ -80,7 +80,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         </a>
                         <div>
                             <p>Tài khoản</p>
-                            <a href="./User/Login">Đăng nhập</a>
+                            <a href="./login">Đăng nhập</a>
                         </div>
                     </div>
                 <?php endif; ?>
