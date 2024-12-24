@@ -86,7 +86,7 @@ class UserController extends Controller{
                     if ($userInfo['role'] === 'Admin') {
                         echo "Đây là Homepage Admin";
                     } else {
-                        header("Location: http://localhost:8080/freshleaf_website/Home");
+                        header("Location: http://localhost/freshleaf_website/Home");
                     }
                     exit();
                 }

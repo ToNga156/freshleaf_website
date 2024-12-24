@@ -17,52 +17,50 @@
 <body>
     <header><?php include('C:/xampp/htdocs/freshleaf_website/mvc/views/layout/header.php') ?></header>  
        
-    <div class="container">
+    <div class="product-detail-container">
         <div class="product-detail">
-            <div class="product-image">
-                <img src="<?php echo htmlspecialchars($product['product_image']) ?>" alt="Cải Thìa">
-            </div>
+            <img class="product-image" src="<?php echo htmlspecialchars($product['product_image']) ?>" alt="Cải Thìa">
+
             <div class="product-content">
                 <h2><?php echo htmlspecialchars($product['product_name']); ?></h2>
-                <h4>Details information</h4>
-                <p><strong>Vegetable</strong><br>
-                    Growing area: Da Nang</p>
-                <p class="price"><?php echo htmlspecialchars($product['price']) ?></p>
+                <p class="category">Category: Vegetable</p>
+                <div class="underline"></div>
+                
+                <p class="price"><?php echo htmlspecialchars($product['price']) ?>đ</p>
+                <h4>Details Description</h4>
+                <p class="description"><?php echo htmlspecialchars($product['description']) ?></p>
             
-            
-                <div class="quantity">
+                <div class="quantity">Số lượng:
                     <button type="button" class="quantity-btn decrease">-</button>
                     <span class="quantity-value" data-price="30">1</span>
                     <button type="button" class="quantity-btn increase">+</button>
                 </div>
 
-            </div>
-        
-            <div class="description">
-                <p>
-                    <?php echo htmlspecialchars($product['description']) ?>
-                </p>
-            </div>
+                <div class="options">
+                    <button class="buynow">Thanh toán</button>
+                    <button class="addproduct">Thêm vào giỏ hàng</button>
+                </div>
 
+            </div>
         </div>
 
         <!-- Phần sản phẩm liên quan -->
-        <h3 class="related-title">RELATED PRODUCTS</h3>
+        <h3 class="related-title">Sản phẩm tương tự</h3>
         <div class="related-products">
-        <?php foreach ($relatedProducts as $product): ?>
+            <?php foreach ($relatedProducts as $product): ?>
             <div class="product-card">
                 <img src="<?php echo htmlspecialchars($product['product_image']); ?>" alt="<?php echo htmlspecialchars($product['product_name']); ?>">
                 <p><?php echo htmlspecialchars($product['product_name']); ?></p>
                 <div class="same-product">
-                    <p class="price"><?php echo htmlspecialchars($product['price']); ?></p>
-                    <button><a href="<?php echo htmlspecialchars($product['product_id']); ?>">Chi tiết</a></button>
+                    <p class="price"><?php echo htmlspecialchars($product['price']); ?>đ</p>
+                    <button><a href="<?php echo htmlspecialchars($product['product_id']) ?>">Chi tiết</a></button>
                 </div>
             </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>  
-    <script src="/freshleaf_website/public/js/detail.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>   -->
+    <script src="\freshleaf_website\public\js\detail.js"></script>
     <?php include 'C:\xampp\htdocs\freshleaf_website\mvc\views\layout\footer.php' ?>
 </body>
 </html>

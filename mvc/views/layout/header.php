@@ -80,7 +80,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         </a>
                         <div>
                             <p>Tài khoản</p>
-                            <a href="./User/Login">Đăng nhập</a>
+                            <a href="./login">Đăng nhập</a>
                         </div>
                     </div>
                 <?php endif; ?>
@@ -111,7 +111,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
                 <div class="icon-shopping-cart">
                     <p class="quantity-icon-shopping-cart">0</p>
-                    <a href="./mvc/views/ShoppingCart.php"><ion-icon name="cart-outline"></ion-icon></a>
+                    <a href="#"><ion-icon name="cart-outline"></ion-icon></a>
                 </div>
             </div>
         </div>
