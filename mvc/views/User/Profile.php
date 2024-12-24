@@ -49,6 +49,7 @@ $controller->handleChangePassword();
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    object-fit: cover;
 }
 .sidebar h3 {
     margin: 10px 0 5px;
@@ -127,6 +128,7 @@ $controller->handleChangePassword();
     margin-left: 70%;
     border-radius: 50%;
     width: 150px;
+    object-fit: cover;
     height: 150px;
     border: 1px grey solid;
 }
