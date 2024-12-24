@@ -28,10 +28,10 @@ if (session_status() === PHP_SESSION_NONE) {
     
             <div class="middle-header">
                 <div class="info-LogoNameWeb">
-                    <a href="http://localhost/freshleaf_website/homepage/index">
+                    <a href="http://localhost/freshleaf_website/home">
                         <img src="/freshleaf_website/public/images/logo_website.png" alt="">
                     </a>
-                    <a style="text-decoration: none;" href="http://localhost/freshleaf_website/homepage/index">
+                    <a style="text-decoration: none;" href="http://localhost/freshleaf_website/home">
                         <h1>FreshLeaf</h1>
                     </a>
                 </div>
@@ -80,7 +80,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         </a>
                         <div>
                             <p>Tài khoản</p>
-                            <a href="./login">Đăng nhập</a>
+                            <a href="./User/Login">Đăng nhập</a>
                         </div>
                     </div>
                 <?php endif; ?>
@@ -98,7 +98,7 @@ if (session_status() === PHP_SESSION_NONE) {
     
             <div class="bottom-header">
                 <ul class="navigate-header">
-                    <li><a href="/freshleaf_website">Home</a></li>
+                    <li><a href="http://localhost/freshleaf_website/home">Home</a></li>
                     <li><a href="#">Products</a></li>
                     <li><a href="#">About us</a></li>
                     <li><a href="#">Contact</a></li>
