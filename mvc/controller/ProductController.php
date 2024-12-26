@@ -32,6 +32,7 @@ class ProductController extends Controller{
         $relatedProducts= $productModel->getProductCategory($product['category_id']);
         $this->view("./Product/Detail", ["product" => $product, "categories" => $relatedProducts]);
     }
+
     public function filterProducts(){
         $productModel = new ProductModel();
         $min_price = isset($_GET['min_price']) ? (float)$_GET['min_price'] : 0;
@@ -49,5 +50,21 @@ class ProductController extends Controller{
 
         $this->view('./Product/filterProduct', ['productsByCategory' => $productsByCategory]);
     }
+    public function searchResult() {
+        if (isset($_GET['search']) && !empty($_GET['search'])) {
+            $keyword = trim($_GET['search']);
+            $productModel = new ProductModel();
+            $products = $productModel->searchProducts($keyword);
+    
+            // Truyền dữ liệu vào view searchResult
+            $this->view("./Product/searchResult", [
+                "products" => $products,
+                "searchKeyword" => $keyword
+            ]);
+        } else {
+            echo "Vui lòng nhập từ khóa tìm kiếm.";
+        }
+    }    
+
 }
 ?>

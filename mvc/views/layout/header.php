@@ -112,8 +112,10 @@ $userData = $controller->getProfile($userId);
                 </ul>
 
                 <div class="search-bar-container">
-                    <input type="text" class="input-search-bar" placeholder="Nhập sản phẩm cần tìm kiếm">
-                    <button type="submit" class="submit-search-bar"><ion-icon name="search-outline"></ion-icon></button>
+                    <form action="/freshleaf_website/Product/searchResult" method="GET">
+                        <input type="text" name="search" class="input-search-bar" placeholder="Nhập sản phẩm cần tìm kiếm" required >
+                        <button type="submit" class="submit-search-bar"><ion-icon name="search-outline"></ion-icon></button>
+                    </form>
                 </div>
 
                 <div class="icon-shopping-cart">

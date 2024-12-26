@@ -82,6 +82,22 @@ class ProductModel extends Db{
 
     return $stmt->get_result();
     }
+    public function searchProducts($keyword) {
+        // Sử dụng LIKE để tìm kiếm tên sản phẩm và tên danh mục
+        $sql = "
+        SELECT p.*, c.category_name
+        FROM Products p
+        JOIN Categories c ON p.category_id = c.category_id
+        WHERE p.product_name LIKE ? OR c.category_name LIKE ?
+    ";
+    $stmt = $this->conn->prepare($sql);
+    $searchItem = "%" . $keyword . "%";
+    $stmt->bind_param("ss", $searchItem, $searchItem);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    return $result->fetch_all(MYSQLI_ASSOC);
+        }
 }
 
 ?>
