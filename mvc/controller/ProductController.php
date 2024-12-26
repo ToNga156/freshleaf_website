@@ -32,5 +32,22 @@ class ProductController extends Controller{
         $relatedProducts= $productModel->getProductCategory($product['category_id']);
         $this->view("./Product/Detail", ["product" => $product, "categories" => $relatedProducts]);
     }
+    public function filterProducts(){
+        $productModel = new ProductModel();
+        $min_price = isset($_GET['min_price']) ? (float)$_GET['min_price'] : 0;
+        $max_price = isset($_GET['max_price']) ? (float)$_GET['max_price'] : PHP_INT_MAX;
+        $filteredProducts = $productModel->getProductByPriceRange($min_price,$max_price);
+
+
+        $productsByCategory = [];
+        while ($product = $filteredProducts->fetch_assoc()) {
+            if (!isset($productsByCategory[$product['category_name']])) {
+                $productsByCategory[$product['category_name']] = [];
+            }
+            $productsByCategory[$product['category_name']][] = $product;
+        }
+
+        $this->view('./Product/filterProduct', ['productsByCategory' => $productsByCategory]);
+    }
 }
 ?>

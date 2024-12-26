@@ -19,15 +19,16 @@ class UserController extends Controller{
             
             $error = "";
 
-            // Kiểm tra dữ liệu đầu vào
             if (empty($username) || empty($email) || empty($phone) || empty($address) || empty($password) || empty($confirmPassword)) {
                 $error = "Please enter complete information.";
             } else {
-                // Kiểm tra định dạng email
                 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     $error = "Invalid email!";
-                } elseif ($password !== $confirmPassword) {
-                    // Kiểm tra xác nhận mật khẩu
+                }
+                
+                elseif (strlen($password) < 5) {
+                    $error = "Password must be at least 5 characters long!";}
+                elseif ($password !== $confirmPassword) {
                     $error = "Passwords do not match!";
                 }
             }
@@ -43,8 +44,7 @@ class UserController extends Controller{
             $result = $registerModel->Register($username, $hashedPassword, $email, $phone, $address);
 
             if ($result === true) {
-                // Điều hướng đến trang đăng nhập sau khi đăng ký thành công
-                header("Location: ./user/Login");
+                header("Location: ./Login");
                 exit();
             } else {
 
