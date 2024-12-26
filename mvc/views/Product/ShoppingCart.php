@@ -3,204 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../Public/Css/shoppingCart.css">
-    <link rel="stylesheet" href="../../public/css/header.css">
     <title>Document</title>
+    <link rel="stylesheet" href="../../../public/css/shoppingCart.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Calistoga&family=Cormorant+Upright:wght@300;400;500;600;700&family=Epilogue:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
-<style>
-
-.shoppingcart-container{
-    margin-top: 110px;
-    display: flex;
-    gap: 50px;
-    width: 100%;
-    align-items: center;
-    justify-content:space-between;
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-}
-
-.cart-content {
-    margin-bottom: 20px;
-    border: 2px solid gray;
-}
-.cart-table {
-    width: 100%;
-    border-collapse: collapse;
-    
-}
-
-.cart-table th, .cart-table td {
-    padding: 15px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-}
-
-.cart-table img {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-}
-
-.cart-table td span {
-    vertical-align: middle;
-    font-weight: bold;
-}
-
-.quantity-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-}
-
-.quantity-box button {
-    width: 25px;
-    height: 25px;
-    border: 1px solid #ddd;
-    background: #fff;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.quantity-box span {
-    display: inline-block;
-    width: 25px;
-    text-align: center;
-}
-
-.buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-.btn-gray {
-    padding: 10px 15px;
-    border: none;
-    background-color: #e0e0e0;
-    color: #333;
-    cursor: pointer;
-    border-radius: 3px;
-}
-
-.cart-summary {
-    border-top: 2px solid #f0f0f0;
-    padding-top: 20px;
-    width:20%;
-    height: 50%;
-    border: 2px solid gray;
-}
-.cart-summary h2 {
-    text-decoration: none; 
-    border-bottom: 2px solid gray; 
-    padding-bottom: 5px;
-}
-
-.summary-content p {
-    margin: 5px 0;
-    font-size: 1.1em;
-    text-align: left;
-}
-.summary-content span, .summary-content strong {
-    font-weight: bold;
-}
-
-.btn-green {
-    margin-top: 10px;
-    display: inline-block;
-    padding: 10px 20px;
-    color: #fff;
-    background-color: #00a650;
-    border: none;
-    cursor: pointer;
-    border-radius: 2px;
-    font-size: 1em;
-}
-.sc1, .sc2{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-right: 20px;
-}
-.sc1{
-    border-bottom: 2px solid gray;
-}
-.btn-green:hover {
-    background-color: #00853e;
-}
-
-</style>
 <body>
-    <header><?php include('C:\xampp\htdocs\freshleaf_website\mvc\views\layout\header.php')?></header>
-    <div class="shoppingcart-container">
-        <!-- <h1>My Shopping Cart</h1> -->
-        
-        <div class="cart-content">
-            <!-- Bảng sản phẩm -->
-            <table class="cart-table">
-                <thead>
-                    <tr>
-                        <th>PRODUCT</th>
-                        <th>PRICE</th>
-                        <th>QUANTITY</th>
-                        <th>SUBTOTAL</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <img src="green-capsicum.png" alt="Green Capsicum">
-                            <span>Green Capsicum</span>
-                        </td>
-                        <td>$14.00</td>
-                        <td>
-                            <div class="quantity-box">
-                                <button class="quantity-btn minus">-</button>
-                                <span class="quantity" data-price="14">5</span>
-                                <button class="quantity-btn plus">+</button>
-                            </div>
-                        </td>
-                        <td>$70.00</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="red-capsicum.png" alt="Red Capsicum">
-                            <span>Red Capsicum</span>
-                        </td>
-                        <td>$14.00</td>
-                        <td>
-                            <div class="quantity-box">
-                                <button class="quantity-btn minus">-</button>
-                                <span class="quantity" data-price="14">1</span>
-                                <button class="quantity-btn plus">+</button>
-                            </div>
-                        </td>
-                        <td class="subtotal">$14.00</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Tổng đơn hàng -->
-        <div class="cart-summary">
-            <h2>Cart Total</h2>
-            <div class="summary-content">
-                <div class="sc1">
-                    <p class="p1">Subtotal: </p> <span>$84.00</span>
-                </div>
-                <div class="sc2">
-                    <p>Total: </p><strong>$84.00</strong>
-                </div>
+    <div class="shopping-cart">
+        <div class="shopping-cart-container1">
+            <div class="cart-header">
+                <h2>Shopping Cart</h2>
+                <p>( <span>2</span> products )</p>
+            </div>  
+            <div class="cart-title">
+                <h4 class="cart-title1">Product</h4>
+                <h4 class="cart-title2">Unit Price</h4>
+                <h4 class="cart-title3">Quantity</h4>
+                <h4 class="cart-title4">Line Total</h4>
             </div>
-            <button class="btn-green">Proceed to checkout</button>
-        </div>
-    </div>
-    
-    <footer><?php include('C:\xampp\htdocs\freshleaf_website\mvc\views\layout\footer.php')?></footer>
+        
+            <div class="cart-item"> 
+                <button class="delete-cart-item"><ion-icon name="trash-outline"></ion-icon></button>
 
-    <script src="../../Public/js/shoppingCart.js"></script>
+                <div class="product-info">
+                    <img src="https://i.pinimg.com/736x/2b/39/a3/2b39a367156d1a57ff11f9137ff92991.jpg" alt="Lime">
+                    <div>
+                        <p>Cà rốt Hàn Quốc ( <span>Kg</span> )</p>
+                        <p class="category">Category: Fruit</p>
+                    </div>
+                </div>
+
+                <div class="unit-price">50.000đ</div>
+
+                <div class="quantity">
+                    <button class="quantity-btn"><ion-icon name="remove-outline"></ion-icon></button>
+                    <span>01</span>
+                    <button class="quantity-btn"><ion-icon name="add-outline"></ion-icon></button>
+                </div>
+
+                <div class="line-total">50.000đ</div>
+            </div>
+
+            <div class="cart-item">
+                <button class="delete-cart-item"><ion-icon name="trash-outline"></ion-icon></button>
+
+                <div class="product-info">
+                    <img src="https://i.pinimg.com/736x/83/02/cb/8302cb21c646b117e03ca4a51552f4dc.jpg" alt="Carrot">
+                    <div>
+                        <p>Chanh tươi (kg)</p>
+                        <p class="category">Category: Tuber</p>
+                    </div>
+                </div>
+
+                <div class="unit-price">50.000đ</div>
+                
+                <div class="quantity">
+                    <button class="quantity-btn"><ion-icon name="remove-outline"></ion-icon></button>
+                    <span>01</span>
+                    <button class="quantity-btn"><ion-icon name="add-outline"></ion-icon></button>
+                </div>
+
+                <div class="line-total">100.000đ</div>
+            </div>
+
+            <div class="cart-footer">
+                <button class="order-btn">Order</button>
+                <p class="total-amount">Total Amount: <span>150.000đ</span></p>
+            </div>
+        </div>
+        
+        <!-- <div class="shopping-cart-container2">
+            <ion-icon name="cart-outline"></ion-icon>
+            <h1>Chưa có sản phẩm nào trong giỏ hàng</h1>
+        </div>
+
+        <button class="backtohome">Quay lại trang chủ</button> -->
+    </div>
 </body>
 </html>
