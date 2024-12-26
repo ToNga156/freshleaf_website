@@ -223,7 +223,7 @@ $controller->handleChangePassword();
 <body>
 <div class="container_profile">
         <div class="sidebar" style="height: 75%;">
-            <img alt="User Avatar" height="50" src="/Public/images/<?php echo htmlspecialchars($userData['avatar']); ?>" width="50"/>
+            <img alt="User Avatar" height="50" src="/Public/Image/<?php echo htmlspecialchars($userData['avatar']); ?>" width="50"/>
             <h3><?php echo $userData['user_name']; ?></h3>
             <p><?php echo $userData['email']; ?></p>
             <div class="menu-profile">
@@ -254,7 +254,7 @@ $controller->handleChangePassword();
                 </div>
                 <div class="form-userAvatar">
                     <div class="uploadImage">Choose Image</div>
-                    <img id="avatarPreview" alt="Profile image" src="/Public/images/<?php echo htmlspecialchars($userData['avatar']); ?>" />
+                    <img id="avatarPreview" alt="Profile image" src="/Public/Image/<?php echo htmlspecialchars($userData['avatar']); ?>" />
                     <input id="chooseImage" type="file" name="avatar" accept="Image/*" onchange="previewAvatar(event)" />
                     
                 </div>

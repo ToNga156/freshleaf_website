@@ -46,6 +46,6 @@ class ProductController extends Controller{
         } else {
             echo "Vui lòng nhập từ khóa tìm kiếm.";
         }
-    } 
+    }    
 }
 ?>
