@@ -14,7 +14,7 @@
 <header><?php include('C:/xampp/htdocs/freshleaf_website/mvc/views/layout/header.php') ?></header>
 
 <div class="products">
-    <h1>Tất cả sản phẩm</h1>
+    <h1>Kết quả lọc</h1>
 
     <?php if (!empty($productsByCategory)): ?>
         <?php foreach ($productsByCategory as $categoryName => $products): ?>
