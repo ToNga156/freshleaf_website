@@ -115,6 +115,89 @@ require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Db.php');
             $stmt->bind_param("si", $hashedNewPassword, $userId);
             return $stmt->execute();
         }
+        public function generateResetCode($email) {
+            if (!$this->conn) {
+                return "Error: Unable to connect to the database.";
+            }
+        
+            $query = "SELECT user_id FROM users WHERE email = ?";
+            $stmt = $this->conn->prepare($query);
+        
+            if (!$stmt) {
+                return "Error preparing statement: " . $this->conn->error;
+            }
+        
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+        
+            if ($result->num_rows > 0) {
+                $user = $result->fetch_assoc();
+                $userId = $user['user_id'];
+        
+                // Tạo mã reset ngẫu nhiên và thời gian hết hạn
+                $resetCode = bin2hex(random_bytes(16));
+                $expiresAt = date('Y-m-d H:i:s', strtotime('+3 minutes')); // Mã reset hết hạn sau 3 phút
+        
+                // Lưu mã reset vào cơ sở dữ liệu
+                $insertQuery = "INSERT INTO password_resets (user_id, reset_code, expires_at) VALUES (?, ?, ?)";
+                $stmt = $this->conn->prepare($insertQuery);
+        
+                if (!$stmt) {
+                    return "Error preparing insert statement: " . $this->conn->error;
+                }
+        
+                $stmt->bind_param("iss", $userId, $resetCode, $expiresAt);
+        
+                if ($stmt->execute()) {
+                    return $resetCode;
+                } else {
+                    return "Error inserting reset code: " . $stmt->error;
+                }
+            } else {
+                return "Email không tồn tại.";
+            }
+        }        
+        public function resetPassword($resetCode, $newPassword) {
+            // Kiểm tra độ dài mật khẩu mới
+            if (strlen($newPassword) < 6) {
+                return "Mật khẩu phải có ít nhất 6 ký tự.";
+            }
+        
+            $query = "SELECT user_id FROM password_resets WHERE reset_code = ? AND expires_at > NOW()";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bind_param("s", $resetCode);
+            $stmt->execute();
+            $result = $stmt->get_result();
+        
+            if ($result->num_rows > 0) {
+                $user = $result->fetch_assoc();
+                $userId = $user['user_id'];
+        
+                // Mã hóa mật khẩu mới
+                $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+        
+                // Cập nhật mật khẩu mới
+                $updateQuery = "UPDATE users SET password = ? WHERE user_id = ?";
+                $stmt = $this->conn->prepare($updateQuery);
+                $stmt->bind_param("si", $hashedPassword, $userId);
+        
+                if ($stmt->execute()) {
+                    // Xóa mã reset sau khi dùng
+                    $deleteQuery = "DELETE FROM password_resets WHERE reset_code = ?";
+                    $stmt = $this->conn->prepare($deleteQuery);
+                    $stmt->bind_param("s", $resetCode);
+                    $stmt->execute();
+        
+                    return true;
+                } else {
+                    return "Lỗi cập nhật mật khẩu: " . $stmt->error;
+                }
+            } else {
+                return "Mã reset không hợp lệ hoặc đã hết hạn.";
+            }
+        }
+        
     }
 
 ?>

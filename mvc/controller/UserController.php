@@ -207,5 +207,31 @@ class UserController extends Controller{
             }
         }
     }
+    public function forgotPassword() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = $_POST['email'] ?? '';
+    
+            // Kiểm tra email có hợp lệ hay không
+            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                // Gọi phương thức generateResetCode để tạo mã reset
+                $model = $this->model('UserModel');
+                $resetCode = $model->generateResetCode($email);
+    
+                // Kiểm tra kết quả trả về từ model
+                if (strpos($resetCode, 'Error') === 0) {
+                    // Nếu có lỗi, hiển thị thông báo lỗi
+                    $this->view('./User/ForgetPassword', ['error' => $resetCode]);
+                } else {
+                    // Hiển thị mã reset trên trang
+                    $this->view('./User/ForgetPassword', ['success' => 'Mã reset của bạn là: ' . $resetCode]);
+                }
+            } else {
+                $this->view('./User/ForgetPassword', ['error' => 'Vui lòng nhập email hợp lệ.']);
+            }
+        } else {
+            $this->view('./User/ForgetPassword');
+        }
+    }
+    
 }
 ?>
