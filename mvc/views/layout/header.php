@@ -1,14 +1,7 @@
 <?php
-require_once 'C:\xampp\htdocs\freshleaf_website\mvc\core\Db.php';
-require_once 'C:\xampp\htdocs\freshleaf_website\mvc\controller\UserController.php';
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-global $conn;
-$controller = new UserController($conn);
-$userId = $_SESSION['user_id'];
-$userData = $controller->getProfile($userId);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +66,7 @@ $userData = $controller->getProfile($userId);
                 <?php if (isset($_SESSION['user_name'])): ?>
                     <div class="info-Account">
                         <a href="/freshleaf_website/User/profile">
-                            <img src="/Public/Image/<?php echo isset($userData['avatar']) ? htmlspecialchars($userData['avatar']) :'/Public/images/avatar-default.jpg'; ?>" alt="Avt">
+                            <img src="/Public/Image/<?php echo isset($_SESSION['user_avatar']) ? htmlspecialchars($_SESSION['user_avatar']) : '/freshleaf_website/public/images/avatar-default.jpg'; ?>" alt="Avt">
                         </a>
                         <div>
                             <p><?php echo htmlspecialchars($_SESSION['user_name']); ?></p>
@@ -120,7 +113,7 @@ $userData = $controller->getProfile($userId);
 
                 <div class="icon-shopping-cart">
                     <p class="quantity-icon-shopping-cart">0</p>
-                    <a href="#"><ion-icon name="cart-outline"></ion-icon></a>
+                    <a href="/freshleaf_website/ShoppingCart/viewCart"><ion-icon name="cart-outline"></ion-icon></a>
                 </div>
             </div>
         </div>
