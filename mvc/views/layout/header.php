@@ -113,7 +113,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
                 <div class="icon-shopping-cart">
                     <p class="quantity-icon-shopping-cart">0</p>
-                    <a href="#"><ion-icon name="cart-outline"></ion-icon></a>
+                    <a href="/freshleaf_website/ShoppingCart/viewCart"><ion-icon name="cart-outline"></ion-icon></a>
                 </div>
             </div>
         </div>
