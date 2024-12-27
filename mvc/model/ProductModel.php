@@ -60,6 +60,28 @@ class ProductModel extends Db{
         $result = mysqli_query($this->conn, $sql);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
+    public function getProductByPriceRange($minPrice, $maxPrice){
+        $sql = "
+            SELECT 
+                p.product_id, 
+                p.product_name,
+                p.product_image, 
+                p.price, 
+                c.category_id, 
+                c.category_name 
+            FROM products p
+            INNER JOIN categories c ON p.category_id = c.category_id
+            WHERE price BETWEEN ? AND ?
+            ";
+    $stmt = $this->conn->prepare($sql);
+    
+
+    $stmt->bind_param("dd", $minPrice, $maxPrice);
+    
+    $stmt->execute();
+
+    return $stmt->get_result();
+    }
     public function searchProducts($keyword) {
         // Sử dụng LIKE để tìm kiếm tên sản phẩm và tên danh mục
         $sql = "

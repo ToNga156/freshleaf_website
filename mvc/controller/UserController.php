@@ -19,15 +19,16 @@ class UserController extends Controller{
             
             $error = "";
 
-            // Kiểm tra dữ liệu đầu vào
             if (empty($username) || empty($email) || empty($phone) || empty($address) || empty($password) || empty($confirmPassword)) {
                 $error = "Please enter complete information.";
             } else {
-                // Kiểm tra định dạng email
                 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     $error = "Invalid email!";
-                } elseif ($password !== $confirmPassword) {
-                    // Kiểm tra xác nhận mật khẩu
+                }
+                
+                elseif (strlen($password) < 5) {
+                    $error = "Password must be at least 5 characters long!";}
+                elseif ($password !== $confirmPassword) {
                     $error = "Passwords do not match!";
                 }
             }
@@ -43,8 +44,7 @@ class UserController extends Controller{
             $result = $registerModel->Register($username, $hashedPassword, $email, $phone, $address);
 
             if ($result === true) {
-                // Điều hướng đến trang đăng nhập sau khi đăng ký thành công
-                header("Location: ./user/Login");
+                header("Location: ./Login");
                 exit();
             } else {
 
@@ -207,31 +207,40 @@ class UserController extends Controller{
             }
         }
     }
-    public function forgotPassword() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = $_POST['email'] ?? '';
-    
-            // Kiểm tra email có hợp lệ hay không
-            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                // Gọi phương thức generateResetCode để tạo mã reset
-                $model = $this->model('UserModel');
-                $resetCode = $model->generateResetCode($email);
-    
-                // Kiểm tra kết quả trả về từ model
-                if (strpos($resetCode, 'Error') === 0) {
-                    // Nếu có lỗi, hiển thị thông báo lỗi
-                    $this->view('./User/ForgetPassword', ['error' => $resetCode]);
+    public function forgetPassWord() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $email = isset($_POST['email']) ? trim($_POST['email']) : '';
+            $newPassword = isset($_POST['password']) ? $_POST['password'] : '';
+            $confirmPassword = isset($_POST['confirm_password']) ? $_POST['confirm_password'] : '';
+
+            // Kiểm tra định dạng email
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $this->view('./User/ForgetPassword', ['error' => 'Invalid email format.']);
+                return;
+            }
+
+            // Kiểm tra mật khẩu và xác nhận mật khẩu
+            if ($newPassword !== $confirmPassword) {
+                $this->view('./User/ForgetPassword', ['error' => 'Passwords do not match.']);
+                return;
+            }
+
+            $userModel = $this->model("UserModel");
+
+            // Kiểm tra email trong cơ sở dữ liệu
+            if ($userModel->doesEmailExist($email)) {
+                // Cập nhật mật khẩu mới
+                if ($userModel->updatePassword($email, $newPassword)) {
+                    $this->view('./User/Login', ['message' => 'Password updated successfully!']);
                 } else {
-                    // Hiển thị mã reset trên trang
-                    $this->view('./User/ForgetPassword', ['success' => 'Mã reset của bạn là: ' . $resetCode]);
+                    $this->view('./User/ForgetPassword', ['error' => 'Failed to update password.']);
                 }
             } else {
-                $this->view('./User/ForgetPassword', ['error' => 'Vui lòng nhập email hợp lệ.']);
+                $this->view('./User/ForgetPassword', ['error' => 'Email not found.']);
             }
         } else {
             $this->view('./User/ForgetPassword');
         }
     }
-    
 }
 ?>

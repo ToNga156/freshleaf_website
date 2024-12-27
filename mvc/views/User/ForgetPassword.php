@@ -40,7 +40,8 @@
             margin-bottom: 20px;
             color: #333;
         }
-        .Reset-container input[type="email"] {
+        .Reset-container input[type="email"],
+        .Reset-container input[type="password"] {
             width: 95%;
             padding: 10px;
             margin-bottom: 20px;
@@ -76,19 +77,17 @@
     </style>
 </head>
 <body>
-    <div class="ResetPass-container"> 
-        <div class="Reset-container"> 
-            <h1>Forget Password</h1> 
-            <?php if (isset($error)): ?> 
-                <p class="error"><?php echo htmlspecialchars($error) ?></p> 
-                <?php endif; ?> <?php if (isset($success)): ?> 
-                    <p class="success"><?php echo htmlspecialchars($success) ?></p> 
-                    <?php endif; ?> 
-                    <form action="./ForgetPassword.php" method="post"> 
-                        <input placeholder="Email" type="email" name="email" required /> 
-                        <button type="submit">Send verify code</button> 
-                    </form> 
-        </div> 
+<div class="ResetPass-container">
+    <div class="Reset-container">
+        <h1>Forget Password</h1>
+        <form action="./ForgetPassword" method="POST">
+            <input placeholder="Email" type="email" id="email" name="email" required>
+            <input placeholder="New password" type="password" id="password" name="password" required>
+            <input placeholder="Confirm password" type="password" id="confirm_password" name="confirm_password" required>
+            <button type="submit">Cập nhật mật khẩu</button>
+        </form>
+        <?php if (isset($error)) { echo "<p style='color: red;'>$error</p>"; } ?>
     </div>
+</div>
 </body>
 </html>
