@@ -223,7 +223,7 @@ $controller->handleChangePassword();
 <body>
 <div class="container_profile">
         <div class="sidebar" style="height: 75%;">
-            <img alt="User Avatar" height="50" src="/Public/images/<?php echo htmlspecialchars($userData['avatar']); ?>" width="50"/>
+            <img alt="User Avatar" height="50" src="/Public/Image/<?php echo htmlspecialchars($userData['avatar']); ?>" width="50"/>
             <h3><?php echo $userData['user_name']; ?></h3>
             <p><?php echo $userData['email']; ?></p>
             <div class="menu-profile">
@@ -254,7 +254,7 @@ $controller->handleChangePassword();
                 </div>
                 <div class="form-userAvatar">
                     <div class="uploadImage">Choose Image</div>
-                    <img id="avatarPreview" alt="Profile image" src="/Public/images/<?php echo htmlspecialchars($userData['avatar']); ?>" />
+                    <img id="avatarPreview" alt="Profile image" src="/Public/Image/<?php echo htmlspecialchars($userData['avatar']);?>" />
                     <input id="chooseImage" type="file" name="avatar" accept="Image/*" onchange="previewAvatar(event)" />
                     
                 </div>
@@ -298,33 +298,6 @@ $controller->handleChangePassword();
         </div>
     </div>
 </div>
-<script>
-    function previewAvatar(event) { 
-        var reader = new FileReader(); 
-        reader.onload = function() { 
-            var output = document.getElementById('avatarPreview'); 
-            output.src = reader.result; 
-        }; 
-        reader.readAsDataURL(event.target.files[0]); 
-    }
-
-    document.querySelectorAll('.password-eye').forEach(eye => {
-            eye.addEventListener('click', function() {
-                const input = this.previousElementSibling;
-                if (input.type === 'password') {
-                    input.type = 'text';
-                    this.classList.add('fa-eye');
-                    this.classList.remove('fa-eye-slash');
-                } else {
-                    input.type = 'password';
-                    this.classList.add('fa-eye-slash');
-                    this.classList.remove('fa-eye');
-                }
-            });
-        });
-        document.querySelector('.uploadImage').addEventListener('click', function() { 
-            document.getElementById('chooseImage').click(); 
-        });
-</script>
+<script src="\freshleaf_website\public\js\profile.js"></script>
 </body>
 </html>

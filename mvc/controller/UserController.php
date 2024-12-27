@@ -166,7 +166,7 @@ class UserController extends Controller{
             $avatar = $_FILES['avatar'];
 
             if ($avatar['error'] === UPLOAD_ERR_OK) {
-                $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+                $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
                 if (in_array($avatar['type'], $allowedTypes)) {
                     $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/Public/Image/'; 
 
