@@ -84,7 +84,7 @@ class UserController extends Controller{
 
                     // Điều hướng dựa trên vai trò
                     if ($userInfo['role'] === 'Admin') {
-                        echo "Đây là Homepage Admin";
+                        header("Location: /freshleaf_website/Admin");
                     } else {
                         header("Location: /freshleaf_website/Home");
                     }

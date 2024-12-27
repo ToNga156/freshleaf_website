@@ -254,7 +254,7 @@ $controller->handleChangePassword();
                 </div>
                 <div class="form-userAvatar">
                     <div class="uploadImage">Choose Image</div>
-                    <img id="avatarPreview" alt="Profile image" src="/Public/Image/<?php echo htmlspecialchars($userData['avatar']);?>" />
+                    <img id="avatarPreview" alt="Profile image" src="/Public/Image/<?php echo htmlspecialchars($userData['avatar']); ?>" />
                     <input id="chooseImage" type="file" name="avatar" accept="Image/*" onchange="previewAvatar(event)" />
                     
                 </div>

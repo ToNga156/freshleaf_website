@@ -38,10 +38,31 @@
 
                 <div class="options">
                     <button class="buynow">Thanh toán</button>
-                    <button class="addproduct">Thêm vào giỏ hàng</button>
+                    <button class="addproduct" data-id="<?php echo $product['product_id']; ?>">Thêm vào giỏ hàng</button>
                 </div>
-
             </div>
+            <script>
+                document.querySelector(".addproduct").addEventListener("click", function () {
+                    const productId = this.getAttribute("data-id");
+                    fetch("/freshleaf_website/ShoppingCart/addToCart", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({ product_id: productId })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert("Sản phẩm đã được thêm vào giỏ hàng!");
+                        } else {
+                            alert("Có lỗi xảy ra, vui lòng thử lại.");
+                        }
+                    })
+                    .catch(error => console.error("Error:", error));
+                });
+            </script>
+
         </div>
 
         <!-- Phần sản phẩm liên quan -->

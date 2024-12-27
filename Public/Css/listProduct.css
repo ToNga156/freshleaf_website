@@ -2,8 +2,8 @@
 .products{
     padding:20px;
     padding-top:150px;
-    display:flex;
-
+    display: flex;
+    flex-direction: column;
 }
 .products h1{
     text-align: center;
