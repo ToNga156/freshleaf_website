@@ -3,6 +3,7 @@
     padding:20px;
     padding-top:150px;
     display:flex;
+    flex-direction: column;
 
 }
 .products h1{

@@ -2,7 +2,6 @@
 require_once('C:\xampp\htdocs\freshleaf_website\mvc\model\UserModel.php');
 session_start();
 require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
-
 class UserController extends Controller{
     private $model;
     
@@ -207,40 +206,63 @@ class UserController extends Controller{
             }
         }
     }
-    public function forgetPassWord() {
+    //Hàm yêu cầu gửi mã reset mật khẩu
+    public function requestResetPassword() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $email = isset($_POST['email']) ? trim($_POST['email']) : '';
-            $newPassword = isset($_POST['password']) ? $_POST['password'] : '';
-            $confirmPassword = isset($_POST['confirm_password']) ? $_POST['confirm_password'] : '';
-
-            // Kiểm tra định dạng email
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $this->view('./User/ForgetPassword', ['error' => 'Invalid email format.']);
-                return;
-            }
-
-            // Kiểm tra mật khẩu và xác nhận mật khẩu
-            if ($newPassword !== $confirmPassword) {
-                $this->view('./User/ForgetPassword', ['error' => 'Passwords do not match.']);
-                return;
-            }
-
             $userModel = $this->model("UserModel");
 
-            // Kiểm tra email trong cơ sở dữ liệu
+            //Kiểm tra email có tồn tại không
             if ($userModel->doesEmailExist($email)) {
-                // Cập nhật mật khẩu mới
-                if ($userModel->updatePassword($email, $newPassword)) {
-                    $this->view('./User/Login', ['message' => 'Password updated successfully!']);
+                $result = $userModel->sendResetCode($email);
+                if ($result === true) {
+                    // Gửi email thành công
+                    $this->view('./User/FogetPassword', ['message' => 'Mã xác nhận đã được gửi tới email của bạn.']);
                 } else {
-                    $this->view('./User/ForgetPassword', ['error' => 'Failed to update password.']);
+                    // Nếu có lỗi khi gửi mã
+                    $this->view('./User/ForgetPassword', ['error' => 'Có lỗi khi gửi mã xác nhận.']);
                 }
             } else {
-                $this->view('./User/ForgetPassword', ['error' => 'Email not found.']);
+                // Email không tồn tại
+                $this->view('./User/ForgetPassword', ['error' => 'Email không tồn tại.']);
             }
         } else {
             $this->view('./User/ForgetPassword');
         }
     }
+
+    //Hàm reset mật khẩu
+    public function resetPassword() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $email = isset($_POST['email']) ? trim($_POST['email']) : '';
+            $code = isset($_POST['reset_code']) ? $_POST['reset_code'] : '';
+            $newPassword = isset($_POST['password']) ? $_POST['password'] : '';
+            $confirmPassword = isset($_POST['confirm_password']) ? $_POST['confirm_password'] : '';
+
+            // Kiểm tra mật khẩu và xác nhận mật khẩu
+            if ($newPassword !== $confirmPassword) {
+                $this->view('./User/ResetPassword', ['error' => 'Passwords do not match.']);
+                return;
+            }
+
+            $userModel = $this->model("UserModel");
+            $verifyResult = $userModel->verifyResetCode($email, $code);
+
+            if ($verifyResult === true) {
+                // Mã xác nhận hợp lệ, cập nhật mật khẩu mới
+                $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+                if ($userModel->updatePassword($email, $hashedPassword)) {
+                    $this->view('./User/Login', ['message' => 'Mật khẩu đã được cập nhật thành công!']);
+                } else {
+                    $this->view('./ResetPassword', ['error' => 'Không thể cập nhật mật khẩu.']);
+                }
+            } else {
+                $this->view('./ResetPassword', ['error' => $verifyResult]);
+            }
+        } else {
+            $this->view('./ResetPassword');
+        }
+    }
+    
 }
 ?>

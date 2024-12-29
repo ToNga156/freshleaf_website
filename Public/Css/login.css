@@ -98,3 +98,9 @@ button:hover {
 .footer_login a:hover {
     color: blue;
 }
+
+#forgetPass {
+    margin-left: 110px;
+    text-decoration: none;
+    color: black;
+}

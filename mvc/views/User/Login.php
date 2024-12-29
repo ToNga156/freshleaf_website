@@ -33,8 +33,8 @@
             </div>
             <div class="submit">
                 <button type="submit">Login</button>
-                <a href="\freshleaf_website\mvc\views\User\ForgetPassword.php">forget password </a>
             </div>
+            <a id="forgetPass" href="./ForgetPassword">Forget password </a>
             <div class="footer_login">
                 You do not have an account? <a href="./register">Register</a>
             </div>

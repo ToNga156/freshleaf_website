@@ -4,18 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script> 
+        document.addEventListener('DOMContentLoaded', function() { 
+            <?php if (isset($data['message'])): ?> 
+                alert("<?php echo htmlspecialchars($data['message']); ?>"); 
+                window.location.href = "./ResetPassword"; 
+            <?php endif; ?> 
+        }); 
+    </script>
     <style>
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            background-image: url('../../../Public/images/background_regis_login.jpg');
+            background-image: url('../images/background_regis_login.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             display: flex;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
         }
         .ResetPass-container {
             position: relative;
@@ -74,6 +81,9 @@
         .Reset-container p a:hover {
             text-decoration: underline;
         }
+        #footer_forgetPass{
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
@@ -82,11 +92,14 @@
         <h1>Forget Password</h1>
         <form action="./ForgetPassword" method="POST">
             <input placeholder="Email" type="email" id="email" name="email" required>
-            <input placeholder="New password" type="password" id="password" name="password" required>
-            <input placeholder="Confirm password" type="password" id="confirm_password" name="confirm_password" required>
-            <button type="submit">Cập nhật mật khẩu</button>
+            <button type="submit">Send code</button>
         </form>
-        <?php if (isset($error)) { echo "<p style='color: red;'>$error</p>"; } ?>
+        <?php if (!empty($data['error'])): ?>
+                <p style="color: red;"><?php echo $data['error']; ?></p>
+        <?php endif; ?>
+        <div id="footer_forgetPass">
+            Already have an account? <a href="/freshleaf_website/user/login">Log in</a>
+        </div>
     </div>
 </div>
 </body>

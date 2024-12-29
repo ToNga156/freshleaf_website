@@ -1,4 +1,5 @@
-
+create database freshleaf_website;
+use freshleaf_website;
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
