@@ -14,9 +14,9 @@
 
 <body>
     <header><?php include('C:/xampp/htdocs/freshleaf_website/mvc/views/layout/header.php') ?></header>  
-
     <?php
         $cartItems = $data['cartItems'];
+        $totalQuantity = $data['totalQuantity'];
     ?>
     <div class="shopping-cart">
         <?php if (empty($cartItems)): ?>
@@ -30,7 +30,7 @@
             <div class="shopping-cart-container1">
                 <div class="cart-header">
                     <h2>Shopping Cart</h2>
-                    <p>( <span>4</span> products )</p>
+                    <p>( <span><?php echo htmlspecialchars($totalQuantity[0]['total_quantity']);?></span> products )</p>
                 </div>  
                 
                 <div class="cart-title">

@@ -29,12 +29,21 @@ class OrderDetailModel extends Db {
             SELECT c.category_name, p.product_name, p.product_image, p.unit, p.price, od.quantity, (p.price * od.quantity) AS line_total
             FROM order_detail od
             JOIN products p ON od.product_id = p.product_id
-            join categories c on p.category_id = c.category_id
+            JOIN categories c ON p.category_id = c.category_id
             WHERE od.order_id = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $order_id);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getTotalQuantityCart($order_id) {
+        $sql = "select sum(quantity) as total_quantity from order_detail where order_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $order_id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+    
 }
 ?>

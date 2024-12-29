@@ -84,16 +84,6 @@ if (session_status() === PHP_SESSION_NONE) {
                         </div>
                     </div>
                 <?php endif; ?>
-
-                <!-- <div class="info-Account">
-                    <a href="http://localhost/freshleaf_website/profile/index">
-                        <img src="../../freshleaf_website/public/images/avatar-default.jpg" alt="Avatar mặc định">
-                    </a>
-                    <div>
-                        <p>Tài khoản</p>
-                        <a href="./Login">Đăng nhập</a>
-                    </div>
-                </div> -->
             </div>
     
             <div class="bottom-header">
@@ -112,7 +102,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 </div>
 
                 <div class="icon-shopping-cart">
-                    <p class="quantity-icon-shopping-cart">0</p>
+                    <!-- <p class="quantity-icon-shopping-cart">0</p> -->
                     <a href="/freshleaf_website/ShoppingCart/viewCart"><ion-icon name="cart-outline"></ion-icon></a>
                 </div>
             </div>
