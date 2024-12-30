@@ -1,9 +1,6 @@
 <?php  
 require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Db.php');
-
-require_once 'C:\xampp\htdocs\freshleaf_website\vendor\PHPMailer-master\src\PHPMailer.php';
-require_once 'C:\xampp\htdocs\freshleaf_website\vendor\PHPMailer-master\src\SMTP.php';
-require_once 'C:\xampp\htdocs\freshleaf_website\vendor\PHPMailer-master\src\Exception.php';
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -136,7 +133,7 @@ use PHPMailer\PHPMailer\Exception;
             $stmt->bind_param("ss", $hashedPassword, $email);
             return $stmt->execute();
         }
-
+        
         // Gửi mã reset mật khẩu và lưu mã vào cơ sở dữ liệu
         public function sendResetCode($email) {
             $resetCode = rand(100000, 999999); // Mã gồm 6 chữ số
@@ -145,7 +142,7 @@ use PHPMailer\PHPMailer\Exception;
             // Lưu mã và thời gian hết hạn vào bảng users
             $query = "UPDATE users SET reset_code = ?, reset_expires_at = ? WHERE email = ?";
             $stmt = $this->conn->prepare($query);
-            $stmt->bind_param("sss", $resetCode, $expiryTime, $email);
+            $stmt->bind_param("iss", $resetCode, $expiryTime, $email);
             $stmt->execute();
 
             // Gửi email với mã xác nhận
@@ -156,7 +153,7 @@ use PHPMailer\PHPMailer\Exception;
         public function verifyResetCode($email, $code) {
             $query = "SELECT * FROM users WHERE email = ? AND reset_code = ? AND reset_expires_at > NOW()";
             $stmt = $this->conn->prepare($query);
-            $stmt->bind_param("ss", $email, $code);
+            $stmt->bind_param("si", $email, $code);
             $stmt->execute();
             $result = $stmt->get_result();
 
@@ -174,7 +171,9 @@ use PHPMailer\PHPMailer\Exception;
 
         // Hàm gửi email mã reset
         public function sendEmail($email, $resetCode) {
-            require 'C:\xampp\htdocs\freshleaf_website\PHPMailer';
+            require_once 'C:\xampp\htdocs\freshleaf_website\vendor\PHPMailer-master\src\PHPMailer.php';
+            require_once 'C:\xampp\htdocs\freshleaf_website\vendor\PHPMailer-master\src\SMTP.php';
+            require_once 'C:\xampp\htdocs\freshleaf_website\vendor\PHPMailer-master\src\Exception.php';
 
             $mail = new PHPMailer(true);
 

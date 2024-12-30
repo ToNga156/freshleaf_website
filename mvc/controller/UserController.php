@@ -207,7 +207,7 @@ class UserController extends Controller{
         }
     }
     //Hàm yêu cầu gửi mã reset mật khẩu
-    public function requestResetPassword() {
+    public function forgetPassword() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $email = isset($_POST['email']) ? trim($_POST['email']) : '';
             $userModel = $this->model("UserModel");
@@ -217,7 +217,7 @@ class UserController extends Controller{
                 $result = $userModel->sendResetCode($email);
                 if ($result === true) {
                     // Gửi email thành công
-                    $this->view('./User/FogetPassword', ['message' => 'Mã xác nhận đã được gửi tới email của bạn.']);
+                    header("Location: /freshleaf_website/User/resetPassword");
                 } else {
                     // Nếu có lỗi khi gửi mã
                     $this->view('./User/ForgetPassword', ['error' => 'Có lỗi khi gửi mã xác nhận.']);
@@ -252,15 +252,16 @@ class UserController extends Controller{
                 // Mã xác nhận hợp lệ, cập nhật mật khẩu mới
                 $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
                 if ($userModel->updatePassword($email, $hashedPassword)) {
-                    $this->view('./User/Login', ['message' => 'Mật khẩu đã được cập nhật thành công!']);
+                    header("Location: /freshleaf_website/User/Login");
                 } else {
-                    $this->view('./ResetPassword', ['error' => 'Không thể cập nhật mật khẩu.']);
+                    $this->view('./User/ResetPassword', ['error' => 'Không thể cập nhật mật khẩu.']);
                 }
             } else {
-                $this->view('./ResetPassword', ['error' => $verifyResult]);
+                $this->view('./User/ResetPassword', ['error' => $verifyResult]);
             }
-        } else {
-            $this->view('./ResetPassword');
+        } 
+        else {
+            $this->view('./User/ResetPassword');
         }
     }
     

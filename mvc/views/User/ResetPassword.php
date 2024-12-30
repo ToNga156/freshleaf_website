@@ -91,7 +91,7 @@
 <div class="ResetPass-container">
     <div class="Reset-container">
         <h1>Reset Password</h1>
-        <form action="./ResetPassword" method="POST">
+        <form action="./resetPassword" method="POST">
             <input placeholder="Email" type="email" id="email" name="email" required>
             <input placeholder="Reset Code" type="text" id="reset_code" name="reset_code" required>
             <input placeholder="New password" type="password" id="password" name="password" required>
