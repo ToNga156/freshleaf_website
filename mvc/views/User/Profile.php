@@ -229,7 +229,7 @@ $controller->handleChangePassword();
             <div class="menu-profile">
                 <a href="#"><i class="fas fa-user"></i>My Profile</a>
                 <a href="#"><i class="fas fa-file-alt"></i>My Orders</a>
-                <a href="#"><i class="fas fa-shopping-cart"></i>My Shopping Cart</a>
+                <a href="/freshleaf_website/ShoppingCart/viewCart"><i class="fas fa-shopping-cart"></i>My Shopping Cart</a>
             </div>
         </div>
         <div class="container_infor" style="margin-left: 55%; width: 400%;">
