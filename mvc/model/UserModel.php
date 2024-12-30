@@ -140,6 +140,14 @@ require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Db.php');
                 return [];
             }
         }
+        public function deleteUser($user_id){
+            $sql = "DELETE  FROM users WHERE user_id=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("i", $user_id);
+            $result = $stmt->execute();
+            $stmt->close();
+            return $result;
+        }   
         
     }
 

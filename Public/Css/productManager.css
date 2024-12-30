@@ -16,17 +16,14 @@ body {
 
 .content {
     display: flex;
-    gap: 20px;
-    padding: 20px;
 }
 
 .navigation {
     border: none;
     background-color: green;
-    padding: 15px 0;
-    width: 250px;
-    height: 100vh;
-    position: fixed;
+    padding: 20px 0;
+    width: 300px;
+    height: auto;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -66,8 +63,7 @@ body {
 }
 
 .tableContent {
-    margin-left: 270px;
-    width: calc(100% - 290px);
+    width: 100%;
     border: 2px solid #ddd;
     background-color: #fff;
     padding: 15px;
@@ -130,16 +126,25 @@ body {
     background-color: #bd2130;
 }
 .decription {
-    word-wrap: break-word; /* Tự động xuống dòng nếu văn bản quá dài */
-    word-break: break-word; /* Bẻ từ nếu quá dài */
-    line-height: 1.5; /* Khoảng cách giữa các dòng */
-    text-align: justify; /* Canh đều hai bên */
-    padding: 10px; /* Thêm khoảng cách bên trong */
-    font-size: 16px; /* Kích thước chữ phù hợp */
-    color: #333; /* Màu chữ */
+    word-wrap: break-word; 
+    word-break: break-word; 
+    line-height: 1.5; 
+    text-align: justify; 
+    padding: 10px; 
+    font-size: 16px; 
+    color: #333; 
     background-color: #f9f9f9; 
     border-radius: 5px; 
     border: 1px solid #ddd; 
-    width: 50%;
+    width: 30%;
+    height: 20%;
     margin-top: 10px; 
+}
+.product_content img{
+    width: 50%;
+    height: 20%;
+}
+.product_content .img{
+    width: 20%;
+    height: 20%;
 }
