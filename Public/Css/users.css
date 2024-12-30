@@ -64,7 +64,13 @@ body {
 .navigation .btn a i {
     font-size: 20px;
 }
+.tableBody img{
+    width: 30%;
 
+}
+.tableBody .password{
+    width: 200px;
+}
 .tableContent {
     margin-left: 270px;
     width: calc(100% - 290px);

@@ -7,14 +7,12 @@ require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
         public function __construct(){
             $this->model = new UserModel();
         }
-        public function UserManager($user_id){
-            $getAllUser =  $this->model->getUserId($user_id);
-            if (!$getAllUser){
-                echo "Không tòn tại tài khoản nào cả";
+        public function UserManager(){
+            $getUser = $this->model->getAllUsers();
+            if (empty($getUser)){
+                echo "Không có tài khoản nào trong Database";
             }
-            else{
-                $this->view("./Admin/UsersManager",["getAllUser"=>$getAllUser]);
-            }
+            $this->view("./Admin/UsersManager",["user"=>$getUser]);
         }
         // public function showAllUser() {
         //     return $this->userModel->getAllUsers();

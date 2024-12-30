@@ -1,7 +1,7 @@
 
 <?php
     require_once('C:\xampp\htdocs\freshleaf_website\mvc\controller\AdminController.php');
-    $getAllUser = $data['getAllUser'];
+    $Users = $data['user'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,23 +35,24 @@
                         <th>Avatar</th>
                         <th>Password</th>
                         <th>Phone</th>
+                        <th>Adress</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- Example rows -->
-                    <tr>
-                        <td><?php $getAllUser['user_id'] ?></td>
-                        <td><?php $getAllUser['user_name'] ?></td>
-                        <td>johndoe@example.com</td>
-                        <td><img src="avatar.jpg" alt="Avatar" class="avatar"></td>
-                        <td>********</td>
-                        <td>123-456-7890</td>
-                        <td>
-                            <button class="edit-btn"><i class="fa fa-pencil-square-o" style="font-size:30px"></i></button>
-                            <button class="delete-btn"><i class="fa fa-trash-o" style="font-size:30px"></i></button>
-                        </td>
-                    </tr>
+                    <?php foreach ($Users as $user): ?>
+                        <tr class="tableBody">
+                            <td><?php echo $user['user_id']; ?></td>
+                            <td><?php echo $user['user_name']; ?></td>
+                            <td><?php echo $user['email']; ?></td>
+                            <td><img src="/Public/Image/<?php echo htmlspecialchars($user['avatar']) ?>" alt="avt"></td>
+                            <td class="password"><?php echo str_repeat('*', strlen($user['password'])); ?></td>
+                            <td><?php echo $user['phone']; ?></td>
+                            <td><?php echo $user['address'] ?></td>
+                            <td>action</td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

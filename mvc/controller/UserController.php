@@ -83,8 +83,8 @@ class UserController extends Controller{
                     }
 
                     // Điều hướng dựa trên vai trò
-                    if ($userInfo['role'] === 'Admin') {
-                        header("Location: /freshleaf_website/Admin");
+                    if ($userInfo['user_id']===1 ) {
+                        header("Location: /freshleaf_website/Admin/UserManager");
                     } else {
                         header("Location: /freshleaf_website/Home");
                     }

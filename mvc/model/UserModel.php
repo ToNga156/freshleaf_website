@@ -115,6 +115,32 @@ require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Db.php');
             $stmt->bind_param("si", $hashedNewPassword, $userId);
             return $stmt->execute();
         }
+        public function getAllUsers() {
+            $sql = "SELECT user_id, user_name, email,avatar, password, phone, address  FROM users";
+            $stmt = $this->conn->prepare($sql);
+            
+            if ($stmt->execute()) {
+                $result = [];
+                $stmt->bind_result($id, $username, $email,$avatar,$password,$phone,$address);
+                while ($stmt->fetch()) {
+                    $result[] = [
+                        "user_id" => $id,
+                        "user_name" => $username,
+                        "email" => $email,
+                        "avatar"=>$avatar,
+                        "password" =>$password,
+                        "phone"=>$phone,
+                        "address"=>$address
+                        
+                        
+                    ];
+                }
+                return $result;
+            } else {
+                return [];
+            }
+        }
+        
     }
 
 ?>
