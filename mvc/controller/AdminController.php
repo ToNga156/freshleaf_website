@@ -66,7 +66,6 @@ require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
             }
         }
         public function editProduct() {
-            // Lấy dữ liệu sản phẩm theo ID từ URL
             $this->productModel = new ProductModel();
             if (isset($_GET['id'])) {
                 $product_id = $_GET['id'];
@@ -107,6 +106,7 @@ require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
                 echo "Không tìm thấy sản phẩm!";
             }
         }
+        
         
         
     }

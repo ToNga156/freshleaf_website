@@ -122,17 +122,19 @@ class ProductModel extends Db{
         return $result;
     }
     public function editProduct($product_id, $product_name, $price, $description, $unit, $image, $category_name) {
-        // Cập nhật thông tin sản phẩm theo product_id
         $sql = "UPDATE products SET product_name = ?, price = ?, description = ?, unit = ?, product_image = ?, category_id = ? WHERE product_id = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("ssssssi", $product_name, $price, $description, $unit, $image, $category_name, $product_id);
-    
-        // Thực thi câu lệnh SQL
         $result = $stmt->execute();
-    
         return $result;
     }
-    
+    public function addProduct($product_name, $price, $description, $unit, $image, $category_id){
+        $sql = "INSERT INTO products VALUES(?,?,?,?,?,?)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("sssssi",$product_name, $price, $description, $unit, $image, $category_id);
+        $result = $stmt->execute();
+        return $result;
+    }
     
 }
 
