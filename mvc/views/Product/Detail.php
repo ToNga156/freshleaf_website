@@ -42,31 +42,33 @@
                 </div>
             </div>
             <script>
-document.querySelector(".addproduct").addEventListener("click", function () {
-    const productId = this.getAttribute("data-id");
-    fetch("/freshleaf_website/ShoppingCart/addToCart", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ product_id: productId })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert("Sản phẩm đã được thêm vào giỏ hàng!");
-        } else {
-            alert("Có lỗi xảy ra, vui lòng thử lại.");
-        }
-    })
-    .catch(error => console.error("Error:", error));
-});
-</script>
+                document.querySelector(".addproduct").addEventListener("click", function () {
+                    const productId = this.getAttribute("data-id");
+                    const quantity = parseInt(document.querySelector(".quantity-value").innerText);
+
+                    fetch("/freshleaf_website/ShoppingCart/addToCart", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({ product_id: productId, quantity: quantity })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert("Sản phẩm đã được thêm vào giỏ hàng!");
+                        } else {
+                            alert("Có lỗi xảy ra, vui lòng thử lại.");
+                        }
+                    })
+                    .catch(error => console.error("Error:", error));
+                });
+            </script>
 
         </div>
 
         <!-- Phần sản phẩm liên quan -->
-        <h3 class="related-title">Sản phẩm tương tự</h3>
+        <h3 class="related-title">Similar Products</h3>
         <div class="related-products">
             <?php foreach ($relatedProducts as $product): ?>
             <div class="product-card">

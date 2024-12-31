@@ -82,6 +82,10 @@ body {
     font-size: 20px;
 }
 
+.cart-item .delete-cart-item ion-icon:hover {
+    cursor: pointer;
+}
+
 .cart-item .product-info, .unit-price, .quantity, .line-total {
     border-top: 1px solid #E5E5E5;
     padding: 20px 0;
@@ -196,7 +200,7 @@ body {
 
 /* div have no product */
 .shopping-cart-container2 {
-    margin: 8px 0;
+    margin: 10px 0;
     padding: 20px;
     display: flex;
     align-items: center;
@@ -223,4 +227,9 @@ body {
     background-color: #009C52;
     color: white;
     font-size: 20px;
+}
+
+.shopping-cart .backtohome:hover {
+    cursor: pointer;
+    background-color: #006234;
 }
