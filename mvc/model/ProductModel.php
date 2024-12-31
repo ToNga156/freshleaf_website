@@ -20,6 +20,11 @@ class ProductModel extends Db{
             return null;
         }
     }
+    public function getAllCategories(){
+        $sql = "SELECT * FROM categories";
+        $result = mysqli_query($this->conn, $sql);
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
     public function getProductCategory($category_id) {
         // Prepare the SQL statement
         $sql = "SELECT * FROM Products WHERE category_id = ? LIMIT 4";
@@ -36,7 +41,9 @@ class ProductModel extends Db{
             p.product_id, 
             p.product_name,
             p.product_image, 
-            p.price, 
+            p.price,
+            p.description,
+            p.unit, 
             c.category_id, 
             c.category_name 
         FROM products p
@@ -107,6 +114,25 @@ class ProductModel extends Db{
         $result = $stmt->get_result();
         return $result->fetch_assoc()['price'] ?? 0.00;
     }
+    public function deleteProduct($product_id){
+        $sql = "DELETE FROM products WHERE product_id=?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $product_id);
+        $result = $stmt->execute();
+        return $result;
+    }
+    public function editProduct($product_id, $product_name, $price, $description, $unit, $image, $category_name) {
+        // Cập nhật thông tin sản phẩm theo product_id
+        $sql = "UPDATE products SET product_name = ?, price = ?, description = ?, unit = ?, product_image = ?, category_id = ? WHERE product_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("ssssssi", $product_name, $price, $description, $unit, $image, $category_name, $product_id);
+    
+        // Thực thi câu lệnh SQL
+        $result = $stmt->execute();
+    
+        return $result;
+    }
+    
     
 }
 
