@@ -19,7 +19,7 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            background-image: url('../images/background_regis_login.jpg');
+            background-image: url("/freshleaf_website/Public/images/background_regis_login.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             display: flex;

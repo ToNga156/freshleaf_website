@@ -1,17 +1,24 @@
+<?php 
+if(session_status() == PHP_SESSION_NONE){
+session_start();
+}
+if(isset($_SESSION['message'])): ?>
+<script> 
+document.addEventListener('DOMContentLoaded', function() { 
+        alert("<?php echo htmlspecialchars($_SESSION['message']); ?>");
+        <?php unset($_SESSION['message']); ?> 
+        window.location.href = "./Login"; 
+    }); 
+    </script>
+    <?php endif; ?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script> 
-        document.addEventListener('DOMContentLoaded', function() { 
-            <?php if (isset($data['message'])): ?> 
-                alert("<?php echo htmlspecialchars($data['message']); ?>"); 
-                window.location.href = "./Login"; 
-            <?php endif; ?> 
-        }); 
-    </script>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,14 +26,14 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            background-image: url('../images/background_regis_login.jpg');
+            background-image: url("/freshleaf_website/Public/images/background_regis_login.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             display: flex;
         }
         .ResetPass-container {
-            position: relative;
-            top: 190px;
+            position: fixed;
+            top: 30px;
             width: 100%;
             height: 100%;
             display: flex;

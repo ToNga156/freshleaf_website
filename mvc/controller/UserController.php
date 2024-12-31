@@ -252,7 +252,9 @@ class UserController extends Controller{
                 // Mã xác nhận hợp lệ, cập nhật mật khẩu mới
                 $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
                 if ($userModel->updatePassword($email, $hashedPassword)) {
-                    header("Location: /freshleaf_website/User/Login");
+                    session_start();
+                    $_SESSION['message'] = 'Password update successfully!';
+                    header("Location: /freshleaf_website/User/ResetPassword");
                 } else {
                     $this->view('./User/ResetPassword', ['error' => 'Không thể cập nhật mật khẩu.']);
                 }
