@@ -44,6 +44,7 @@ class ProductModel extends Db{
             p.price,
             p.description,
             p.unit, 
+            p.stock_quantity,
             c.category_id, 
             c.category_name 
         FROM products p
@@ -128,13 +129,14 @@ class ProductModel extends Db{
         $result = $stmt->execute();
         return $result;
     }
-    public function addProduct($product_name, $price, $description, $unit, $image, $category_id){
-        $sql = "INSERT INTO products VALUES(?,?,?,?,?,?)";
+    public function addProduct($product_name, $price, $description, $unit,$stock_quantity, $image, $category_id) {
+        $sql = "INSERT INTO products (product_name, price, description, unit,stock_quantity, product_image, category_id)
+                VALUES (?, ?, ?, ?, ?, ?,?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("sssssi",$product_name, $price, $description, $unit, $image, $category_id);
-        $result = $stmt->execute();
-        return $result;
+        $stmt->bind_param("ssssisi", $product_name, $price, $description, $unit,$stock_quantity, $image, $category_id);
+        return $stmt->execute();
     }
+    
     
 }
 

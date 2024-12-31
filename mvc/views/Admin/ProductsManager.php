@@ -15,12 +15,17 @@ $product = $data['product'];
 </head>
 <body>
     <div class="title">
+        <img src="/freshleaf_website/public/images/logo_website.png" alt="">
         <h1>Products Manager</h1>
+        <div class="logout"><a href="/freshleaf_website/User/Logout"><i class="fa fa-sign-out" style="font-size:36px"></i></a></div>
     </div>
     <div class="create">
-        <button>Create
-        <div class="icon"><i class='fas fa-plus-circle' style='font-size:30px;'></i></div>
-        </button>
+        <a href="/freshleaf_website/Admin/CreateProduct">
+            <button>Create
+            <div class="icon"><i class='fas fa-plus-circle' style='font-size:30px;'></i></div>
+            </button>
+        </a>
+        
         
         
     </div>
@@ -35,6 +40,11 @@ $product = $data['product'];
                     <i class="fas fa-cube" style="font-size:36px"></i> Product Manager
                 </a>
             </button>
+            <button class="btn">
+                <a href="">
+                <i class="fa fa-list-alt" style="font-size:36px;"></i>Categories
+                </a>
+            </button>
         </div>
         <div class="tableContent">
             <table>
@@ -45,6 +55,7 @@ $product = $data['product'];
                         <th>Price</th>
                         <th>Description</th>
                         <th>Unit</th>
+                        <th>Stock Quantity</th>
                         <th>Image</th>
                         <th>Categories</th>
                         <th>Action</th>
@@ -58,16 +69,17 @@ $product = $data['product'];
                         <td><?php echo $products['price'] ?></td>
                         <td class="description"><?php echo $products['description'] ?></td>
                         <td><?php echo $products['unit'] ?></td>
+                        <td><?php echo $products['stock_quantity'] ?></td>
                         <td class="img"><img src="<?php echo htmlspecialchars($products['product_image']) ?>" alt="product_image" class="product_image"></td>
                         <td><?php echo $products['category_name'] ?></td>
                         <td>
                             <form action="/freshleaf_website/Admin/deleteProduct" method="POST" onsubmit="return confirm('Are you sure you want to delete this product?');">
                                 <input type="hidden" name="product_id" value="<?php echo $products['product_id']; ?>">
-                                <button class="delete-btn" type="submit"><i class="fa fa-trash-o" style="font-size:30px"></i></button>
+                                <button class="delete-btn" type="submit"><i class="fa fa-trash-o" style="font-size:20px"></i></button>
                             </form>
                             <a href="/freshleaf_website/Admin/editProduct?id=<?php echo $products['product_id'] ?>">
                                 <button type="button" class="edit-btn">
-                                    <i class="fa fa-pencil-square-o" style="font-size:30px"></i>
+                                    <i class="fa fa-pencil-square-o" style="font-size:20px"></i>
                                 </button>
                             </a>
                         </td>

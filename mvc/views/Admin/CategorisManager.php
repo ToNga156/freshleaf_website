@@ -1,6 +1,5 @@
 <?php
     require_once('C:\xampp\htdocs\freshleaf_website\mvc\controller\AdminController.php');
-    $Users = $data['user'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/freshleaf_website/public/css/users.css?v=<?php echo time();?>">
+    <link rel="stylesheet" href="/freshleaf_website/public/css/categories.css?v=<?php echo time();?>">
     <title>Users Manager</title>
 </head>
 <body>

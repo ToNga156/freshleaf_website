@@ -1,3 +1,7 @@
+<?php 
+require_once('C:\xampp\htdocs\freshleaf_website\mvc\controller\AdminController.php');
+$categories = $data['categories'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +20,14 @@
             <input type="text" name="price" id="price" required><br>
 
             <label for="description">Mô tả:</label>
-            <textarea name="description" id="description" </textarea><br>
+            <textarea name="description" id="description" required></textarea><br>
 
             <label for="unit">Đơn vị:</label>
             <input type="text" name="unit" id="unit"  required><br>
+
+            <label for="unit">Số lượng:</label>
+            <input type="text" name="stock_quantity" id="stock_quantity"  required><br>
+
 
             <label for="image">Hình ảnh:</label>
             <input type="text" name="product_image" id="product_image" required><br>

@@ -6,16 +6,27 @@ body {
 }
 
 .title {
+    display: flex;
     background-color: green;
+    justify-content: space-between;
+    align-items: center;
     color: white;
     text-align: center;
     font-weight: bold;
-    padding: 20px 0;
-    margin-bottom: 20px;
+
+}
+.title img{
+    width: 7%;
+    height:10%;
+    
+}
+.title .logout{
+    width: 10%;
 }
 
 .content {
     display: flex;
+    padding-top: 20px;
 
 }
 

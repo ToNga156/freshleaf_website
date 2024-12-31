@@ -69,7 +69,6 @@ class UserController extends Controller{
             if ($userInfo) {
                 // Kiểm tra xem mật khẩu có hợp lệ hay không
                 if (password_verify($password, $userInfo['password'])) {
-                    // Đăng nhập thành công, lưu thông tin vào session
                     $_SESSION['user_id'] = $userInfo['user_id'];
                     $_SESSION['user_name'] = $userInfo['user_name'];
                     $_SESSION['email'] = $userInfo['email'];
@@ -81,8 +80,6 @@ class UserController extends Controller{
                     } else {
                         echo "Session không tồn tại.";
                     }
-
-                    // Điều hướng dựa trên vai trò
                     if ($userInfo['user_id']===1 ) {
                         header("Location: /freshleaf_website/Admin/UserManager");
                     } else {

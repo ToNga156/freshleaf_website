@@ -79,7 +79,7 @@ require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
                     $image = $_POST['product_image'] ?? '';
                     $category_id = $_POST['category_id'] ?? '';
         
-                    // Gọi hàm update sản phẩm
+                    
                     $result = $this->productModel->editProduct(
                         $product_id,
                         $product_name,
@@ -106,7 +106,28 @@ require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
                 echo "Không tìm thấy sản phẩm!";
             }
         }
-        
+        // $product_name, $price, $description, $unit, $image, $category_id
+        public function CreateProduct(){
+            $this->productModel=new ProductModel();
+            $categories = $this->productModel->getAllCategories();
+            if($_SERVER['REQUEST_METHOD']==='POST'){
+                $product_name = $_POST['product_name'];
+                $price = $_POST['price'];
+                $description = $_POST['description'];
+                $unit = $_POST['unit'];
+                $stock_quantity = $_POST['stock_quantity'];
+                $image = $_POST['product_image'];
+                $category_id = $_POST['category_id'];
+                $result = $this->productModel->addProduct($product_name, $price, $description, $unit, $stock_quantity,$image, $category_id);
+                if(isset($result)){
+                    header("Location: /freshleaf_website/Admin/ProductManager");
+                }
+                else{
+                    echo "Thêm sản phẩm thất bại";
+                }
+            }
+            $this->view("/Admin/CreateProduct",['categories' => $categories]);
+        }
         
         
     }
