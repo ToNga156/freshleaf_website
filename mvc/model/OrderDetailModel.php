@@ -26,7 +26,7 @@ class OrderDetailModel extends Db {
 
     public function getOrderDetails($order_id) {
         $sql = "
-            SELECT c.category_name, p.product_name, p.product_image, p.unit, p.price, od.quantity, (p.price * od.quantity) AS line_total
+            SELECT c.category_name, p.product_name, p.product_image, p.price, p.unit, od.quantity, (p.price * od.quantity) AS line_total
             FROM order_detail od
             JOIN products p ON od.product_id = p.product_id
             JOIN categories c ON p.category_id = c.category_id
