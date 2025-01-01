@@ -1,7 +1,12 @@
 <?php
+require_once('C:\xampp\htdocs\freshleaf_website\mvc\controller\UserController.php');
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+global $conn;
+$controller = new UserController($conn);
+$userId = $_SESSION['user_id'];
+$userData = $controller->getProfile($userId);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,7 +71,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <?php if (isset($_SESSION['user_name'])): ?>
                     <div class="info-Account">
                         <a href="/freshleaf_website/User/profile">
-                            <img src="/Public/Image/<?php echo isset($_SESSION['user_avatar']) ? htmlspecialchars($_SESSION['user_avatar']) : '/freshleaf_website/public/images/avatar-default.jpg'; ?>" alt="Avt">
+                            <img src="/Public/Image/<?php echo isset($userData['avatar']) ? htmlspecialchars($userData['avatar']) : '/freshleaf_website/public/images/avatar-default.jpg'; ?>" alt="Avt">
                         </a>
                         <div>
                             <p><?php echo htmlspecialchars($_SESSION['user_name']); ?></p>

@@ -68,7 +68,6 @@ class UserController extends Controller{
             if ($userInfo) {
                 // Kiểm tra xem mật khẩu có hợp lệ hay không
                 if (password_verify($password, $userInfo['password'])) {
-                    // Đăng nhập thành công, lưu thông tin vào session
                     $_SESSION['user_id'] = $userInfo['user_id'];
                     $_SESSION['user_name'] = $userInfo['user_name'];
                     $_SESSION['email'] = $userInfo['email'];
@@ -80,10 +79,8 @@ class UserController extends Controller{
                     } else {
                         echo "Session không tồn tại.";
                     }
-
-                    // Điều hướng dựa trên vai trò
-                    if ($userInfo['role'] === 'Admin') {
-                        echo "Đây là Homepage Admin";
+                    if ($userInfo['user_id']===1 ) {
+                        header("Location: /freshleaf_website/Admin/UserManager");
                     } else {
                         header("Location: /freshleaf_website/Home");
                     }
@@ -165,7 +162,7 @@ class UserController extends Controller{
             $avatar = $_FILES['avatar'];
 
             if ($avatar['error'] === UPLOAD_ERR_OK) {
-                $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+                $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
                 if (in_array($avatar['type'], $allowedTypes)) {
                     $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/Public/Image/'; 
 
