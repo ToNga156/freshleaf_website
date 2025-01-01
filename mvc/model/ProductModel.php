@@ -136,7 +136,13 @@ class ProductModel extends Db{
         $stmt->bind_param("ssssisi", $product_name, $price, $description, $unit,$stock_quantity, $image, $category_id);
         return $stmt->execute();
     }
-    
+    public function deleteCategory($category_id){
+        $sql = "DELETE FROM categories WHERE category_id=?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $category_id);
+        $result = $stmt->execute();
+        return $result;
+    }
     
 }
 

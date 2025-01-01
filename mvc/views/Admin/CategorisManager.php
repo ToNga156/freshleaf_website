@@ -1,5 +1,6 @@
 <?php
     require_once('C:\xampp\htdocs\freshleaf_website\mvc\controller\AdminController.php');
+    $categories = $data['category'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +15,7 @@
 <body>
     <div class="title">
         <img src="/freshleaf_website/public/images/logo_website.png" alt="">
-        <h1>Users Manager</h1>
+        <h1>Categories Manager</h1>
         <div class="logout"><a href="/freshleaf_website/User/Logout"><i class="fa fa-sign-out" style="font-size:36px"></i></a></div>
     </div>
     <div class="content">
@@ -29,7 +30,7 @@
             </a>
             </button>
             <button class="btn">
-                <a href="">
+                <a href="/freshleaf_website/Admin/Categories">
                 <i class="fa fa-list-alt" style="font-size:36px;"></i>Categories
                 </a>
             </button>
@@ -37,38 +38,25 @@
         <div class="tableContent">
             <table>
                 <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>User Name</th>
-                        <th>Email</th>
-                        <th>Avatar</th>
-                        <th>Password</th>
-                        <th>Phone</th>
-                        <th>Address</th>
+                    <tr class="product_content">
+                        <th>Category ID</th>
+                        <th>Category Name</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($Users as $user): ?>
-                        <tr class="tableBody">
-                            <td><?php echo $user['user_id']; ?></td>
-                            <td><?php echo $user['user_name']; ?></td>
-                            <td><?php echo $user['email']; ?></td>
-                            <td><img src="/Public/Image/<?php echo htmlspecialchars($user['avatar']) ?>" alt="avatar" class="avatar"></td>
-                            <td class="password"><?php echo str_repeat('*', strlen($user['password'])); ?></td>
-                            <td>0<?php echo $user['phone']; ?></td>
-                            <td><?php echo $user['address'] ?></td>
-                            <td class="btn">
-                            <form method="POST" action="/freshleaf_website/Admin/deleteUser" onsubmit="return confirm('Are you sure you want to delete this user?');">
-                                <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
-                                <button type="submit" class="delete-btn">
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                            </form>
-                                <div class="contentDetail"><a href=""><i class="fa fa-eye" style="font-size:20px"></i>Xem chi tiết</a></div>
+                    <?php foreach($categories as $category): ?>
+                        <tr>
+                            <td><?php echo $category['category_id'] ?></td>
+                            <td><?php echo $category['category_name'] ?></td>
+                            <td class="action">
+                                <form action="/freshleaf_website/Admin/DeleteCategory" method="POST" onsubmit="return confirm('Are you sure you want to delete this category?');">
+                                    <input type="hidden" name="category_id" value="<?php echo $category['category_id']; ?>">
+                                    <button class="delete-btn" type="submit"><i class="fa fa-trash-o" style="font-size:20px"></i></button>
+                                </form>
                             </td>
                         </tr>
-                    <?php endforeach; ?>
+                    <?php endforeach;?>
                 </tbody>
             </table>
         </div>

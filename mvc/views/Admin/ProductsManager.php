@@ -41,8 +41,8 @@ $product = $data['product'];
                 </a>
             </button>
             <button class="btn">
-                <a href="">
-                <i class="fa fa-list-alt" style="font-size:36px;"></i>Categories
+                <a href="/freshleaf_website/Admin/Categories">
+                    <i class="fa fa-list-alt" style="font-size:36px;"></i>Categories
                 </a>
             </button>
         </div>
@@ -72,7 +72,7 @@ $product = $data['product'];
                         <td><?php echo $products['stock_quantity'] ?></td>
                         <td class="img"><img src="<?php echo htmlspecialchars($products['product_image']) ?>" alt="product_image" class="product_image"></td>
                         <td><?php echo $products['category_name'] ?></td>
-                        <td>
+                        <td class="action">
                             <form action="/freshleaf_website/Admin/deleteProduct" method="POST" onsubmit="return confirm('Are you sure you want to delete this product?');">
                                 <input type="hidden" name="product_id" value="<?php echo $products['product_id']; ?>">
                                 <button class="delete-btn" type="submit"><i class="fa fa-trash-o" style="font-size:20px"></i></button>

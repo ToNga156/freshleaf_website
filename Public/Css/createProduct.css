@@ -3,20 +3,24 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-image: url("https://atlanticdesign.vn/wp-content/uploads/2022/02/hinh-nen-mau-xanh-la-cay-dep-nhat.jpg");
+    background-size: cover;
+    background-position: center center;
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: black;   
+    font-weight: bold;
     margin: 20px 0;
 }
 
 form {
-    width: 50%;
+    width: 30%;
     margin: 20px auto;
     background: #fff;
     padding: 20px;
+    
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -26,8 +30,13 @@ form label {
     margin: 10px 0 5px;
     color: #555;
     font-weight: bold;
-}
 
+
+}
+form, input, textarea{
+    background-color: rgba(255, 255, 255, 0.7);
+    
+}
 form input[type="text"], 
 form textarea {
     width: 100%;
@@ -36,6 +45,7 @@ form textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.5);
     box-sizing: border-box;
 }
 
@@ -68,4 +78,23 @@ form button:hover {
     form {
         width: 90%;
     }
+}
+#id{
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 50%;
+    height: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+.back button{
+    width: 10%;
+    font-weight: bold;
+    font-size: 20px;
+    height: 50px;
+    margin: 20px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.back button:hover{
+    background-color: #28a745;
 }

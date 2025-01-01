@@ -25,6 +25,7 @@ body {
 }
 .content {
     display: flex;
+    padding-top: 20px;
 }
 
 .navigation {
@@ -176,4 +177,10 @@ body {
 .create button:hover{
     background-color:#28a745;
     cursor: pointer; 
+}
+.action{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }

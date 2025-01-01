@@ -46,7 +46,7 @@ require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Db.php');
         }
         public function getUserInfo($email) {
             // Truy vấn SQL kiểm tra người dùng với email và mật khẩu
-            $checkAccount = "SELECT user_id, user_name, email, password, avatar role FROM users WHERE email = ?";
+            $checkAccount = "SELECT user_id, user_name, email, password, avatar, role FROM users WHERE email = ?";
             
             // Chuẩn bị câu truy vấn
             $stmt = $this->conn->prepare($checkAccount);
@@ -116,12 +116,12 @@ require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Db.php');
             return $stmt->execute();
         }
         public function getAllUsers() {
-            $sql = "SELECT user_id, user_name, email,avatar, password, phone, address  FROM users";
+            $sql = "SELECT user_id, user_name, email,avatar, password, phone,role, address  FROM users";
             $stmt = $this->conn->prepare($sql);
             
             if ($stmt->execute()) {
                 $result = [];
-                $stmt->bind_result($id, $username, $email,$avatar,$password,$phone,$address);
+                $stmt->bind_result($id, $username, $email,$avatar,$password,$phone,$role,$address);
                 while ($stmt->fetch()) {
                     $result[] = [
                         "user_id" => $id,
@@ -130,6 +130,7 @@ require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Db.php');
                         "avatar"=>$avatar,
                         "password" =>$password,
                         "phone"=>$phone,
+                        "role"=>$role,
                         "address"=>$address
                         
                         

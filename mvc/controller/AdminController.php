@@ -16,13 +16,6 @@ require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
             }
             $this->view("./Admin/UsersManager",["user"=>$getUser]);
         }
-        // public function showAllUser() {
-        //     return $this->userModel->getAllUsers();
-        // }
-        // // 3. Lấy thông tin người dùng
-        // public function getUser($user_id) {
-        //     return $this->userModel->getUserById($user_id);
-        // }
         public function deleteUser() {
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_id'])) {
                 $userId = intval($_POST['user_id']);
@@ -128,7 +121,32 @@ require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
             }
             $this->view("/Admin/CreateProduct",['categories' => $categories]);
         }
-        
-        
+        public function Categories(){
+            $this->productModel = new ProductModel();
+            $categories = $this->productModel->getAllCategories();
+            if (empty($categories)){
+                echo "Không có category nào trong Database cả";
+            }
+            else{
+                $this->view("/Admin/CategorisManager",['category'=>$categories]);
+            }
+        }
+        public function DeleteCategory(){
+            $this->productModel= new ProductModel();
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['category_id'])){
+                $category_id = intval($_POST['category_id']);
+                $delete = $this->productModel->deleteCategory($category_id);
+                if($delete){
+                    header("Location: /freshleaf_website/Admin/Categories");
+                    exit();
+                }else{
+                    header("Location: /freshleaf_website/Admin/Categories");
+                    exit();
+                }
+            }
+            else{
+                echo "Không có ID Category";
+            }
+        }
     }
 ?>

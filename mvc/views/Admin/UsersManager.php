@@ -30,8 +30,8 @@
             </a>
             </button>
             <button class="btn">
-                <a href="">
-                <i class="fa fa-list-alt" style="font-size:36px;"></i>Categories
+                <a href="/freshleaf_website/Admin/Categories">
+                    <i class="fa fa-list-alt" style="font-size:36px;"></i>Categories
                 </a>
             </button>
         </div>
@@ -45,6 +45,7 @@
                         <th>Avatar</th>
                         <th>Password</th>
                         <th>Phone</th>
+                        <th>Role</th>
                         <th>Address</th>
                         <th>Action</th>
                     </tr>
@@ -58,15 +59,16 @@
                             <td><img src="/Public/Image/<?php echo htmlspecialchars($user['avatar']) ?>" alt="avatar" class="avatar"></td>
                             <td class="password"><?php echo str_repeat('*', strlen($user['password'])); ?></td>
                             <td>0<?php echo $user['phone']; ?></td>
+                            <td><?php echo $user['role']; ?></td>
                             <td><?php echo $user['address'] ?></td>
-                            <td class="btn">
-                            <form method="POST" action="/freshleaf_website/Admin/deleteUser" onsubmit="return confirm('Are you sure you want to delete this user?');">
-                                <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
-                                <button type="submit" class="delete-btn">
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                            </form>
-                                <div class="contentDetail"><a href=""><i class="fa fa-eye" style="font-size:20px"></i>Xem chi tiết</a></div>
+                            <td class="action">
+                                <form method="POST" action="/freshleaf_website/Admin/deleteUser" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                                    <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
+                                    <button type="submit" class="delete-btn">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                                    <div class="contentDetail"><a href=""><i class="fa fa-eye" style="font-size:20px"></i>Xem chi tiết</a></div>
                             </td>
                         </tr>
                     <?php endforeach; ?>

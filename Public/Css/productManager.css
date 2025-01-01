@@ -177,3 +177,9 @@ body {
     background-color:#28a745;
     cursor: pointer; 
 }
+.action{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
