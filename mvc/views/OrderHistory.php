@@ -1,8 +1,7 @@
 <?php
 require_once 'C:\xampp\htdocs\freshleaf_website\mvc\controller\OrderHistoryController.php';
-// Kiểm tra và hiển thị thông tin orders
-var_dump($categories);  // Kiểm tra dữ liệu orders được truyền vào
-$categories = $data['orders'] ?? ['orders'];
+// Kiểm tra và hiển thị thông tin orders // Kiểm tra dữ liệu orders được truyền vào
+$categories = $data['orders'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +35,7 @@ $categories = $data['orders'] ?? ['orders'];
     </style>
 </head>
 <body>
+    <?php require 'C:\xampp\htdocs\freshleaf_website\mvc\views\layout\header.php'?>
     <div class="history_container">
         <h1>Order History</h1>
         <?php if (!empty($categories)): ?>  <!-- Sử dụng $orders thay vì $data['orders'] -->
@@ -55,7 +55,7 @@ $categories = $data['orders'] ?? ['orders'];
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($order['details'] as $detail): ?>
+                        <?php foreach ($categories as $detail): ?>
                             <tr>
                                 <td><?php echo $detail['category_name']; ?></td>
                                 <td><?php echo $detail['product_name']; ?></td>

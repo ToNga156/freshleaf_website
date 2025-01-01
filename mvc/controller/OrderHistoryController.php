@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
 require_once('C:\xampp\htdocs\freshleaf_website\mvc\model\OrderModel.php');
 require_once('C:\xampp\htdocs\freshleaf_website\mvc\model\OrderDetailModel.php');
@@ -12,9 +13,9 @@ class OrderHistoryController extends Controller {
         $this->orderDetailModel = new OrderDetailModel();
     }
 
-    public function orderHistory($user_id) {
+    public function orderHistory() {
         // Lấy thông tin đơn hàng và sản phẩm
-        
+        $user_id = $_SESSION['user_id'];
         $categories = $this->orderModel->getOrderHistoryWithProducts($user_id);
         
         $orders = [];
@@ -46,9 +47,8 @@ class OrderHistoryController extends Controller {
         }
     
 
-        var_dump(['orders' => $categories]);
         // Gửi dữ liệu đến view
-        $this->view("./Product/OrderHistory",['orders' => $categories]);
+        $this->view("OrderHistory",['orders' => $categories]);
     }
 }
 ?>
