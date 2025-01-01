@@ -18,5 +18,12 @@ class OrderModel extends Db {
         $stmt->execute();
         return $this->conn->insert_id;
     }
+
+    public function updateOrderStatus($order_id, $status) {
+        $sql = "UPDATE orders SET status = ? WHERE order_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("si", $status, $order_id);
+        $stmt->execute();
+    }
 }
 ?>

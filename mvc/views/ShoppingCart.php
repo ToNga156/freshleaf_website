@@ -74,7 +74,7 @@
                 <?php endforeach; ?>
 
                 <div class="cart-footer">
-                    <button class="order-btn">Order</button>
+                    <button onclick="location.href='/freshleaf_website/Order/viewOrderPage'" class="order-btn">Order</button>
                     <p class="total-amount">Total Amount: <span><?php echo $totalAmount?>.000đ</span></p>
                 </div>
             </div>
