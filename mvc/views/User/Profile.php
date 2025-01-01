@@ -228,8 +228,8 @@ $controller->handleChangePassword();
             <p><?php echo $userData['email']; ?></p>
             <div class="menu-profile">
                 <a href="#"><i class="fas fa-user"></i>My Profile</a>
-                <a href="/freshleaf_website/OrderHistory/orderHistory"><i class="fas fa-file-alt"></i>My Orders History</a>
-                <a href="#"><i class="fas fa-shopping-cart"></i>My Shopping Cart</a>
+                <a href="#"><i class="fas fa-file-alt"></i>My Orders</a>
+                <a href="/freshleaf_website/ShoppingCart/viewCart"><i class="fas fa-shopping-cart"></i>My Shopping Cart</a>
             </div>
         </div>
         <div class="container_infor" style="margin-left: 55%; width: 400%;">
@@ -298,33 +298,6 @@ $controller->handleChangePassword();
         </div>
     </div>
 </div>
-<script>
-    function previewAvatar(event) { 
-        var reader = new FileReader(); 
-        reader.onload = function() { 
-            var output = document.getElementById('avatarPreview'); 
-            output.src = reader.result; 
-        }; 
-        reader.readAsDataURL(event.target.files[0]); 
-    }
-
-    document.querySelectorAll('.password-eye').forEach(eye => {
-            eye.addEventListener('click', function() {
-                const input = this.previousElementSibling;
-                if (input.type === 'password') {
-                    input.type = 'text';
-                    this.classList.add('fa-eye');
-                    this.classList.remove('fa-eye-slash');
-                } else {
-                    input.type = 'password';
-                    this.classList.add('fa-eye-slash');
-                    this.classList.remove('fa-eye');
-                }
-            });
-        });
-        document.querySelector('.uploadImage').addEventListener('click', function() { 
-            document.getElementById('chooseImage').click(); 
-        });
-</script>
+<script src="\freshleaf_website\public\js\profile.js"></script>
 </body>
 </html>

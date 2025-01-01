@@ -44,7 +44,6 @@
                 document.querySelector(".addproduct").addEventListener("click", function () {
                     const productId = this.getAttribute("data-id");
                     const quantity = parseInt(document.querySelector(".quantity-value").innerText);
-
                     fetch("/freshleaf_website/ShoppingCart/addToCart", {
                         method: "POST",
                         headers: {

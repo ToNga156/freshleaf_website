@@ -4,9 +4,9 @@ require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
 require_once('C:\xampp\htdocs\freshleaf_website\mvc\model\ProductModel.php');
 require_once('C:\xampp\htdocs\freshleaf_website\mvc\model\OrderModel.php');
 require_once('C:\xampp\htdocs\freshleaf_website\mvc\model\OrderDetailModel.php');
-
 class ShoppingCartController extends Controller {
     public function addToCart() {
+
     
         if (!isset($_SESSION['user_id'])) {
             echo json_encode(["success" => false, "message" => "Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng."]);
