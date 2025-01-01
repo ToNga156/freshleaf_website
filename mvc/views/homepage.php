@@ -34,33 +34,33 @@
             <div id="discount-small1" class="discount-small">
                 <div class="half-circle-left"></div>
                 <h1>#ABCDEF</h1>
-                <p>Hóa đơn trên 50.000đ</p>
+                <p>Bills over 50.000đ</p>
                 <h2>#ABCDEF</h2>
-                <button>Lưu lại</button>
+                <button>Save</button>
                 <div class="half-circle-right"></div>
             </div>
             <div id="discount-small2" class="discount-small">
                 <div class="half-circle-left"></div>
                 <h1>#ABCDEF</h1>
-                <p>Hóa đơn trên 50.000đ</p>
+                <p>Bills over 50.000đ</p>
                 <h2>#ABCDEF</h2>
-                <button>Lưu lại</button>
+                <button>Save</button>
                 <div class="half-circle-right"></div>
             </div>
             <div id="discount-small3" class="discount-small">
                 <div class="half-circle-left"></div>
                 <h1>#ABCDEF</h1>
-                <p>Hóa đơn trên 50.000đ</p>
+                <p>Bills over 50.000đ</p>
                 <h2>#ABCDEF</h2>
-                <button>Lưu lại</button>
+                <button>Save</button>
                 <div class="half-circle-right"></div>
             </div>
             <div id="discount-small4" class="discount-small">
                 <div class="half-circle-left"></div>
                 <h1>#ABCDEF</h1>
-                <p>Hóa đơn trên 50.000đ</p>
+                <p>Bills over 50.000đ</p>
                 <h2>#ABCDEF</h2>
-                <button>Lưu lại</button>
+                <button>Save</button>
                 <div class="half-circle-right"></div>
             </div>
         </div>
@@ -69,7 +69,7 @@
     <div class="bestSale-product-homepage">
         <div class="bestSale-product-container">
             <div class="title-bestSale">
-                <h1>Sản phẩm bán chạy</h1>
+                <h1>Hot Selling Products</h1>
                 <a href="#">Show all product <ion-icon name="arrow-forward-outline"></ion-icon></a>
             </div>
 

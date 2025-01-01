@@ -45,7 +45,9 @@
                 ?>
                 <?php foreach ($cartItems as $item): ?>
                     <div class="cart-item"> 
-                        <button class="delete-cart-item"><ion-icon name="trash-outline"></ion-icon></button>
+                        <button class="delete-cart-item" data-id="<?php echo htmlspecialchars($item['product_id']); ?>">
+                            <ion-icon name="trash-outline"></ion-icon>
+                        </button>
 
                         <div class="product-info">
                             <img src="<?php echo htmlspecialchars($item['product_image']); ?>" alt="Lime">
@@ -58,12 +60,15 @@
                         <div class="unit-price"><?php echo htmlspecialchars($item['price']); ?></div>
 
                         <div class="quantity">
-                            <button class="quantity-btn"><ion-icon name="remove-outline"></ion-icon></button>
-                            <span><?php echo htmlspecialchars($item['quantity']); ?></span>
-                            <button class="quantity-btn"><ion-icon name="add-outline"></ion-icon></button>
+                            <button class="quantity-btn decrease" data-id="<?php echo htmlspecialchars($item['product_id']); ?>"><ion-icon name="remove-outline"></ion-icon></button>
+                            <span class="quantity-value" data-id="<?php echo htmlspecialchars($item['product_id']); ?>"><?php echo htmlspecialchars($item['quantity']); ?></span>
+                            <button class="quantity-btn increase" data-id="<?php echo htmlspecialchars($item['product_id']); ?>"><ion-icon name="add-outline"></ion-icon></button>
                         </div>
 
-                        <div class="line-total"><?php echo htmlspecialchars($item['line_total']); ?></div>
+
+
+
+                        <div class="line-total"><?php echo htmlspecialchars($item['line_total']); ?>đ</div>
                     </div>
                     <?php $totalAmount += htmlspecialchars($item['line_total']);?>
                 <?php endforeach; ?>
@@ -77,5 +82,71 @@
     </div>
 
     <?php include 'C:\xampp\htdocs\freshleaf_website\mvc\views\layout\footer.php' ?>
+    
+    <script>
+        document.querySelectorAll(".quantity-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const productId = this.getAttribute("data-id");
+                const action = this.classList.contains("increase") ? "increase" : "decrease";
+
+                fetch("/freshleaf_website/ShoppingCart/updateQuantity", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ product_id: productId, action: action })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const quantityElement = document.querySelector(`.quantity-value[data-id="${productId}"]`);
+                        quantityElement.innerText = data.new_quantity;
+
+                        const lineTotalElement = quantityElement.closest(".cart-item").querySelector(".line-total");
+                        lineTotalElement.innerText = data.line_total + ".000đ";
+
+                        document.querySelector(".total-amount span").innerText = data.total_amount + ".000đ";
+                        document.querySelector(".cart-header span").innerText = data.total_quantity;
+                    } else { 
+                        alert(data.message || "Có lỗi xảy ra!");
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+            });
+        });
+
+        //Delete products
+        document.querySelectorAll(".delete-cart-item").forEach(button => {
+            button.addEventListener("click", function () {
+                const productId = this.getAttribute("data-id");
+
+                // Gửi yêu cầu AJAX để xóa sản phẩm khỏi giỏ hàng
+                fetch("/freshleaf_website/ShoppingCart/deleteItem", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ product_id: productId })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Xóa sản phẩm khỏi giao diện
+                        const cartItem = this.closest(".cart-item");
+                        cartItem.remove();
+
+                        // Cập nhật tổng số lượng và tổng tiền
+                        document.querySelector(".cart-header span").innerText = data.total_quantity;
+                        document.querySelector(".total-amount span").innerText = data.total_amount + ".000đ";
+                    } else {
+                        alert(data.message || "Có lỗi xảy ra!");
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+            });
+        });
+
+    </script>
+    
 </body>
 </html>
