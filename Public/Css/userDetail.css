@@ -1,0 +1,19 @@
+.infor{
+    display:flex;
+    align-items: center;
+}
+.userDetail{
+    border: 2px solid black;
+    margin: 100px;
+    padding: 50px;
+}
+.product table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+}
+.product th, .product td{
+    border: 1px solid #ddd;
+    padding: 10px;
+}

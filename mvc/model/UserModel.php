@@ -50,7 +50,7 @@ use PHPMailer\PHPMailer\Exception;
         }
         public function getUserInfo($email) {
             // Truy vấn SQL kiểm tra người dùng với email và mật khẩu
-            $checkAccount = "SELECT user_id, user_name, email, password, avatar role FROM users WHERE email = ?";
+            $checkAccount = "SELECT user_id, user_name, email, password, avatar, role FROM users WHERE email = ?";
             
             // Chuẩn bị câu truy vấn
             $stmt = $this->conn->prepare($checkAccount);
@@ -213,6 +213,54 @@ use PHPMailer\PHPMailer\Exception;
                 return false;
             }
         }
+        public function getAllUsers() {
+            $sql = "SELECT user_id, user_name, email, avatar, password, phone, role, address FROM users";
+            $stmt = $this->conn->prepare($sql);
+        
+            if ($stmt) {
+                // Thực thi truy vấn
+                if ($stmt->execute()) {
+                    // Liên kết kết quả vào các biến
+                    $stmt->bind_result($id, $username, $email, $avatar, $password, $phone, $role, $address);
+        
+                    $result = [];
+                    while ($stmt->fetch()) {
+                        $result[] = [
+                            "user_id" => $id,
+                            "user_name" => $username,
+                            "email" => $email,
+                            "avatar" => $avatar,
+                            "password" => $password,
+                            "phone" => $phone,
+                            "role" => $role,
+                            "address" => $address
+                        ];
+                    }
+        
+                    // Đóng câu lệnh
+                    $stmt->close();
+        
+                    return $result;
+                } else {
+                    // Xử lý lỗi khi thực thi câu lệnh
+                    error_log("Error executing query: " . $this->conn->error);
+                    return [];
+                }
+            } else {
+                // Xử lý lỗi khi chuẩn bị câu lệnh
+                error_log("Error preparing query: " . $this->conn->error);
+                return [];
+            }
+        }
+        
+        public function deleteUser($user_id){
+            $sql = "DELETE  FROM users WHERE user_id=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("i", $user_id);
+            $result = $stmt->execute();
+            $stmt->close();
+            return $result;
+        }   
     }
 
 ?>
