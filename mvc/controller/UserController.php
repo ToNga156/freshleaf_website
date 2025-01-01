@@ -1,6 +1,6 @@
 <?php
-require_once('C:\xampp\htdocs\freshleaf_website\mvc\model\UserModel.php');
 session_start();
+require_once('C:\xampp\htdocs\freshleaf_website\mvc\model\UserModel.php');
 require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
 class UserController extends Controller{
     private $model;
