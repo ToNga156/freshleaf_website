@@ -11,7 +11,6 @@
     <title>Product Detail</title>
     <link rel="stylesheet" href="/freshleaf_website/public/css/header.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../../public/css/detail.css?v=<?php echo time();?>">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
 </head>
 
 <body>
@@ -44,12 +43,13 @@
             <script>
                 document.querySelector(".addproduct").addEventListener("click", function () {
                     const productId = this.getAttribute("data-id");
+                    const quantity = parseInt(document.querySelector(".quantity-value").innerText);
                     fetch("/freshleaf_website/ShoppingCart/addToCart", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
                         },
-                        body: JSON.stringify({ product_id: productId })
+                        body: JSON.stringify({ product_id: productId, quantity: quantity })
                     })
                     .then(response => response.json())
                     .then(data => {
@@ -66,7 +66,7 @@
         </div>
 
         <!-- Phần sản phẩm liên quan -->
-        <h3 class="related-title">Sản phẩm tương tự</h3>
+        <h3 class="related-title">Similar Products</h3>
         <div class="related-products">
             <?php foreach ($relatedProducts as $product): ?>
             <div class="product-card">
