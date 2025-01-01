@@ -1,14 +1,7 @@
 <?php
-require_once 'C:\xampp\htdocs\freshleaf_website\mvc\core\Db.php';
-require_once 'C:\xampp\htdocs\freshleaf_website\mvc\controller\UserController.php';
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-global $conn;
-$controller = new UserController($conn);
-$userId = $_SESSION['user_id'];
-$userData = $controller->getProfile($userId);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,11 +66,11 @@ $userData = $controller->getProfile($userId);
                 <?php if (isset($_SESSION['user_name'])): ?>
                     <div class="info-Account">
                         <a href="/freshleaf_website/User/profile">
-                            <img src="/Public/Image/<?php echo isset($userData['avatar']) ? htmlspecialchars($userData['avatar']) :'/Public/images/avatar-default.jpg'; ?>" alt="Avt">
+                            <img src="/Public/Image/<?php echo isset($_SESSION['user_avatar']) ? htmlspecialchars($_SESSION['user_avatar']) : '/freshleaf_website/public/images/avatar-default.jpg'; ?>" alt="Avt">
                         </a>
                         <div>
                             <p><?php echo htmlspecialchars($_SESSION['user_name']); ?></p>
-                            <a href="/freshleaf_website/User/Logout">Đăng xuất</a>
+                            <a href="/freshleaf_website/User/Logout">Logout</a>
                         </div>
                     </div>
                 <?php else: ?>
@@ -86,21 +79,11 @@ $userData = $controller->getProfile($userId);
                             <img src="/freshleaf_website/public/images/avatar-default.jpg" alt="Avatar mặc định">
                         </a>
                         <div>
-                            <p>Tài khoản</p>
-                            <a href="/freshleaf_website/User/Login">Đăng nhập</a>
+                            <p>Account</p>
+                            <a href="/freshleaf_website/User/Login">Login</a>
                         </div>
                     </div>
                 <?php endif; ?>
-
-                <!-- <div class="info-Account">
-                    <a href="http://localhost/freshleaf_website/profile/index">
-                        <img src="../../freshleaf_website/public/images/avatar-default.jpg" alt="Avatar mặc định">
-                    </a>
-                    <div>
-                        <p>Tài khoản</p>
-                        <a href="./Login">Đăng nhập</a>
-                    </div>
-                </div> -->
             </div>
     
             <div class="bottom-header">
@@ -113,14 +96,14 @@ $userData = $controller->getProfile($userId);
 
                 <div class="search-bar-container">
                     <form action="/freshleaf_website/Product/searchResult" method="GET">
-                        <input type="text" name="search" class="input-search-bar" placeholder="Nhập sản phẩm cần tìm kiếm" required >
+                        <input type="text" name="search" class="input-search-bar" placeholder="Enter the product..." required >
                         <button type="submit" class="submit-search-bar"><ion-icon name="search-outline"></ion-icon></button>
                     </form>
                 </div>
 
                 <div class="icon-shopping-cart">
-                    <p class="quantity-icon-shopping-cart">0</p>
-                    <a href="#"><ion-icon name="cart-outline"></ion-icon></a>
+                    <!-- <p class="quantity-icon-shopping-cart">0</p> -->
+                    <a href="/freshleaf_website/ShoppingCart/viewCart"><ion-icon name="cart-outline"></ion-icon></a>
                 </div>
             </div>
         </div>
