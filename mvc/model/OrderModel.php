@@ -50,7 +50,9 @@ class OrderModel extends Db {
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $user_id);
         $stmt->execute();
-        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        $result= $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+        return $result;
     }
 }
 ?>
