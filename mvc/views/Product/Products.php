@@ -22,18 +22,18 @@
         <div class="filter-form">
             <form method="GET" action="/freshleaf_website/Product/filterProducts">
                 <div class="min_price">
-                    <label for="min_price">Giá tối thiểu</label>
-                    <input type="text" id="min_price" name="min_price" min="0" step="0.01" placeholder="Nhập giá tối thiểu">
+                    <label for="min_price">Minimum price</label>
+                    <input type="text" id="min_price" name="min_price" min="0" step="0.01" placeholder="Enter the Minimum price">
                 </div>
                 <div class="max_price">
-                    <label for="max_price">Giá tối đa</label>
-                    <input type="text" id="max_price" name="max_price" max="100000"  step="0.01" placeholder="Nhập giá tối đa">
+                    <label for="max_price">Maximum price</label>
+                    <input type="text" id="max_price" name="max_price" max="100000"  step="0.01" placeholder="Enter the Maximum price">
                 </div>
-                <button type="submit">Lọc</button>
+                <button type="submit">Filter</button>
             </form>
         </div>
         <div class="allProducts">
-        <h1>Tất cả sản phẩm</h1>
+        <h1>All Products</h1>
         <?php 
             $productsByCategory = [];
             foreach ($allCategories as $product) {
