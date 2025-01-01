@@ -28,10 +28,10 @@ if (session_status() === PHP_SESSION_NONE) {
     
             <div class="middle-header">
                 <div class="info-LogoNameWeb">
-                    <a href="http://localhost/freshleaf_website/homepage/index">
+                    <a href="http://localhost/freshleaf_website/home">
                         <img src="/freshleaf_website/public/images/logo_website.png" alt="">
                     </a>
-                    <a style="text-decoration: none;" href="http://localhost/freshleaf_website/homepage/index">
+                    <a style="text-decoration: none;" href="http://localhost/freshleaf_website/home">
                         <h1>FreshLeaf</h1>
                     </a>
                 </div>
@@ -70,7 +70,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         </a>
                         <div>
                             <p><?php echo htmlspecialchars($_SESSION['user_name']); ?></p>
-                            <a href="/freshleaf_website/User/Logout">Đăng xuất</a>
+                            <a href="/freshleaf_website/User/Logout">Logout</a>
                         </div>
                     </div>
                 <?php else: ?>
@@ -79,8 +79,8 @@ if (session_status() === PHP_SESSION_NONE) {
                             <img src="/freshleaf_website/public/images/avatar-default.jpg" alt="Avatar mặc định">
                         </a>
                         <div>
-                            <p>Tài khoản</p>
-                            <a href="/freshleaf_website/User/Login">Đăng nhập</a>
+                            <p>Account</p>
+                            <a href="/freshleaf_website/User/Login">Login</a>
                         </div>
                     </div>
                 <?php endif; ?>
@@ -96,7 +96,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
                 <div class="search-bar-container">
                     <form action="/freshleaf_website/Product/searchResult" method="GET">
-                        <input type="text" name="search" class="input-search-bar" placeholder="Nhập sản phẩm cần tìm kiếm" required >
+                        <input type="text" name="search" class="input-search-bar" placeholder="Enter the product..." required >
                         <button type="submit" class="submit-search-bar"><ion-icon name="search-outline"></ion-icon></button>
                     </form>
                 </div>

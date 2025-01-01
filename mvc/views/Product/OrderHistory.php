@@ -40,7 +40,7 @@ $categories = $data['orders'] ?? ['orders'];
         <h1>Order History</h1>
         <?php if (!empty($categories)): ?>  <!-- Sử dụng $orders thay vì $data['orders'] -->
             <?php foreach ($categories as $order): ?>
-                <!-- <h3>Order ID: <?php echo $order['order_id']; ?></h3> -->
+                <h3>Order ID: <?php echo $order['order_id']; ?></h3>
                 <p>Status: <?php echo $order['status']; ?></p>
                 <p>Date: <?php echo $order['order_date']; ?></p>
                 <table>

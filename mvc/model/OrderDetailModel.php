@@ -26,7 +26,7 @@ class OrderDetailModel extends Db {
 
     public function getOrderDetails($order_id) {
         $sql = "
-            SELECT c.category_name, p.product_name, p.product_image, p.price, p.unit, od.quantity, (p.price * od.quantity) AS line_total
+            SELECT od.product_id, c.category_name, p.product_name, p.product_image, p.unit, p.price, od.quantity, (p.price * od.quantity) AS line_total
             FROM order_detail od
             JOIN products p ON od.product_id = p.product_id
             JOIN categories c ON p.category_id = c.category_id
@@ -43,6 +43,13 @@ class OrderDetailModel extends Db {
         $stmt->bind_param("i", $order_id);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+    
+    public function deleteProduct($order_id, $product_id) {
+        $sql = "DELETE FROM order_detail WHERE order_id = ? AND product_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("ii", $order_id, $product_id);
+        $stmt->execute();
     }
     
 }
