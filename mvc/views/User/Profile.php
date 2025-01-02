@@ -228,7 +228,7 @@ $controller->handleChangePassword();
             <p><?php echo $userData['email']; ?></p>
             <div class="menu-profile">
                 <a href="#"><i class="fas fa-user"></i>My Profile</a>
-                <a href="#"><i class="fas fa-file-alt"></i>My Orders</a>
+                <a href="/freshleaf_website/OrderHistory/orderHistory"><i class="fas fa-file-alt"></i>My Orders History</a>
                 <a href="/freshleaf_website/ShoppingCart/viewCart"><i class="fas fa-shopping-cart"></i>My Shopping Cart</a>
             </div>
         </div>

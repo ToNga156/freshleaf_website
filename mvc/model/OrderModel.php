@@ -50,7 +50,7 @@ class OrderModel extends Db {
             INNER JOIN order_detail od ON o.order_id = od.order_id
             INNER JOIN products p ON od.product_id = p.product_id
             INNER JOIN categories c ON p.category_id = c.category_id
-            WHERE o.user_id = ?
+            WHERE o.user_id = ? AND status = 'completed'
             ORDER BY o.order_date DESC, o.order_id DESC
         ";
         $stmt = $this->conn->prepare($sql);

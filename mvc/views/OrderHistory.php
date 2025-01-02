@@ -1,6 +1,5 @@
 <?php
 require_once 'C:\xampp\htdocs\freshleaf_website\mvc\controller\OrderHistoryController.php';
-// Kiểm tra và hiển thị thông tin orders // Kiểm tra dữ liệu orders được truyền vào
 $categories = $data['orders'];
 ?>
 <!DOCTYPE html>
@@ -12,25 +11,47 @@ $categories = $data['orders'];
     <link rel="stylesheet" href="/freshleaf_website/public/css/header.css?v=<?php echo time(); ?>">
     <style>
         .history_container {
-            margin-top: 120px;
+            margin-top: 42px;
             padding: 20px;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        th, td {
+        .order {
             border: 1px solid #ccc;
-            padding: 8px;
-            text-align: left;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
         }
-        th {
-            background-color: #f4f4f4;
+        .order-header {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 12px;
         }
-        img {
-            max-width: 50px;
+        .order-titles {
+            display: flex;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .order-titles div {
+            flex: 1;
+            text-align: center;
+        }
+        .order-product {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .order-product img {
+            max-width: 100px;
             height: auto;
+        }
+        .order-product div {
+            flex: 1;
+            text-align: center;
+        }
+        .order-total {
+            font-weight: bold;
+            text-align: right;
         }
     </style>
 </head>
@@ -38,35 +59,41 @@ $categories = $data['orders'];
     <?php require 'C:\xampp\htdocs\freshleaf_website\mvc\views\layout\header.php'?>
     <div class="history_container">
         <h1>Order History</h1>
-        <?php if (!empty($categories)): ?>  <!-- Sử dụng $orders thay vì $data['orders'] -->
-            <?php foreach ($categories as $order): ?>
-                <h3>Order ID: <?php echo $order['order_id']; ?></h3>
-                <p>Status: <?php echo $order['status']; ?></p>
-                <p>Date: <?php echo $order['order_date']; ?></p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Category</th>
-                            <th>Product Name</th>
-                            <th>Image</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($categories as $detail): ?>
-                            <tr>
-                                <td><?php echo $detail['category_name']; ?></td>
-                                <td><?php echo $detail['product_name']; ?></td>
-                                <td><img src="<?php echo $detail['product_image']; ?>" alt="Product Image"></td>
-                                <td><?php echo number_format($detail['price'], 2); ?></td>
-                                <td><?php echo $detail['quantity']; ?></td>
-                                <td><?php echo number_format($detail['line_total'], 2); ?></td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+        <?php if (!empty($categories)): ?>
+            <?php 
+            // Nhóm sản phẩm theo order_id
+            $ordersGrouped = [];
+            foreach ($categories as $detail) {
+                $ordersGrouped[$detail['order_id']][] = $detail;
+            }
+            ?>
+            <?php foreach ($ordersGrouped as $orderId => $orderDetails): ?>
+                <div class="order">
+                    <div class="order-titles">
+                        <div>Image</div>
+                        <div>Product Name</div>
+                        <div>Price</div>
+                        <div>Quantity</div>
+                        <div>Total</div>
+                    </div>
+                    <?php $orderTotal = 0; ?>
+                    <?php foreach ($orderDetails as $detail): ?>
+                        <?php
+                            $lineTotal = $detail['price'] * $detail['quantity'];
+                            $orderTotal += $lineTotal;
+                        ?>
+                        <div class="order-product">
+                            <div><img src="<?php echo $detail['product_image']; ?>" alt="Product Image"></div>
+                            <div><?php echo $detail['product_name']; ?></div>
+                            <div><?php echo number_format($detail['price'], 2); ?> đ</div>
+                            <div><?php echo $detail['quantity']; ?></div>
+                            <div><?php echo number_format($detail['price'] * $detail['quantity'], 2); ?> đ</div>
+                        </div>
+                    <?php endforeach; ?>
+                    <div class="order-total">
+                        Total for Order: <?php echo number_format($orderTotal, 2); ?> USD
+                    </div>
+                </div>
             <?php endforeach; ?>
         <?php else: ?>
             <p>No orders found.</p>
