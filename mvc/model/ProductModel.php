@@ -56,6 +56,39 @@ class ProductModel extends Db{
         
         return $result->fetch_all(MYSQLI_ASSOC); 
     }
+    public function getAllProductPagination($limit, $offset) {
+        $sql = "
+            SELECT 
+                p.product_id, 
+                p.product_name,
+                p.product_image, 
+                p.price,
+                p.description,
+                p.unit, 
+                p.stock_quantity,
+                c.category_id, 
+                c.category_name 
+            FROM products p
+            INNER JOIN categories c ON p.category_id = c.category_id
+            LIMIT ? OFFSET ?
+        ";
+    
+        $stmt = $this->conn->prepare($sql);
+        if (!$stmt) {
+            throw new Exception("Prepare statement failed: " . $this->conn->error);
+        }
+        $stmt->bind_param("ii", $limit, $offset);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
+    public function countProduct(){
+        $result = $this->conn->query("SELECT COUNT(*) AS count FROM products");
+        return $result->fetch_assoc()['count'];
+    }
+
     // ToNga
     public function getBestSaleProduct() {
         $sql = "

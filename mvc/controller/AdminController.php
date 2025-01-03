@@ -32,16 +32,22 @@ require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
             }
         }
 
-        public function ProductManager(){
+        public function ProductManager()
+        {
+            $limit = 6;
+            $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+            $offset = ($page - 1) * $limit;
             $this->productModel = new ProductModel();
-            $getProduct = $this->productModel->getAllProductCategories();
-            if (empty($getProduct)){
+            $getProduct = $this->productModel->getAllProductPagination($limit, $offset);
+            $totalProducts = $this->productModel->countProduct();
+            $totalPages = ceil($totalProducts / $limit);
+            if (empty($getProduct)) {
                 echo "Không có sản phẩm nào trong Database";
-            }
-            else{
-                $this->view("./Admin/ProductsManager",["product"=>$getProduct]);
+            } else {
+                $this->view("./Admin/ProductsManager", ["product" => $getProduct,"totalPages" => $totalPages,"currentPage" => $page]);
             }
         }
+
         public function deleteProduct(){
             $this->productModel = new ProductModel();
             if($_SERVER['REQUEST_METHOD'] ==='POST' && isset($_POST['product_id'])){
