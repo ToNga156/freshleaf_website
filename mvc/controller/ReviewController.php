@@ -53,7 +53,7 @@ class ReviewController extends Controller {
                 $comment = $_POST['comment_' . $productId] ?? null;
                 // Kiểm tra thông tin đầy đủ
                 if (empty($userId) || empty($productId) || empty($rating) || empty($comment)) {
-                    echo "Vui lòng điền đầy đủ thông tin!";
+                    echo "Please fill in all information!";
                     return;
                 }
 
@@ -68,12 +68,16 @@ class ReviewController extends Controller {
                 $result = $this->reviewModel->addReview($userId, $productId, $rating, $comment);
 
                 if ($result) {
-                    echo "Đánh giá của bạn đã được lưu thành công!";
+                    // Đặt thông báo thành công trong session
+                    $_SESSION['alert'] = "You have successfully evaluated!";
+                    
+                    // Chuyển hướng về trang Order History
+                    header("Location: /freshleaf_website/orderHistory/OrderHistory");
+                    exit;
                 } else {
                     echo "Có lỗi xảy ra khi lưu đánh giá.";
                 }
             }
-
         }
     }
 

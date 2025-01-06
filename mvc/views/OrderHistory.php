@@ -30,10 +30,12 @@ $categories = $data['orders'];
             display: flex;
             font-weight: bold;
             margin-bottom: 8px;
-            gap: 55px;
+            /* gap: 55px; */
         }
         .order-titles div {
-            flex: 1;
+            /* flex: 1; */
+            margin-right: 90px;
+            margin-left: 90px;
             text-align: center;
         }
         .order-product {
@@ -41,6 +43,10 @@ $categories = $data['orders'];
             gap: 10px;
             align-items: center;
             margin-bottom: 8px;
+        }
+        .product_rating a{
+            font-size: 25px;
+            text-decoration: none;
         }
         .order-product img {
             max-width: 100px;
@@ -91,7 +97,7 @@ $categories = $data['orders'];
                             <div><?php echo number_format($detail['price'] * $detail['quantity'], 2); ?> đ</div>
 
                             <div class="product_rating">
-                                <a href="/freshleaf_website/Review/addReview?order_id=<?php echo $orderId; ?>&product_id=<?php echo $detail['product_id']; ?>">r</a>
+                                <a href="/freshleaf_website/Review/addReview?order_id=<?php echo $orderId; ?>&product_id=<?php echo $detail['product_id']; ?>">&#9998;</a>
                             </div>
                         </div>
                     <?php endforeach; ?>
