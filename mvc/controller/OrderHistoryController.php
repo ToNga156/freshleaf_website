@@ -45,10 +45,9 @@ class OrderHistoryController extends Controller {
                 ];
             }
         }
-    
 
         // Gửi dữ liệu đến view
-        $this->view("OrderHistory",['orders' => $categories]);
+        $this->view("OrderHistory",['orders' => $orders]);
     }
 }
 ?>

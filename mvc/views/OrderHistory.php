@@ -66,13 +66,8 @@ $categories = $data['orders'];
         <h1>Order History</h1>
         <?php if (!empty($categories)): ?>
             <?php 
-            // Nhóm sản phẩm theo order_id
-            $ordersGrouped = [];
-            foreach ($categories as $detail) {
-                $ordersGrouped[$detail['order_id']][] = $detail;
-            }
             ?>
-            <?php foreach ($ordersGrouped as $orderId => $orderDetails): ?>
+            <?php foreach ($categories as $orderId => $orderDetails): ?>
                 <div class="order">
                     <div class="order-titles">
                         <div>Image</div>
@@ -82,7 +77,7 @@ $categories = $data['orders'];
                         <div>Total</div>
                     </div>
                     <?php $orderTotal = 0; ?>
-                    <?php foreach ($orderDetails as $detail): ?>
+                    <?php foreach ($orderDetails['details'] as $index=>$detail): ?>
                         <?php
                             $lineTotal = $detail['price'] * $detail['quantity'];
                             $orderTotal += $lineTotal;
