@@ -1,5 +1,10 @@
 <?php
 require_once 'C:\xampp\htdocs\freshleaf_website\mvc\controller\OrderHistoryController.php';
+if (!empty($_SESSION['alert'])) {
+    echo "<script>alert('" . htmlspecialchars($_SESSION['alert']) . "');</script>";
+    unset($_SESSION['alert']); // Xóa thông báo sau khi hiển thị
+}
+
 $categories = $data['orders'];
 ?>
 <!DOCTYPE html>
