@@ -39,17 +39,8 @@ class OrderModel extends Db {
             SELECT 
                 o.order_id,
                 o.status,
-                o.order_date,
-                od.product_id,
-                od.quantity,
-                od.price,
-                p.product_name,
-                p.product_image,
-                c.category_name
+                o.order_date
             FROM orders o
-            INNER JOIN order_detail od ON o.order_id = od.order_id
-            INNER JOIN products p ON od.product_id = p.product_id
-            INNER JOIN categories c ON p.category_id = c.category_id
             WHERE o.user_id = ? AND status = 'completed'
             ORDER BY o.order_date DESC, o.order_id DESC
         ";
