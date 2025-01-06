@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'C:\xampp\htdocs\freshleaf_website\mvc\controller\OrderHistoryController.php';
 if (!empty($_SESSION['alert'])) {
     echo "<script>alert('" . htmlspecialchars($_SESSION['alert']) . "');</script>";
