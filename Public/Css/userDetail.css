@@ -1,19 +1,100 @@
-.infor{
-    display:flex;
+
+body {
+    background-color: #e8f5e9; 
+    color: black; 
+    font-family: Arial, sans-serif; 
+    margin: 0;
+    padding: 0;
+}
+
+.userDetail {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile {      
     align-items: center;
+    margin-bottom: 30px;
 }
-.userDetail{
-    border: 2px solid black;
-    margin: 100px;
-    padding: 50px;
+
+.profile .infor {
+    margin-right: 20px;
+    display: flex;
+    align-items:center;
+    gap: 50px;
 }
-.product table{
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile h1 {
+    font-size: 24px;
+    color: black;
+    margin: 0;
+}
+
+.profile p {
+    font-size: 16px;
+    color: black;
+    margin: 5px 0;
+}
+.product {
+    margin-top: 30px;
+}
+
+.product h1 {
+    font-size: 28px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.product table {
     width: 100%;
     border-collapse: collapse;
-    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.product table th, .product table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.product table th {
+    background-color: #28a745;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+
+.product table td {
+    font-size: 16px;
+    color: black: ;;
     text-align: center;
 }
-.product th, .product td{
-    border: 1px solid #ddd;
-    padding: 10px;
+
+.product table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.product-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+/* Hover effects */
+.product table tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.status{
+    color:green;
+    font-weight: bold;
 }

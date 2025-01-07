@@ -24,6 +24,9 @@ class UserController extends Controller{
                 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     $error = "Invalid email!";
                 }
+                elseif(!filter_var($username)){
+                    $error = "Invalid user Name!";
+                }
                 
                 elseif (strlen($password) < 5) {
                     $error = "Password must be at least 5 characters long!";}
@@ -64,9 +67,7 @@ class UserController extends Controller{
             $loginModel = $this->model("UserModel");
             $userInfo = $loginModel->getUserInfo($email);
 
-            // Kiểm tra nếu tìm thấy người dùng
             if ($userInfo) {
-                // Kiểm tra xem mật khẩu có hợp lệ hay không
                 if (password_verify($password, $userInfo['password'])) {
                     $_SESSION['user_id'] = $userInfo['user_id'];
                     $_SESSION['user_name'] = $userInfo['user_name'];
@@ -79,7 +80,7 @@ class UserController extends Controller{
                     } else {
                         echo "Session không tồn tại.";
                     }
-                    if ($userInfo['user_id']===1 ) {
+                    if ($userInfo['user_id'] === 1 ) {
                         header("Location: /freshleaf_website/Admin/UserManager");
                     } else {
                         header("Location: /freshleaf_website/Home");

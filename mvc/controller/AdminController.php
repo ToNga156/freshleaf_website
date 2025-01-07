@@ -10,11 +10,18 @@ require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
             $this->model = new UserModel();
         }
         public function UserManager(){
-            $getUser = $this->model->getAllUsers();
-            if (empty($getUser)){
-                echo "Không có tài khoản nào trong Database";
+            $limit = 6;
+            $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+            $offset = ($page - 1) * $limit;
+            $this->model = new UserModel();
+            $getUser = $this->model->getAllUserPagination($limit, $offset);
+            $totalUser = $this->model->getCoutnUser();
+            $totalPages = ceil($totalUser / $limit);
+            if (empty($getUser)) {
+                echo "Không có sản phẩm nào trong Database";
+            } else {
+                $this->view("./Admin/UsersManager", ["user" => $getUser,"totalPages" => $totalPages,"currentPage" => $page]);
             }
-            $this->view("./Admin/UsersManager",["user"=>$getUser]);
         }
         public function deleteUser() {
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_id'])) {
@@ -154,5 +161,18 @@ require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
                 echo "Không có ID Category";
             }
         }
+        public function userDetail($user_id) {
+            $this->model = new UserModel();
+            $userDetail = $this->model->getAllDetailUser($user_id);
+            if (empty($userDetail['userDetails'])) {
+                echo "Không có thông tin cho người dùng này.";
+            } else {
+                $this->view('./Admin/UserDetail', [
+                    'userDetails' => $userDetail['userDetails'],
+                    'orders' => $userDetail['orders']
+                ]);
+            }
+        }
+        
     }
 ?>

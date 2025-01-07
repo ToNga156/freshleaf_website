@@ -1,8 +1,8 @@
 <?php
 require_once('C:\xampp\htdocs\freshleaf_website\mvc\controller\AdminController.php');
 $product = $data['product'];
-$totalPages = $data['totalPages']; // Tổng số trang
-$currentPage = $data['currentPage']; // Trang hiện tại
+$totalPages = $data['totalPages']; 
+$currentPage = $data['currentPage'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,7 +74,7 @@ $currentPage = $data['currentPage']; // Trang hiện tại
                             <tr class="product_content">
                                 <td><?php echo htmlspecialchars($products['product_id']); ?></td>
                                 <td><?php echo htmlspecialchars($products['product_name']); ?></td>
-                                <td><?php echo htmlspecialchars($products['price']); ?></td>
+                                <td><?php echo htmlspecialchars($products['price']);?>0</td>
                                 <td class="description"><?php echo htmlspecialchars($products['description']); ?></td>
                                 <td><?php echo htmlspecialchars($products['unit']); ?></td>
                                 <td><?php echo htmlspecialchars($products['stock_quantity']); ?></td>
@@ -101,14 +101,15 @@ $currentPage = $data['currentPage']; // Trang hiện tại
                 </tbody>
             </table>
         </div>
-        <div class="pagination">
+        
+    </div>
+    <div class="pagination">
             <?php for ($i = 1; $i <= $totalPages; $i++): ?>
                 <a href="/freshleaf_website/Admin/ProductManager?page=<?php echo $i; ?>"
-                   class="<?php echo $i === $currentPage ? 'active' : ''; ?>">
-                   <?php echo $i; ?>
+                    class="<?php echo $i === $currentPage ? 'active' : ''; ?>">
+                    <?php echo $i; ?>
                 </a>
             <?php endfor; ?>
         </div>
-    </div>
 </body>
 </html>

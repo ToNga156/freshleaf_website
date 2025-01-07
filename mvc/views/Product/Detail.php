@@ -2,6 +2,7 @@
     require_once('C:\xampp\htdocs\freshleaf_website\mvc\controller\ProductController.php');
     $product = $data['product'];
     $relatedProducts = $data['categories'];
+    $reviews = $data['reviews'];
 ?>
 <!DOCTYPE html>
 <html lang="vi">

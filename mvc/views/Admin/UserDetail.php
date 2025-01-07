@@ -1,3 +1,8 @@
+<?php
+require_once('C:\xampp\htdocs\freshleaf_website\mvc\controller\AdminController.php');
+$userDetails = $data['userDetails'];
+$orders = $data['orders'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,42 +12,47 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="userDetail">
-        <div class="profile">
-            <div class="infor">
-                <img src="" alt="avt">
-                <h1>Tên: </h1>
-            </div>
-            <p>Email: </p>
-            <p>Phone: </p>
-            <div class="product">
-                <h1>Những sản phẩm đã mua</h1>
-                <table>
-                    <thead> 
-                        <tr>
-                            <th>ID</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Tổng giá</th>
-                            <th>Số lượng</th>
-                            <th>Ảnh</th>
-                            <th>Thể loại</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Cải thảo</td>
-                            <td>230.000</td>
-                            <td>12</td>
-                            <td><img src="" alt="img"></td>
-                            <td>Vegestable</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-            </div>
+<div><a href="/freshleaf_website/Admin/UserManager"><button>Back</button></a></div>
+<div class="userDetail">
+    
+    <div class="profile">
+        <div class="infor">
+            <img alt="User Avatar" height="50" src="/Public/Image/<?php echo htmlspecialchars($userDetails['avatar']); ?>">
+            <h1><?php echo htmlspecialchars($userDetails['user_name']); ?></h1> 
+        </div>
+        <div class="contact">
+            <p>Email: <?php echo htmlspecialchars($userDetails['email']); ?></p> 
+            <p>Phone: 0<?php  echo htmlspecialchars($userDetails['phone']); ?></p>
         </div>
         
+
     </div>
-</body>
-</html>
+        <div class="product">
+            <h1>Những sản phẩm đã mua</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Tổng giá</th>
+                        <th>Số lượng</th>
+                        <th>Ảnh</th>
+                        <th>Thể loại</th>
+                        <th>Ngày mua</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($orders as $order): ?> 
+                        <tr>
+                            <td><?php echo $order['order_id']; ?></td> 
+                            <td><?php echo htmlspecialchars($order['product_name']); ?></td>
+                            <td><?php echo number_format($order['price'] * $order['quantity']); ?>.000VND</td>
+                            <td><?php echo $order['quantity']; ?></td> 
+                            <td><img src="<?php echo htmlspecialchars($order['product_image']); ?>" alt="img" class="product-img"></td> 
+                            <td><?php echo htmlspecialchars($order['category_name']); ?></td> 
+                            <td><?php echo htmlspecialchars($order['order_date']) ?></td>
+                            <td class="status"><?php echo htmlspecialchars($order['status']) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody

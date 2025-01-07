@@ -176,6 +176,14 @@ class ProductModel extends Db{
         $result = $stmt->execute();
         return $result;
     }
+    public function getReview($product_id){
+        $sql = "SELECT * FROM reviews WHERE product_id =? ORDER BY review_date DESC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i",$product_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     
 }
 
