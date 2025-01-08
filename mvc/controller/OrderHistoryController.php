@@ -36,7 +36,7 @@ class OrderHistoryController extends Controller {
             // Thêm chi tiết sản phẩm vào mảng đơn hàng
             foreach ($orderDetails as $detail) {
                 $orders[$order_id]['details'][] = [
-                    'category_name' => $detail['category_name'],
+                    'product_id' => $detail['product_id'],
                     'product_name' => $detail['product_name'],
                     'product_image' => $detail['product_image'],
                     'quantity' => $detail['quantity'],
