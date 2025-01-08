@@ -12,7 +12,7 @@ $orders = $data['orders'];
     <title>Document</title>
 </head>
 <body>
-<div><a href="/freshleaf_website/Admin/UserManager"><button>Back</button></a></div>
+<div class="back"><a href="/freshleaf_website/Admin/UserManager"><button>Back</button></a></div>
 <div class="userDetail">
     
     <div class="profile">
