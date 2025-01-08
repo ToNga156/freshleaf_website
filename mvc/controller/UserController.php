@@ -1,12 +1,14 @@
 <?php
-session_start();
 require_once('C:\xampp\htdocs\freshleaf_website\mvc\model\UserModel.php');
 require_once('C:\xampp\htdocs\freshleaf_website\mvc\core\Controller.php');
 class UserController extends Controller{
+    
     private $model;
     
     
     public function Register(){
+        session_start();
+
         if ($_SERVER['REQUEST_METHOD']=='POST'){
             $username = isset($_POST['username']) ? trim($_POST['username']) : '';
             $email = isset($_POST['email']) ? trim($_POST['email']) : '';
@@ -56,6 +58,8 @@ class UserController extends Controller{
         }
     }
     public function Login(){
+        session_start();
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Lấy dữ liệu từ form
             $email = isset($_POST['email']) ? trim($_POST['email']) : '';
@@ -119,7 +123,8 @@ class UserController extends Controller{
         $this->model = new UserModel();    
     }
     public function Profile(){
-        
+        session_start();
+
         if (!isset($_SESSION['user_id'])) {
             header("Location: ./Login");
             exit();
@@ -158,6 +163,8 @@ class UserController extends Controller{
     }
 
     public function uploadAvatar(){
+        session_start();
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['avatar'])) {
             $avatar = $_FILES['avatar'];
 
@@ -185,10 +192,13 @@ class UserController extends Controller{
     }
 
     public function changePassword($userId, $currentPassword, $newPassword) {
+        session_start();
+
         return $this->model->changePassword($userId, $currentPassword, $newPassword);
     }
 
-    public function handleChangePassword() { 
+    public function handleChangePassword() {
+ 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
             if (isset($_POST['current-password']) && isset($_POST['new-password']) && isset($_POST['confirm-password'])) { 
                 $userId = $_SESSION['user_id']; 
@@ -205,6 +215,8 @@ class UserController extends Controller{
     }
     //Hàm yêu cầu gửi mã reset mật khẩu
     public function forgetPassword() {
+        session_start();
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $email = isset($_POST['email']) ? trim($_POST['email']) : '';
             $userModel = $this->model("UserModel");
@@ -230,6 +242,8 @@ class UserController extends Controller{
 
     //Hàm reset mật khẩu
     public function resetPassword() {
+        session_start();
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $email = isset($_POST['email']) ? trim($_POST['email']) : '';
             $code = isset($_POST['reset_code']) ? $_POST['reset_code'] : '';
@@ -263,6 +277,5 @@ class UserController extends Controller{
             $this->view('./User/ResetPassword');
         }
     }
-    
 }
 ?>

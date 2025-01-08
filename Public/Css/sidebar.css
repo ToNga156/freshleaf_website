@@ -1,0 +1,37 @@
+.sidebar {
+    width: 15%;
+    height: 73%;
+    background-color:rgb(73, 212, 96);
+    padding: 18px;
+    border-radius: 10px;
+    position: fixed;
+}
+.sidebar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.sidebar h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+}
+.sidebar p {
+    margin: 0;
+    color: #666;
+}
+.sidebar .menu-profile {
+    margin-top: 20px;
+}
+.sidebar .menu-profile a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #333;
+    padding: 10px 0;
+    font-size: 16px;
+}
+.sidebar .menu-profile a:hover {
+    color: white;
+}

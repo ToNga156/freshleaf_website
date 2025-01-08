@@ -1,0 +1,15 @@
+.container_profile {
+    margin-top: 140px;
+    display: flex;
+    padding: 0 30px;
+}
+
+.container_infor {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+    padding: 0 0 0 35px;
+    position: relative;
+    margin-left: 18%;
+}
