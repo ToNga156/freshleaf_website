@@ -1,6 +1,8 @@
 <?php
     require_once('C:\xampp\htdocs\freshleaf_website\mvc\controller\AdminController.php');
     $Users = $data['user'];
+    $totalPages = $data['totalPages'];
+    $currentPage= $data['currentPage'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,8 +44,6 @@
                         <th>ID</th>
                         <th>User Name</th>
                         <th>Email</th>
-                        <th>Avatar</th>
-                        <th>Password</th>
                         <th>Phone</th>
                         <th>Role</th>
                         <th>Address</th>
@@ -56,8 +56,6 @@
                             <td><?php echo $user['user_id']; ?></td>
                             <td><?php echo $user['user_name']; ?></td>
                             <td><?php echo $user['email']; ?></td>
-                            <td><img src="/Public/Image/<?php echo htmlspecialchars($user['avatar']) ?>" alt="avatar" class="avatar"></td>
-                            <td class="password"><?php echo str_repeat('*', strlen($user['password'])); ?></td>
                             <td>0<?php echo $user['phone']; ?></td>
                             <td><?php echo $user['role']; ?></td>
                             <td><?php echo $user['address'] ?></td>
@@ -68,7 +66,7 @@
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </form>
-                                    <div class="contentDetail"><a href=""><i class="fa fa-eye" style="font-size:20px"></i>Xem chi tiết</a></div>
+                                    <div class="contentDetail"><a href="/freshleaf_website/Admin/userDetail/<?php echo $user['user_id'] ?>"><i class="fa fa-eye" style="font-size:20px"></i>Xem chi tiết</a></div>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -76,5 +74,13 @@
             </table>
         </div>
     </div>
+    <div class="pagination">
+            <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                <a href="/freshleaf_website/Admin/UserManager?page=<?php echo $i; ?>"
+                    class="<?php echo $i === $currentPage ? 'active' : ''; ?>">
+                    <?php echo $i; ?>
+                </a>
+            <?php endfor; ?>
+        </div>
 </body>
 </html>

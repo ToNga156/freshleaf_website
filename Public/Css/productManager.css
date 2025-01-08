@@ -120,7 +120,7 @@ body {
 }
 
 .tableContent .edit-btn {
-    background-color: #007bff;
+    background-color: #28a745;
 }
 
 .tableContent .delete-btn {
@@ -183,3 +183,33 @@ body {
     justify-content: center;
     gap: 20px;
 }
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #28a745;
+    color: white;
+}
+
+.pagination .active {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    cursor: default;
+}
+

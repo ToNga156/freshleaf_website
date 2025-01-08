@@ -2,6 +2,7 @@
     require_once('C:\xampp\htdocs\freshleaf_website\mvc\controller\ProductController.php');
     $product = $data['product'];
     $relatedProducts = $data['categories'];
+    $reviews = $data['reviews'];
 ?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -79,6 +80,34 @@
             </div>
             <?php endforeach; ?>
         </div>
+        <div class="review">
+            <h2>Review Product</h2>
+
+            <?php if (empty($reviews)) : ?>
+                <p class="inform">Chưa có đánh giá nào cho sản phẩm này.</p>
+            <?php else : ?>
+                <ul>
+                    
+                    <?php foreach ($reviews as $review) : ?>
+                        <li>
+                            <p class="rating">
+                                <?php for ($i = 0; $i < $review['rating']; $i++): ?>
+                                    <span>&#9733;</span>
+                                <?php endfor; ?>
+                                <?php for ($i = $review['rating']; $i < 5; $i++): ?>
+                                    <span>&#9734;</span> 
+                                <?php endfor; ?>
+                            </p>
+                            <p><em><?php echo $review['review_date']; ?></em></p>
+                            <p><?php echo htmlspecialchars($review['comment']); ?></p>
+                            
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+        </div>
+        
+
     </div>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>   -->
     <script src="\freshleaf_website\public\js\detail.js"></script>

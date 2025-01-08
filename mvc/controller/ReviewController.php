@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('C:\xampp\htdocs\freshleaf_website\mvc\model\ReviewModel.php');
+require_once('C:\xampp\htdocs\freshleaf_website\mvc\model\UserModel.php');
 
 class ReviewController extends Controller {
 
@@ -79,6 +80,14 @@ class ReviewController extends Controller {
                 }
             }
         }
+        public function getReviews($product_id) {
+            $this->reviewModel = new ReviewModel();
+            $reviews = $this->reviewModel->getReview($product_id);
+            $this->view("./Product/Detail", ['reviews' => $reviews]);
+        }
+        
+        
+        
     }
 
 ?>

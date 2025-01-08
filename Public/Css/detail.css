@@ -1,3 +1,6 @@
+body, html {
+    overflow-x: hidden;
+}
 .product-detail-container {
     margin: 110px 0 50px;
     display: flex;
@@ -128,12 +131,12 @@
 }
 
 .product-card {
-    border: 1px solid #ddd; /* Viền nhẹ */
-    border-radius: 10px; /* Bo tròn góc */
+    border: 1px solid #ddd; 
+    border-radius: 10px; 
     width: 22%;
     text-align: center;
-    overflow: hidden; /* Đảm bảo nội dung không tràn */
-    background-color: #fff; /* Màu nền trắng */
+    overflow: hidden;
+    background-color: #fff; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
     margin: 10px; 
@@ -192,6 +195,70 @@
     color: white;
 }
 
+.review {
+    width: 100%;
+    background-color: #f9f9f9; 
+    padding: 20px;
+    border-radius: 10px; 
+
+}
+.review h2 {
+    border-bottom: 2px solid lightgray;
+    color: #67D463;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.review ul {
+    padding: 0;
+    margin: 0;
+}
+
+.review ul li {
+    padding: 20px;
+    list-style-type: none;
+    border-bottom: 1px solid lightgray;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px; 
+    max-width: 100%; 
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.review ul li:last-child {
+    border-bottom: none;
+}
+
+.review .rating span {
+    font-size: 20px;
+    color: #FFD700;
+}
+
+.review ul li p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+    
+}
+
+.review ul li p em {
+    font-size: 14px;
+    color: #666;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+}
+
+.inform {
+    text-align: center;
+    font-size: 18px;
+    color: #999;
+    margin-top: 20px;
+}
 
 
 
