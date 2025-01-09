@@ -1,0 +1,202 @@
+body {
+    font-family: "Quicksand";
+    width: 100%;
+    margin: 0 0 0 0 ;
+}
+.about-us {
+    margin-top: 110px;
+}
+.container-banner {
+    position: relative;
+}
+.img-banner {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    opacity: 0.3;
+}
+.title-slogan {
+    position: absolute;
+    bottom: 10%;
+    left: 35%;
+}
+.title-slogan .slogan, .slogans {
+    color: #009C52;
+}
+.slogan {
+    font-size: 35px;
+    margin-top: 5px;
+    position: absolute;
+    top: 10px;
+    font-weight: bold;
+}
+.slogans {
+    font-size: 85px;
+    width: 500px;
+    font-family: "Cormorant Upright";
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+.midle-banner {
+    padding: 30px 45px 0px;
+    position: relative;
+    margin-top: 30px;
+}
+
+.left-side {
+    width: 600px;
+}
+
+.left-side h2 {
+    font-size: 50px;
+    color: #009C52;
+}
+
+.left-side p {
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 1px;
+}
+
+.right-side {
+    position: absolute;
+    left: 50%;
+    top: 8%;
+}
+
+.container-data {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding-left: 74px;
+    gap: 35%;
+    text-align: center; 
+}
+
+.container-data h2 {
+    font-size: 45px;
+    margin-left: 20px;
+    color: #009C52;
+    letter-spacing: 1px;
+}
+
+.container-data p {
+    font-size: 20px;
+    color: #C5CE38;
+    font-weight: bold;
+    position: absolute;
+    top: 80px;
+}
+
+.sub-data .sub-p {
+    text-align: center;
+    margin-left: 20px;
+}
+
+
+.img-right-before {
+    width: 500px;
+    height: 600px;
+    object-fit: cover;
+    z-index: 2;
+    margin-top: 30%;
+    position: relative;
+}
+
+.img-right-after {
+    width: 600px;
+    height: 700px;
+    object-fit: cover;
+    position: absolute;
+    top: 1%;
+    left: 125px;
+    z-index: 1; 
+    opacity: 0.3;
+}
+
+.brand-banner-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 20%;
+}
+
+.brand-banner-container .big-line-brand {
+    display: flex;
+    align-items: center;
+    height: 55px;
+    gap: 60px;
+    background-color: #009C52;
+}
+
+.brand-banner-container .big-line-brand .repeat-brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 35px;
+    width: 160px;
+}
+
+.brand-banner-container .big-line-brand .repeat-brand:first-child {
+    margin-left: 420px;
+}
+
+.big-line-brand .repeat-brand .brand-img {
+    width: 40px;
+    height: 35px;
+}
+
+.big-line-brand .repeat-brand h5 {
+    font-size: 22px;
+    color: white;
+}
+
+.brand-banner-container .small-line-brand {
+    height: 20px;
+    background-color: #67D463;
+}
+
+.brand-banner-container .other-brandWebsite {
+    position: absolute;
+    top: -150px;
+    left: 0;
+    width: 400px;
+    height: auto;
+    z-index: 1;
+}
+
+.container-developer {
+    position: relative;
+    bottom: 10px;
+    background-color: #F5FFF6;
+    margin-top: 10px;
+}
+
+.container-developer .title-developer {
+    width: 700px;
+    font-size: 30px;
+    padding-top: 40px;
+    margin-left: 25%;
+    text-align: center;
+    color: #009C52;
+}
+
+.container-developer .img-developer {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.img-developer .img-for-developer img {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.img-developer .img-for-developer, .h3, .p {
+    text-align: center;
+    font-size: 20px;
+    color: #009C52;
+}

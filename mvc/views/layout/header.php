@@ -93,9 +93,9 @@ $userData = $controller->getProfile($userId);
     
             <div class="bottom-header">
                 <ul class="navigate-header">
-                    <li><a href="/freshleaf_website">Home</a></li>
+                    <li><a href="/freshleaf_website/home">Home</a></li>
                     <li><a href="/freshleaf_website/product/ListProducts">Products</a></li>
-                    <li><a href="#">About us</a></li>
+                    <li><a href="/freshleaf_website/mvc/views/AboutUs.php">About us</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
 
