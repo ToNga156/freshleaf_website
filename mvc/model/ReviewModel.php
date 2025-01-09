@@ -66,5 +66,23 @@ class ReviewModel extends Db {
             return [];
         }
     }
+    public function getReview($product_id) {
+        $sql = "SELECT r.rating, r.comment, r.review_date, r.user_id, u.avatar, u.user_name
+                FROM reviews r
+                JOIN users u ON r.user_id = u.user_id
+                WHERE r.product_id = ?
+                ORDER BY r.review_date DESC";
+    
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $product_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
+    
+    
+    
 }
 ?>    

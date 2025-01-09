@@ -23,6 +23,7 @@ class ProductController extends Controller{
     public function detail($id) {
         $productModel = new ProductModel();
         $product = $productModel->getProductById($id);
+        $reviews = $productModel->getReview($id);
         
         // Kiểm tra sản phẩm tồn tại
         if (!$product) {
@@ -30,7 +31,7 @@ class ProductController extends Controller{
         }
         
         $relatedProducts= $productModel->getProductCategory($product['category_id']);
-        $this->view("./Product/Detail", ["product" => $product, "categories" => $relatedProducts]);
+        $this->view("./Product/Detail", ["product" => $product, "categories" => $relatedProducts, "reviews"=>$reviews]);
     }
 
     public function filterProducts(){
@@ -64,7 +65,8 @@ class ProductController extends Controller{
         } else {
             echo "Vui lòng nhập từ khóa tìm kiếm.";
         }
-    }    
+    }  
+    
 
 }
 ?>
