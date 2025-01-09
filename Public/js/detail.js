@@ -21,3 +21,16 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+document.getElementById('rating').addEventListener('change', function() {
+    const rating = parseInt(this.value); // Lấy giá trị từ select (1-5)
+    let stars = '';
+    for (let i = 1; i <= 5; i++) {
+        if (i <= rating) {
+            stars += '★'; // Sao đầy
+        } else {
+            stars += '☆'; // Sao trống
+        }
+    }
+    document.getElementById('star-rating').innerText = stars; // Hiển thị sao động
+});
+

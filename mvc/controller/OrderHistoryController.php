@@ -41,6 +41,8 @@ class OrderHistoryController extends Controller {
                     'product_image' => $detail['product_image'],
                     'quantity' => $detail['quantity'],
                     'price' => $detail['price'],
+                    'unit' => $detail['unit'],
+                    'category_name' => $detail['category_name'],
                     'line_total' => $detail['line_total'],  // Tổng tiền của từng sản phẩm
                 ];
             }

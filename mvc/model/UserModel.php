@@ -214,43 +214,31 @@ use PHPMailer\PHPMailer\Exception;
             }
         }
         public function getAllUsers() {
-            $sql = "SELECT user_id, user_name, email, avatar, password, phone, role, address FROM users";
+            $sql = "SELECT * FROM Users";
+            $stmt = $this->conn->prepare($sql);
+            if (!$stmt) {
+                throw new Exception("Prepare statement failed: " . $this->conn->error);
+            }       
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result ? $result->fetch_all(MYSQLI_ASSOC) : [];
+        }
+        public function getAllUserPagination($limit, $offset) {
+            $sql = "SELECT * FROM Users LIMIT ? OFFSET ?";
             $stmt = $this->conn->prepare($sql);
         
-            if ($stmt) {
-                // Thực thi truy vấn
-                if ($stmt->execute()) {
-                    // Liên kết kết quả vào các biến
-                    $stmt->bind_result($id, $username, $email, $avatar, $password, $phone, $role, $address);
-        
-                    $result = [];
-                    while ($stmt->fetch()) {
-                        $result[] = [
-                            "user_id" => $id,
-                            "user_name" => $username,
-                            "email" => $email,
-                            "avatar" => $avatar,
-                            "password" => $password,
-                            "phone" => $phone,
-                            "role" => $role,
-                            "address" => $address
-                        ];
-                    }
-        
-                    // Đóng câu lệnh
-                    $stmt->close();
-        
-                    return $result;
-                } else {
-                    // Xử lý lỗi khi thực thi câu lệnh
-                    error_log("Error executing query: " . $this->conn->error);
-                    return [];
-                }
-            } else {
-                // Xử lý lỗi khi chuẩn bị câu lệnh
-                error_log("Error preparing query: " . $this->conn->error);
-                return [];
+            if (!$stmt) {
+                throw new Exception("Prepare statement failed: " . $this->conn->error);
             }
+            $stmt->bind_param("ii", $limit, $offset);
+        
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result ? $result->fetch_all(MYSQLI_ASSOC) : [];
+        }
+        public function getCoutnUser(){
+            $result = $this->conn->query("SELECT COUNT(*) AS COUNT FROM Users");
+            return $result->fetch_assoc()['COUNT'];
         }
         
         public function deleteUser($user_id){
@@ -258,9 +246,51 @@ use PHPMailer\PHPMailer\Exception;
             $stmt = $this->conn->prepare($sql);
             $stmt->bind_param("i", $user_id);
             $result = $stmt->execute();
-            $stmt->close();
             return $result;
-        }   
+        }  
+        public function getAllDetailUser($user_id) {
+            $sql = "
+            SELECT o.order_id, o.order_date, o.status, o.user_id, 
+                od.order_detail_id, od.quantity, od.price, 
+                od.product_id, p.product_name, p.category_id, p.product_image, c.category_name, u.user_name, u.email, u.phone, u.avatar
+            FROM order_detail od
+            JOIN products p ON od.product_id = p.product_id
+            JOIN categories c ON p.category_id = c.category_id
+            JOIN orders o ON od.order_id = o.order_id
+            JOIN users u ON o.user_id = u.user_id
+            WHERE o.user_id = ?
+            ";
+        
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("i", $user_id);  
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $user = null;
+            $orders = [];
+            while ($row = $result->fetch_assoc()) {
+                if ($user === null) {
+                    $user = [
+                        'user_name' => $row['user_name'],
+                        'email' => $row['email'],
+                        'phone' => $row['phone'],
+                        'avatar' => $row['avatar']
+                    ];
+                }
+                $orders[] = [
+                    'order_id' => $row['order_id'],
+                    'order_date' => $row['order_date'],
+                    'status' => $row['status'],
+                    'product_name' => $row['product_name'],
+                    'quantity' => $row['quantity'],
+                    'price' => $row['price'],
+                    'product_image' => $row['product_image'],
+                    'category_name' => $row['category_name']
+                ];
+            }
+            return ['userDetails' => $user, 'orders' => $orders];
+        }
+        
+        
     }
 
 ?>

@@ -13,7 +13,7 @@
 .container_infor {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 30px;
     width: 80%;
     padding: 0 0 0 35px;
     position: relative;
@@ -22,9 +22,9 @@
 .container_inforUser {
     display: flex;
     flex-direction: column;
-    border: 1px grey solid;
+    border: 1px solid #E6E6E6;
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px 80px;
 }
 .form-group {
     margin-bottom: 15px;
@@ -85,9 +85,9 @@
 .container_changePassword {
     display: flex;
     flex-direction: column;
-    border: 1px grey solid;
+    border: 1px solid #E6E6E6;
     border-radius: 10px;
-    padding: 20px;
+    padding: 20px 80px;
 }
 .form-change label {
     display: block;
@@ -102,22 +102,25 @@
 }
 .current_password {
     position: relative;
+    margin-top: 10px;
 }
 .current_password input {
-    width:93%;
+    width: 40%;
     padding-right: 40px;
     box-sizing: border-box;
 }
 .changes-password {
     display: flex;
-    gap: 200px;
+    gap: 150px;
 }
 .form-changePass {
     width: 400px;
     margin-top: 15px;
 }
 .changes-password .password-container input{
-    width: 80%;
+    margin-top: 10px;
+    width: 96%;
+    height: 36px;
     padding-left: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -128,9 +131,9 @@
 }
 .form-change .change-password {
     margin-top: 10px;
-    width: 15%;
+    width: 17%;
     font-size: 15px;
-    padding: 5px;
+    padding: 10px;
     border: 2px solid #28a745;
     border-radius: 20px;
     background-color: #28a745;
@@ -141,11 +144,11 @@
 }
 .container_changePassword .current_password .password-eye {
    position: absolute;
-   left: 90%;
+   left: 36%;
    top: 11px;
 }
 .password-container .password-eye {
     position: absolute;
-    top: 11px;
-    left: 72%;
+    top: 14px;
+    left: 90%;
 }
