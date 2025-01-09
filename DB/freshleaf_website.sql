@@ -9,25 +9,27 @@ CREATE TABLE `users` (
   `phone` char(10) NOT NULL,
   `role` enum('User','Admin') DEFAULT 'User',
   `avatar` varchar(200) DEFAULT NULL,
-  `address` text DEFAULT NULL
+  `address` text DEFAULT NULL,
+  `reset_code` int(11) DEFAULT NULL,
+  `reset_expires_at` datetime NOT NULL DEFAULT current_timestamp()
 );
 
-INSERT INTO `users` (`user_id`, `user_name`, `password`, `email`, `phone`, `role`, `avatar`, `address`) VALUES
-(1, 'nguyenvandat', '$2y$10$sFGmXdL2NrteioGCkDncKOl1qa2Mka48jT1u7eHaUa8e2HbPJbzG2', 'ngaichi2004@gmail.com', '383225512', 'Admin', NULL, 'QB'),
-(2, 'Bẹp', '$2y$10$jlq4IUTDeBva.QqClIsBleeAPGSQC8a.dmoXWy3CeoXd05jddFdKy', 'ngaichi204@gmail.com', '383225512', 'User', NULL, 'QB'),
-(3, 'Tố Nga', '$2y$10$E.wxWv1jFN4qdwI.xwC9AuhvhvcwEqGsyC/zGb63XSJeYeS25seje', 'ngaichi24@gmail.com', '383225512', 'User', NULL, 'QB'),
-(4, 'Minh Khiêm', '$2y$10$lIhF1OeLmuQelY73LstsH.3zbLwn.Ac9J/rSEQfO.OT3kc1IR8w5m', 'minhkhiem@gmail.com', '387287713', 'User', NULL, 'TPHCM'),
-(5, 'Minh Vũ', '$2y$10$sT.cZuxli8vCZLPolGclf./dj2T1ejVU1sc5jyGF3pAEIcdFL/l4W', 'minhvu42@gmail.com', '388474414', 'User', NULL, 'QB'),
-(6, 'Cọp thúi', '$2y$10$SX2rBmynfM60K0TNXuIMG.0hYIfbACwLSqpHgDRapqLNMhVQAzTSC', 'minhvu4222@gmail.com', '0388474410', 'User', 'cop.jpg', 'QB'),
-(7, 'Gấu', '$2y$10$9Hc0IsfPLZMPo18aoTM.qu9QN7UZV3wkP5NgcfghprKbGkVJBP5g.', 'ngaichi20024@gmail.com', '383225512', 'User', NULL, 'QB'),
-(8, 'Minh Ngọc', '$2y$10$.C0yCQeefrXARDmnA0KWjOjpuhxSa2JeO3xKkMoeqdqv7XOSBVIa6', 'minhngoc@gmail.com', '383225522', 'User', NULL, 'ĐN'),
-(9, 'Nga Nguyễn', '$2y$10$7trKgbBwUUBbt.pmVVg.1u5ScDtkRbMlw8RsVrDpGA8EqnDVnauAy', 'nganguyen@gmail.com', '398442215', 'User', '20240104_OiXkGFPleL.jpeg', 'TPHCM'),
-(10, 'Bẹp thúi', '$2y$10$skt3n5mSi5yiHJsWlTMP/uSlXXBhpvHhRKa63.UR3aTJCHoyiNchy', 'bep@gmail.com', '398662413', 'User', 'avta.jpg', 'HN'),
-(11, 'Đạt Nguyễn', '$2y$10$cWI2RAYUoZ4NgMSw8WxPzuyCEMjHFWspLBelKJwC/ot7QI6cRWhfK', 'datnguyen@gmail.com', '387548794', 'User', NULL, 'ĐN'),
-(12, 'to nga', '$2y$10$qfvLZAnvUoDyDefPeGpNLeU/ECSwtoKNKMFco4Y/FE/TCyr0.I0we', 'datnguyen123@gmail.com', '387548794', 'User', '....png', 'ĐN'),
-(13, 'Khiêm', '$2y$10$hrYTodlk4eHp6pi6Dde.uegUTx8yIAWlPgR.npC6TGHqv9TnCeov.', 'khiem@gmail.com', '377345543', 'User', 'avt1.jpg', 'HN'),
-(14, 'Khiêm', '$2y$10$BynLSEpeLYf3vUTjPNL0meOSkaQimDlCVFWJCU4LkiA3wVcTV4MkS', 'buu@gmail.com', '552278899', 'User', '....png', 'VT'),
-(15, 'Kim', '$2y$10$Rs1objpyNCBWEsRi6Q9LvePQG6j9BkSG0IlCHDphasorYmiTHkTR6', 'kim@gmail.com', '123456789', 'User', 'a1ee94780c268900bb8e322a48d147f7.jpg', 'VT');
+INSERT INTO `users` (`user_id`, `user_name`, `password`, `email`, `phone`, `role`, `avatar`, `address`, `reset_code`, `reset_expires_at`) VALUES
+(1, 'nguyenvandat', '$2y$10$sFGmXdL2NrteioGCkDncKOl1qa2Mka48jT1u7eHaUa8e2HbPJbzG2', 'ngaichi2004@gmail.com', '383225512', 'Admin', NULL, 'QB', NULL, '2025-01-01 20:42:48'),
+(2, 'Bẹp', '$2y$10$jlq4IUTDeBva.QqClIsBleeAPGSQC8a.dmoXWy3CeoXd05jddFdKy', 'ngaichi204@gmail.com', '383225512', 'User', NULL, 'QB', NULL, '2025-01-01 20:42:48'),
+(3, 'Tố Nga', '$2y$10$E.wxWv1jFN4qdwI.xwC9AuhvhvcwEqGsyC/zGb63XSJeYeS25seje', 'ngaichi24@gmail.com', '383225512', 'User', NULL, 'QB', NULL, '2025-01-01 20:42:48'),
+(4, 'Minh Khiêm', '$2y$10$lIhF1OeLmuQelY73LstsH.3zbLwn.Ac9J/rSEQfO.OT3kc1IR8w5m', 'minhkhiem@gmail.com', '387287713', 'User', NULL, 'TPHCM', NULL, '2025-01-01 20:42:48'),
+(5, 'Minh Vũ', '$2y$10$sT.cZuxli8vCZLPolGclf./dj2T1ejVU1sc5jyGF3pAEIcdFL/l4W', 'minhvu42@gmail.com', '388474414', 'User', NULL, 'QB', NULL, '2025-01-01 20:42:48'),
+(6, 'Cọp thúi', '$2y$10$SX2rBmynfM60K0TNXuIMG.0hYIfbACwLSqpHgDRapqLNMhVQAzTSC', 'minhvu4222@gmail.com', '0388474410', 'User', 'cop.jpg', 'QB', NULL, '2025-01-01 20:42:48'),
+(8, 'Minh Ngọc', '$2y$10$.C0yCQeefrXARDmnA0KWjOjpuhxSa2JeO3xKkMoeqdqv7XOSBVIa6', 'minhngoc@gmail.com', '383225522', 'User', NULL, 'ĐN', NULL, '2025-01-01 20:42:48'),
+(9, 'Nga Nguyễn', '$2y$10$7trKgbBwUUBbt.pmVVg.1u5ScDtkRbMlw8RsVrDpGA8EqnDVnauAy', 'nganguyen@gmail.com', '398442215', 'User', '20240104_OiXkGFPleL.jpeg', 'TPHCM', NULL, '2025-01-01 20:42:48'),
+(10, 'Bẹp thúi', '$2y$10$skt3n5mSi5yiHJsWlTMP/uSlXXBhpvHhRKa63.UR3aTJCHoyiNchy', 'bep@gmail.com', '398662413', 'User', 'avta.jpg', 'HN', NULL, '2025-01-01 20:42:48'),
+(11, 'Đạt Nguyễn', '$2y$10$cWI2RAYUoZ4NgMSw8WxPzuyCEMjHFWspLBelKJwC/ot7QI6cRWhfK', 'datnguyen@gmail.com', '387548794', 'User', NULL, 'ĐN', NULL, '2025-01-01 20:42:48'),
+(12, 'to nga', '$2y$10$qfvLZAnvUoDyDefPeGpNLeU/ECSwtoKNKMFco4Y/FE/TCyr0.I0we', 'datnguyen123@gmail.com', '387548794', 'User', '....png', 'ĐN', NULL, '2025-01-01 20:42:48'),
+(13, 'Khiêm', '$2y$10$hrYTodlk4eHp6pi6Dde.uegUTx8yIAWlPgR.npC6TGHqv9TnCeov.', 'khiem@gmail.com', '377345543', 'User', 'avt1.jpg', 'HN', NULL, '2025-01-01 20:42:48'),
+(14, 'Khiêm', '$2y$10$BynLSEpeLYf3vUTjPNL0meOSkaQimDlCVFWJCU4LkiA3wVcTV4MkS', 'buu@gmail.com', '552278899', 'User', '....png', 'VT', NULL, '2025-01-01 20:42:48'),
+(15, 'Kim', '$2y$10$Rs1objpyNCBWEsRi6Q9LvePQG6j9BkSG0IlCHDphasorYmiTHkTR6', 'kim@gmail.com', '123456789', 'User', 'a1ee94780c268900bb8e322a48d147f7.jpg', 'VT', NULL, '2025-01-01 20:42:48'),
+(16, 'Nguyễn Thị Tố Nga', '$2y$10$/9.7eAkFqlbF2AS/7zefI.k4P1k.ULHGmLcuLNs45kSGBx9d0u1B.', 'nga.nguyen26@student.passerellesnumeriques.org', '383225512', 'User', 'cop.jpg', 'Quảng Bình', NULL, '0000-00-00 00:00:00');
 
 CREATE TABLE `categories` (
   `category_id` int(11) NOT NULL,
@@ -93,7 +95,14 @@ INSERT INTO `orders` (`order_id`, `order_date`, `status`, `user_id`) VALUES
 (6, '2024-12-26 17:43:03', 'pending', 14),
 (7, '2024-12-26 17:45:32', 'pending', 13),
 (8, '2024-12-27 05:22:41', 'pending', 15),
-(13, '2024-12-27 08:42:11', 'pending', 10);
+(13, '2024-12-27 08:42:11', 'completed', 10),
+(14, '2025-01-01 10:18:37', 'completed', 10),
+(15, '2025-01-01 12:57:20', 'completed', 10),
+(16, '2025-01-01 13:03:29', 'completed', 10),
+(17, '2025-01-01 13:45:59', 'completed', 16),
+(18, '2025-01-01 14:31:55', 'completed', 16),
+(19, '2025-01-01 15:38:32', 'pending', 10),
+(21, '2025-01-02 02:52:13', 'completed', 16);
 
 CREATE TABLE `order_detail` (
   `order_detail_id` int(11) NOT NULL,
@@ -124,8 +133,17 @@ INSERT INTO `order_detail` (`order_detail_id`, `quantity`, `price`, `order_id`, 
 (26, 1, 26.000, 8, 3),
 (35, 2, 21.000, 13, 6),
 (37, 3, 70.000, 13, 18),
-(39, 1, 20.000, 13, 9),
-(40, 3, 5.000, 13, 20);
+(40, 3, 5.000, 13, 20),
+(41, 3, 15.000, 14, 15),
+(42, 2, 70.000, 14, 18),
+(43, 2, 100.000, 15, 16),
+(44, 3, 25.000, 16, 12),
+(45, 1, 25.000, 16, 11),
+(46, 3, 15.000, 17, 15),
+(47, 2, 50.000, 18, 7),
+(48, 1, 25.000, 19, 13),
+(51, 1, 25.000, 21, 13),
+(52, 3, 5.000, 21, 20);
 
 
 CREATE TABLE `reviews` (
@@ -148,6 +166,16 @@ CREATE TABLE `shipping_info` (
   `note` text NOT NULL,
   `create_at` timestamp NOT NULL DEFAULT current_timestamp()
 );
+
+INSERT INTO `shipping_info` (`shipping_id`, `order_id`, `recipient_name`, `email`, `phone`, `address`, `city`, `note`, `create_at`) VALUES
+(1, 13, '', '', '', '', '', '', '2025-01-01 10:17:29'),
+(2, 14, 'Nguyễn Thị Tố Nga', 'nga26@gmail.com', '0383225512', 'Quảng Bình', 'Tân Cảnh - Cảnh Dương', '', '2025-01-01 12:56:19'),
+(3, 15, 'Tố Nga', 'nga26@gmail.com', '0383225512', 'Quảng Bình', 'Tân Cảnh - Cảnh Dương', '', '2025-01-01 13:02:16'),
+(4, 16, 'Bẹp Thúi', 'bep@gmail.com', '0383225512', 'Quảng Bình', 'Tân Cảnh - Cảnh Dương', 'Hàng dễ vỡ', '2025-01-01 13:33:15'),
+(5, 17, 'Tố Nga', 'nga@gmail.com', '0383225512', 'Quảng Bình', 'Tân Cảnh - Cảnh Dương', 'Hàng dễ vỡ', '2025-01-01 13:46:29'),
+(6, 18, 'Nga', 'nga@gmail.com', '0383225512', 'Quảng Bình', 'Tân Cảnh - Cảnh Dương', 'Hàng dễ vỡ', '2025-01-01 14:32:27'),
+(7, 21, 'Tố Nga', 'nga@gmail.com', '0383225512', 'Quảng Bình', 'Tân Cảnh - Cảnh Dương', 'Hàng dễ vỡ', '2025-01-02 02:53:19');
+
 
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`category_id`),
@@ -196,10 +224,10 @@ ALTER TABLE `reviews`
   MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `shipping_info`
-  MODIFY `shipping_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `shipping_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);

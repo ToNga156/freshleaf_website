@@ -9,7 +9,7 @@ class ShoppingCartController extends Controller {
 
     
         if (!isset($_SESSION['user_id'])) {
-            echo json_encode(["success" => false, "message" => "Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng."]);
+            header("Location: /freshleaf_website/User/login");
             return;
         }
     
@@ -79,7 +79,7 @@ class ShoppingCartController extends Controller {
     
     public function deleteItem() {
         if (!isset($_SESSION['user_id'])) {
-            echo json_encode(["success" => false, "message" => "Bạn cần đăng nhập để xóa sản phẩm."]);
+            header("Location: /freshleaf_website/User/login");
             return;
         }
     
@@ -112,6 +112,11 @@ class ShoppingCartController extends Controller {
     }    
 
     public function viewCart() {
+
+        if (!isset($_SESSION['user_id'])) {
+            header("Location: /freshleaf_website/User/login");
+            return;
+        }
 
         if (!isset($_SESSION['user_id'])) {
             $this->view("ShoppingCart", ["cartItems" => []]);

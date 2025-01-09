@@ -1,0 +1,121 @@
+.container_profile {
+    margin-top: 140px;
+    display: flex;
+    padding: 0 30px;
+}
+
+.container_infor {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+    padding: 0 0 0 35px;
+    position: relative;
+    margin-left: 18%;
+}
+
+/* OrderHistory */
+.orderHistory {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.orderHistory-container {
+    width: 100%;
+    border: 1px solid #E6E6E6;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.orderHistory-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+    border-bottom: 1px solid #E6E6E6;
+    color: #009C52;
+    /* background-color: pink; */
+}
+
+.orderHistory-title #orderTime, #status, #reviewAll {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0;
+}
+
+.orderHistory-title #reviewAll {
+    font-size: 24px;
+}
+
+.orderHistory-title div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.orderHistory-content {
+    margin: 0 80px;
+}
+
+.orderHistory-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.orderHistory-item img {
+    width: 120px;
+    height: 100px;
+    border-radius: 10px;
+    border: 1px solid #E6E6E6;
+    object-fit: cover;
+}
+
+.orderHistory-item .item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-left: 50px;
+}
+
+.orderHistory-item .item-info h5, #productName, #item-category, #item-quantity, #item-price {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.orderHistory-item #item-price {
+    margin-left: 250px;
+}
+
+.orderHistory-item #review {
+    font-size: 24px;
+    margin-left: 250px;
+    color: #009C52;
+}
+
+.orderHistory-content .orderHistory-summary {
+    margin: 0;
+    display: flex;
+    justify-content: end;
+    
+}
+
+.orderHistory-content .orderHistory-summary p, #totalAmount {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.orderHistory-content .orderHistory-summary span {
+    color: #009C52;
+}
+
+ion-icon:hover {
+    cursor: pointer;
+}

@@ -62,10 +62,7 @@ class OrderController extends Controller {
         $cartItems = $orderDetailModel->getOrderDetails($order_id);
         $totalAmount = array_reduce($cartItems, fn($sum, $item) => $sum + $item['line_total'], 0);
     
-        $this->view("Order", [
-            "cartItems" => $cartItems,
-            "totalAmount" => $totalAmount
-        ]);
+        $this->view("Order", ["cartItems" => $cartItems, "totalAmount" => $totalAmount]);
     }
     
 }
