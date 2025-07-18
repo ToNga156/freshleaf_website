@@ -5,7 +5,7 @@ ini_set('display_errors', 1); // Hiển thị lỗi khi có
 class Db {
     private $host = "localhost";
     private $username = "root";
-    private $password = "";
+    private $password = "1111111";
     private $dbname = "freshLeaf_website"; // Tên cơ sở dữ liệu của bạn
     protected $conn;
 

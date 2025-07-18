@@ -92,10 +92,15 @@ class ProductModel extends Db{
     // ToNga
     public function getBestSaleProduct() {
         $sql = "
-            select *, sum(order_detail.quantity) as total_quantity from products
+            select 
+                products.product_id,
+                any_value(products.product_name) as product_name,
+                any_value(products.product_image) as product_image,
+                sum(order_detail.quantity) as total_quantity
+            from products
             join order_detail on products.product_id = order_detail.product_id
-            group by order_detail.product_id
-            order by total_quantity desc 
+            group by products.product_id
+            order by total_quantity desc
             limit 10;
         ";
         $result = mysqli_query($this->conn, $sql);
