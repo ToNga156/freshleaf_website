@@ -80,7 +80,7 @@
                         <h3><?php echo htmlspecialchars($product['product_name']); ?></h3>
                         <span class="label">Bán chạy</span>
                         <div>
-                            <p class="price"><?php echo htmlspecialchars($product['price']); ?>đ</p>
+                            <p class="price"><?php echo htmlspecialchars($product['price'] ?? ''); ?>đ</p>
                             <button class="add-button">+</button>
                         </div>
                     </a>

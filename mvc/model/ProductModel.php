@@ -96,6 +96,7 @@ class ProductModel extends Db{
                 products.product_id,
                 any_value(products.product_name) as product_name,
                 any_value(products.product_image) as product_image,
+                any_value(products.price) as price,
                 sum(order_detail.quantity) as total_quantity
             from products
             join order_detail on products.product_id = order_detail.product_id
